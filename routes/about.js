@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Team = require("../models/Team");
-const Commitment = require("../models/Commitment");
+const Commitment = require("../models/commitment");
 const PrivacyPolicy = require("../models/PrivacyPolicy");
 
 router.get("/team", async (req, res) => {
