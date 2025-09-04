@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const Blog = require("../models/blog");
-const Service = require("../models/service");
-const Project = require("../models/project");
-const Archive = require("../models/archive");
-const FAQ = require("../models/faq");
-const Tag = require("../models/tag");
-const Category = require("../models/category");
+const Blog = require('../models/blog');
+const Service = require('../models/service');
+const Project = require('../models/project');
+const Archive = require('../models/archive');
+const FAQ = require('../models/faq');
+const Tag = require('../models/tag');
+const Category = require('../models/category');
 
 router.get("/", async (req, res) => {
   const query = req.query.q || "";

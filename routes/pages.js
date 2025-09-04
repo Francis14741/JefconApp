@@ -3,7 +3,7 @@ const router = express.Router();
 const Blog = require('../models/blog');
 const Faq = require('../models/faq');
 const Archive = require('../models/archive');
-const Message = require("../models/Message");
+const Message = require('../models/message');
 
 // Home page
 router.get('/', (req, res) => {

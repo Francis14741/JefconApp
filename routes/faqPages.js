@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Faq = require("../models/faq");
+const Faq = require('../models/faq');
 
 // Static list of slugs (same as your route names)
 const staticFaqPages = [

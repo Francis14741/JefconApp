@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
-const Project = require("../models/project");
+const Project = require('../models/project');
 const withRandomImage = require("../middleware/randomImage");
 
 router.get("/pastProjects", withRandomImage, (req, res) => {
