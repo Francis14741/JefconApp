@@ -1,7 +1,7 @@
 // routes/faqRoutes.js
 const express = require("express");
 const router = express.Router();
-const Faq = require('../models/faq');
+const Faq = require('../../models/faq');
 
 // General FAQ page
 router.get("/", async (req, res) => {

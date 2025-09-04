@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Category = require('../models/category');
-const Blog = require('../models/blog');
+const Category = require('../../models/category');
+const Blog = require('../../models/blog');
 
 router.get("/case_studies", async (req, res) => {
   const category = await Category.findOne({ slug: "case_studies" });

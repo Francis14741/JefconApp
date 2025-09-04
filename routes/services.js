@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Service = require('../models/service'); // <-- This is required
+const Service = require('../../models/service'); // <-- This is required
 
 router.get("/engineering_design", async (req, res) => {
   const service = await Service.findOne({ slug: "engineering_design" });
