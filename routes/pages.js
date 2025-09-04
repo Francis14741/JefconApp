@@ -1,13 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const Blog = require('../models/blog');
+const Service = require('../models/service');
 const Faq = require('../models/faq');
+const Project = require('../models/project');
 const Archive = require('../models/archive');
-const Message = require('../models/message');
+const Category = require('../models/category');
+const Tag = require('../models/tag');
+const Message = require("../models/Message");
 
 // Home page
 router.get('/', (req, res) => {
-  res.render('pages/jefcon_associates', { layout: 'partials/layout' });
+  res.render('pages/jefcon_associates');
 });
 
 // Blog static pages
@@ -98,11 +102,23 @@ router.get('/content/:type/:slug', async (req, res) => {
       case 'blog':
         content = await Blog.findOne({ slug });
         break;
+      case 'service':
+        content = await Service.findOne({ slug });
+        break;
       case 'faq':
         content = await Faq.findOne({ slug });
         break;
+      case 'project':
+        content = await Project.findOne({ slug });
+        break;
       case 'archive':
         content = await Archive.findOne({ slug });
+        break;
+      case 'category':
+        content = await Category.findOne({ slug });
+        break;
+      case 'tag':
+        content = await Tag.findOne({ slug });
         break;
       default:
         return res.status(404).render('pages/404');
