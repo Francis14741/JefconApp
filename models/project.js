@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const projectSchema = new mongoose.Schema({
   slug: { type: String, unique: true },
@@ -21,4 +22,4 @@ projectSchema.pre("save", function (next) {
 
 // ✅ Only define model if it hasn't been defined already
 module.exports =
-  mongoose.models.Project || mongoose.model("Project", projectSchema);
+  mongoose.models.project || mongoose.model("project", projectSchema);

@@ -23,4 +23,4 @@ archiveSchema.index({
   slug: "text"
 });
 
-module.exports = mongoose.models.Archive || mongoose.model("Archive", archiveSchema);
+module.exports = mongoose.models.archive || mongoose.model("archive", archiveSchema);

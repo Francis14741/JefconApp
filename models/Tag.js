@@ -31,4 +31,4 @@ tagSchema.pre('save', function (next) {
   next();
 });
 
-module.exports = mongoose.models.Tag || mongoose.model("Tag", tagSchema);
+module.exports = mongoose.models.tag || mongoose.model("tag", tagSchema);

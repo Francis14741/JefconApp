@@ -21,4 +21,4 @@ commitmentSchema.pre("save", function (next) {
 });
 
 module.exports =
-  mongoose.models.Commitment || mongoose.model("Commitment", commitmentSchema);
+  mongoose.models.commitment || mongoose.model("commitment", commitmentSchema);

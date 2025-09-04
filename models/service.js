@@ -24,5 +24,5 @@ serviceSchema.pre("save", function (next) {
 });
 
 module.exports =
-  mongoose.models.Service || mongoose.model("Service", serviceSchema);
+  mongoose.models.service || mongoose.model("service", serviceSchema);
 

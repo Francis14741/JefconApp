@@ -20,4 +20,5 @@ faqSchema.pre('save', function(next) {
   next();
 });
 
-module.exports = mongoose.model('Faq', faqSchema);
+module.exports =
+  mongoose.models.faq || mongoose.model("faq", faqSchema);
