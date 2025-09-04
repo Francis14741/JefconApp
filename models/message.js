@@ -9,4 +9,4 @@ const messageSchema = new mongoose.Schema({
   read: { type: Boolean, default: false }   // ✅ new field
 });
 
-module.exports = mongoose.model("Message", messageSchema);
+module.exports = mongoose.model("message", messageSchema);
