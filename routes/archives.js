@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Archive = require('../../models/archive');
-const Blog = require('../../models/blog');
+const Archive = require('../models/archive');
+const Blog = require('../models/blog');
 
 router.get("/", (req, res) => {
   const archives = [{ slug: "deprof_archive", title: "By, DEPROF" }];

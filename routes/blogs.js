@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Blog = require('../../models/blog');
-const Tag = require('../../models/tag');
-const Archive = require('../../models/archive');
-const Category = require('../../models/category');
+const Blog = require('../models/blog');
+const Tag = require('../models/tag');
+const Archive = require('../models/archive');
+const Category = require('../models/category');
 
 
 router.get("/preventing_stormwater", async (req, res) => {

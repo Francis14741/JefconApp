@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Faq = require('../../models/faq');
+const Faq = require('../models/faq');
 
 router.get("/faq_construction", async (req, res) => {
   const faq = await Faq.findOne({ slug: "faq_construction" });
