@@ -1,0 +1,76 @@
+<% layout('partials/layout') %>
+
+<div class="container mt-4 text-light text-center lead">
+  <h3 class="text-light lead"><em>Search results for: "<%= query %>"</em></h3>
+  <% if (posts.length) { %>
+  <h5 class="text-light lead"><em>Posts</em></h5>
+  <ul class="text-light lead">
+    <% posts.forEach(p => { %>
+    <li class="text-light lead">
+      <a href="/blogs/<%= p.slug %>"><%= p.title %></a>
+    </li>
+    <% }) %>
+  </ul>
+  <% } %> <% if (services.length) { %>
+  <h5 class="text-light lead"><em>Services</em></h5>
+  <ul class="text-light lead">
+    <% services.forEach(s => { %>
+    <li class="text-light lead">
+      <a href="/services/<%= s.slug %>"><%= s.title %></a>
+    </li>
+    <% }) %>
+  </ul>
+  <% } %> <% if (blogs.length) { %>
+  <h5 class="text-light lead"><em>Blogs</em></h5>
+  <ul class="text-light lead">
+    <% blogs.forEach(b => { %>
+    <li class="text-light lead">
+      <a href="/blogs/<%= b.slug %>"><%= b.title %></a>
+    </li>
+    <% }) %>
+  </ul>
+  <% if (faqs && faqs.length > 0) { %>
+    <h3 class="mt-4">FAQs</h3>
+    <div class="row">
+      <% faqs.forEach(faq => { %>
+        <div class="col-md-4 mb-3">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><%= faq.title %></h5>
+              <p class="card-text"><%= faq.question %></p>
+              <a href="/faqs/<%= faq.slug %>" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+  <% } %> <% if (archives.length) { %>
+  <h5 class="text-light lead"><em>Archives</em></h5>
+  <ul class="text-light lead">
+    <% archives.forEach(a => { %>
+    <li class="text-light lead">
+      <a href="/archives/<%= a.slug %>"><%= a.title %></a>
+    </li>
+    <% }) %>
+  </ul>
+  <% } %> <% if (tags.length) { %>
+  <h5 class="text-light lead"><em>Tags</em></h5>
+  <ul class="text-light lead">
+    <% tags.forEach(t => { %>
+    <li class="text-light lead">
+      <a href="/tags/<%= t.slug %>"><%= t.title %></a>
+    </li>
+    <% }) %>
+  </ul>
+  <% } %>
+</div>
+
+<script src="/js/timeago.min.js"></script>
+<script>
+  document.querySelectorAll(".timeago").forEach((el) => {
+    el.textContent = timeago.format(el.getAttribute("datetime"));
+  });
+</script>
+
+

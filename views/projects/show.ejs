@@ -1,0 +1,135 @@
+<% layout('partials/layout') %>
+
+<div class="container mt-5 text-light text-center">
+  <h2 class="text-light"><em><u>Search Results for "<%= query %>"</u></em></h2>
+
+  <% if (blogs.length > 0) { %>
+    <h4 class="text-light"><em><u>Blogs</u></em></h4>
+    <div class="row">
+      <% blogs.forEach(blog => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><a href="/blogs/<%= blog.slug %>"><%= blog.title %></a></h5>
+              <p class="card-text">
+                <%= blog.content ? blog.content.substring(0, 120) + "..." : "No description available." %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <% if (faqs.length > 0) { %>
+    <h4 class="text-light"><em><u>FAQs</u></em></h4>
+    <div class="row">
+      <% faqs.forEach(faq => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><a href="/faqs/<%= faq.slug %>"><%= faq.title %></a></h5>
+              <p class="card-text">
+                <%= faq.content ? faq.content.substring(0, 120) + "..." : "No description available." %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+  
+  <% if (tags.length > 0) { %>
+    <h4 class="text-light"><em><u>Tags</u></em></h4>
+    <div class="row">
+      <% tags.forEach(tag => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><a href="/tags/<%= tag.slug %>"><%= tag.title %></a></h5>
+              <p class="card-text">
+                <%= tag.content ? tag.content.substring(0, 120) + "..." : "No description available." %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <% if (categories.length > 0) { %>
+    <h4 class="text-light"><em><u>Categories</u></em></h4>
+    <div class="row">
+      <% categories.forEach(faq => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><a href="/categories/<%= categories.slug %>"><%= category.title %></a></h5>
+              <p class="card-text">
+                <%= category.content ? category.content.substring(0, 120) + "..." : "No description available." %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+  
+  <% if (archives.length > 0) { %>
+    <h4 class="text-light"><em><u>Archives</u></em></h4>
+    <div class="row">
+      <% archives.forEach(archive => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><a href="/archives/<%= archive.slug %>"><%= archive.title %></a></h5>
+              <p class="card-text">
+                <%= archive.content ? archive.content.substring(0, 120) + "..." : "No description available." %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+  
+  <% if (projects.length > 0) { %>
+    <h4 class="text-light"><em><u>Projects</u></em></h4>
+    <div class="row">
+      <% projects.forEach(project => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><a href="/projects/<%= project.slug %>"><%= project.title %></a></h5>
+              <p class="card-text">
+                <%= project.content ? project.content.substring(0, 120) + "..." : "No description available." %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+  
+  <% if (services.length > 0) { %>
+    <h4 class="text-light"><em><u>Services</u></em></h4>
+    <div class="row">
+      <% services.forEach(service => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><a href="/services/<%= service.slug %>"><%= service.title %></a></h5>
+              <p class="card-text">
+                <%= service.content ? service.content.substring(0, 120) + "..." : "No description available." %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <% if (blogs.length === 0 && faqs.length === 0 && services.length === 0) { %>
+    <p class="text-light"><em>No results found.</em></p>
+  <% } %>
+</div>

@@ -1,0 +1,18 @@
+module.exports = [
+  { title: "case_studies" },
+  { title: "cat_environmental" },
+  { title: "cat_feasibility_Eco" },
+  { title: "category_eng_surveys" },
+  { title: "construction_law" },
+  { title: "construction_technology" },
+  { title: "consultancy_advisory" },
+  { title: "engDesign_simulation" },
+  { title: "industryNews_trend" },
+  { title: "innovation_research" },
+  { title: "mech_elec_Plumbing" },
+  { title: "pro_superv_cat" },
+  { title: "proj_valuation_cost" },
+  { title: "safety_regulations" },
+  { title: "training_education" },
+  { title: "uncategorized" },
+];

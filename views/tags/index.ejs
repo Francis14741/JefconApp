@@ -1,0 +1,17 @@
+<% layout('partials/layout') %>
+
+<div class="container my-5 text-light">
+  <h1 class="mb-4 text-light"><em><u>All Tags</u></em></h1>
+
+  <% if (!tags || tags.length === 0) { %>
+    <p class="text-light"><em>No tags found.</em></p>
+  <% } else { %>
+    <ul class="list-group">
+      <% tags.forEach(tag => { %>
+        <li class="list-group-item">
+          <a href="/tags/<%= tag.slug %>"><%= tag.title %></a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</div>

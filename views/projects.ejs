@@ -1,0 +1,24 @@
+<% layout('partials/layout') %>
+
+<h2 class="text-center text-light"><em>Our Projects</em></h2>
+<p class="text-muted">
+  Posted on <%= post.fullDate %> &mdash; <%= post.relativeDate %>
+</p>
+<div class="row">
+  <% projects.forEach(project => { %>
+  <div class="col-md-4">
+    <div class="card mb-4">
+      <img
+        src="/images/<%= project.image %>"
+        class="card-img-top"
+        alt="<%= project.title %>"
+      />
+      <div class="card-body">
+        <h5 class="card-title"><%= project.title %></h5>
+        <p class="card-text"><%= project.description %></p>
+        <p class="card-text"><%= project.link %></p>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</div>

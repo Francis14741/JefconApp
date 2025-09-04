@@ -1,0 +1,49 @@
+<% layout('partials/layout') %>
+
+<div class="container text-light my-4">
+  <h3 class="mb-4 text-center">Search Results for "<%= query %>"</h3>
+
+  <% if (results.length === 0) { %>
+    <div class="alert alert-warning text-center"><em>No results found.</em></div>
+  <% } else { %>
+    <div class="row">
+      <% results.forEach(result => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <% if (result.type === "blog") { %>
+                <h5 class="card-title"><a href="/blogs/<%= result.slug %>"><%= result.title %></a></h5>
+                <p class="card-text"><%= result.excerpt || result.content.substring(0,100) %>...</p>
+                <a href="/blogs/<%= result.slug %>" class="btn btn-sm btn-primary">Read More</a>
+              
+              <% } else if (result.type === "faq") { %>
+                <h5 class="card-title"><%= result.question %></h5>
+                <p class="card-text text-muted"><%= result.answer %></p>
+
+              <% } else if (result.type === "service") { %>
+                <h5 class="card-title"><a href="/services/<%= result.slug %>"><%= result.title %></a></h5>
+                <p class="card-text"><%= result.description.substring(0,120) %>...</p>
+
+              <% } else if (result.type === "project") { %>
+                <h5 class="card-title"><a href="/projects/<%= result.slug %>"><%= result.title %></a></h5>
+                <p class="card-text"><%= result.description.substring(0,120) %>...</p>
+
+              <% } else if (result.type === "category") { %>
+                <h5 class="card-title"><a href="/categories/<%= result.slug %>"><%= result.title %></a></h5>
+                <p class="text-muted">Category</p>
+
+              <% } else if (result.type === "tag") { %>
+                <h5 class="card-title"><a href="/tags/<%= result.slug %>"><%= result.title %></a></h5>
+                <p class="text-muted">Tag</p>
+
+              <% } else if (result.type === "archive") { %>
+                <h5 class="card-title"><a href="/archives/<%= result.slug %>"><%= result.title %></a></h5>
+                <p class="text-muted">Archive</p>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+</div>

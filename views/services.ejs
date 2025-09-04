@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tagesschrift&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google Font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Jefcon & Associates Ltd</title>
+    <link rel="stylesheet" href="./public/imgs" />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: lightgreen;
+        background: #6d835c;
+        overflow-x: hidden;
+      }
+      section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 400px;
+        padding: 100px 20vh;
+      }
+
+      .pale {
+        background: #6d835c;
+      }
+
+      .olivedrab {
+        background: olivedrab;
+      }
+
+      .footer {
+        width: 100%;
+        background: black;
+        padding: 20px 8%;
+        border-top: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        left: 20px;
+      }
+
+      .footer-brand {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .footer-text {
+        color: green;
+        font-size: 0.9rem;
+        max-width: 300px;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .social-links {
+        margin: 20px 0;
+      }
+
+      .social-link {
+        color: green;
+        margin-right: 20px;
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+      }
+
+      .social-link:hover {
+        color: #6d835c;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .footer-links a {
+        color: #6c757d;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: #6d835c;
+      }
+
+      .copyright {
+        color: #fff;
+        font-size: 0.85rem;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      nav {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        padding: 10px 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .navbar-brand {
+        padding: 0px;
+      }
+
+      .navbar-brand img {
+        height: 100%;
+        padding: 15px;
+        width: auto;
+      }
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+      }
+
+      .search-bar input {
+        font-size: 17px;
+        width: 325px;
+        padding: 10px 15px;
+        border-radius: 5px 0px 0px 5px;
+        border: none;
+        outline: none;
+      }
+
+      .search-bar button {
+        font-size: 17px;
+        padding: 10px 15px;
+        border-radius: 0px 5px 5px 0px;
+        border: none;
+        color: #fff;
+        background-color: #6d835c;
+        cursor: pointer;
+        outline: #6d835c;
+      }
+
+      .nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 40px;
+      }
+
+      .nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+      }
+
+      .content {
+        text-align: center;
+      }
+      .content h1 {
+        font-size: 100px;
+        color: #fff;
+        font-weight: 400;
+        transition: 0.5s;
+      }
+
+      .content h1:hover {
+        -webkit-text-stroke: 2px rgb(214, 243, 214);
+        color: transparent;
+      }
+
+      .content a {
+        text-decoration: none;
+        display: inline-block;
+        color: #fff;
+        font-size: 10px;
+        border: 2px solid rgb(36, 45, 36);
+        padding: 14px 70px;
+        border-radius: 50px;
+        margin-top: 20px;
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+      }
+
+      section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+      }
+
+      #container {
+        background-color: #fff;
+        width: 90%;
+        margin: 0 auto;
+        border: 5px solid #fff;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      #container div {
+        width: 200px;
+        height: 200px;
+        max-width: 300px;
+        text-align: center;
+        flex-basis: 600px;
+      }
+
+      div:nth-of-type(1) {
+        flex-grow: 1;
+        flex-shrink: 2;
+      }
+
+      div:nth-of-type(5) {
+        flex-grow: 2;
+      }
+
+      main {
+        width: 80%;
+        margin: 0 auto;
+        border: 2px solid #fff;
+        height: 200px;
+        display: flex;
+      }
+
+      main .sidebar {
+        background-color: #6d835c;
+        flex: 1 2 300px;
+      }
+
+      main .maincontent {
+        background-color: #80ffdb;
+        flex: 2 1 800px;
+      }
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-md {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body
+    section
+    class="featurette bg-primary"
+    style="
+      background: url('https://jefconassociates.com/wp-content/themes/jefcon-pentagon/assets/images2/dark-green-background.jpg')
+        no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-attachment: fixed;
+    "
+  />
+  <nav class="navbar navbar-expand-md mb-3 navbar-light bg-dark fixed-top">
+    <div class="container">
+      <a class="nav-brand" href="#"
+      ><img src="http://localhost:3000/images/jefconlogo.jpeg" alt="jefconlogo" style="height: 50px; width: auto; float: left; margin-right: 8px;"></a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mt-2 ml-4 lead">
+          <li class="nav-item active">
+            <a class="nav-link text-success" href="/"><b><em><u>JEFCON&ASSOCIATES</u></em></b></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-success"
+              data-toggle="dropdown"
+              href="#"
+            ><b><em><u>ABOUT US</u></em></b></a
+            >
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/about/team"><b><em>Team</em></b></a>
+              <a class="dropdown-item" href="/about/commitment"
+                ><b><em>Commitments And Strategy</em></b></a
+              >
+              <a class="dropdown-item" href="/about/privacyPolicy"
+                ><b><em>Privacy Policy</em></b></a
+              >
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-success"
+              data-toggle="dropdown"
+              href="#"
+              ><b><em><u>SERVICES</u></em></b></a
+            >
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/services/engineering_design"
+                ><b><em>Engineering Design And Construction</em></b></a
+              >
+              <a class="dropdown-item" href="/services/environmental_impact"
+                ><b><em>Environmental Impact Studies And Management</em></b></a
+              >
+              <a class="dropdown-item" href="/services/advisory_services"
+                ><b><em>Advisory Services In Engineering</em></b></a
+              >
+              <a class="dropdown-item" href="/services/engineering_surveys"
+                ><b><em>Engineering Surveys</em></b></a
+              >
+              <a class="dropdown-item" href="/services/feasibility_ecoStudies"
+                ><b><em>Feasibility And Economic Studies</em></b></a
+              >
+              <a class="dropdown-item" href="/services/project_supervision"
+                ><b><em>Project Supervision And Management</em></b></a
+              >
+              <a class="dropdown-item" href="/services/project_costing"
+                ><b
+                ><em>Project Costing, Valuation And Tender Analysis</em></b
+                ></a
+              >
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-success"
+              data-toggle="dropdown"
+              href="#"
+            ><em><b>PROJECTS</b></em></a
+            >
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/projects/recentProjects"
+                ><b><em>Recent Projects</em></b></a
+              >
+              <a class="dropdown-item" href="/projects/pastProjects"
+                ><b><em>Past Projects</em></b></a
+              > 
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-success" href="./blogs"><b><em><u>BLOGS</u></em></b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-success" href="./contact"><b><em><u>CONTACT</u></em></b></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-success"
+              data-toggle="dropdown"
+              href="#"
+            ><b><em><u>FAQ</u></em><b></a
+            >
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/faqs/faq_construction"
+                ><b><em>Faq About Construction Services</em></b></a
+              >
+              <a class="dropdown-item" href="/faqs/faq_stormwater"
+                ><b><em>Faq About Storm-water Management Services</em></b></a
+              >
+              <a class="dropdown-item" href="/faqs/faq_consultancy"
+                ><b><em>Faq About Consultancy Services</em></b></a
+              >
+              <a class="dropdown-item" href="/faqs/faq_participation"
+                ><b><em>Faq About Participation On Our Website</em></b></a
+              >
+            </div>
+          </li>
+        </ul>
+        <div class="ml-lg-5 mt-2 mt-md-0">
+          <form
+            id="searchForm"
+            action="/search"
+            method="GET"
+            class="form-inline ml-3 position-relative"
+            style="max-width: 320px"
+          >
+            <input
+              id="searchInput"
+              name="q"
+              type="text"
+              class="form-control"
+              placeholder="Search..."
+              autocomplete="off"
+            />
+            <button type="submit" class="btn btn-success ml-1">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const keywords = [
+          "Preventing Stormwater Pollution: Implementing Effective QC For Drainage Systems In Nigeria",
+          "Understanding Geotechnical Considerations for Stormwater Drainage QC in Nigeria",
+          "Best Practices For Concrete Work In Stormwater Drainage: Quality Control for Durability in Nigerian Climates",
+          "Challenges of Storm Water Management In Urban Areas of Nigeria: A Critical Analysis",
+          "The Relationship Between Land-use Change And Urban Hydrology",
+          "Ensuring Stormwater Drainage System Efficiency",
+          "The Urgent Need For Sustainable Management Engineering Pracices",
+          "Examples of Sustainable Stormwater Management Practices In Urban Areas",
+          "Challenges Posed By Traditional Storm Water Management Practices",
+          "Evaluating The Success And Effectiveness Of Existing Drainage Systems For Managing Rainwater Runoff In Nigeria",
+          "Addressing Nigeria Water Pollution Crisis",
+          "Navigating The Risk Of Floods: Civil Engineering Strategies For Managing Flood-Prone Areas",
+          "Oil Hubs in Delta State, Nigeria",
+          "Tributaries To The River Niger Within Asaba, Delta State, Nigeria",
+          "Flooding: A Global Warming Aftermath",
+          "Recommended Actions For A Young Engineer-1",
+          "Recommended Actions For A Young Engineer-2",
+          "Working With Standard Engineering Codes",
+          "Improving Professional Efficiency And Quality Of Engineering Products",
+          "The Young Engineer: Importance Of Training And Mentorship",
+          "Study And Design Of Stormwater Management And Control Measures For Asaba, Warri, Effurun And Environs In Delta State, Nigeria",
+          "Challenges Of A Young Engineer",
+          "Sample Post",
+          "Recommendations For Stormwater Management And Control",
+          "Considerations In The Design Of Stormwater Channels",
+          "Channel Selection For Stormwater Control",
+          "Hydraulic Design Of Drainage Channels",
+          "Description Of Core Hydrological Terminologies In Flood Control Analysis",
+          "Engineering Design And Hydrological Analysis For Effective And Efficient Flood Control",
+          "Engineering Survey For Effective And Efficient Flood Control",
+          "Findings And Observations In Flood-Prone Areas Of Delta State -1",
+          "Findings And Observations In Flood-Prone Areas Of Delta State -2",
+          "Hydrological Basins In Delta State, Nigeria",
+          "Merits Of The Recommended Options For Storm Water Management And Control",
+          "7 Things You Need To Know Before Hiring A STORMWATER CONSTRUCTION COMPANY",
+          "7 Ways To Handle Flooding In Any Parts Of Nigeria",
+          "8 Important Facts About StormWater Drainage Systems",
+          "Assessing Quality Civil Engineering Practices In Nigeria",
+          "Rising Tides, Sinking Cities: How Climate Change Is Driving More Extreme Flooding",
+          "Commitments And Strategy",
+          "Team",
+          "Privacy Policy",
+          "Vision Statement",
+          "Mission Statement",
+          "Core Values",
+          "Team Building",
+          "Business Concepts",
+          "Business Strategy",
+          "Faq About Participation On Our Website",
+          "Faq About Storm-water Management Services",
+          "Faq About Consultancy Services",
+          "Faq About Construction Services",
+          "Services",
+          "Environmental Impact Management Studies",
+          "Project Supervision And Management",
+          "Feasibility And Economic Studies",
+          "Engineering Surveys",
+          "Engineering Design",
+          "Advisory Services In Engineering",
+          "Project Costing And Valuation",
+          "Projects",
+          "Past Projects",
+          "Recent Projects",
+          "Archives Of: DEPROF",
+          "Archives Of: Engr. John Cee Onwualu",
+          "Archives Of: Abdul M. Yahaya",
+          "Monthly Archives: June 2025",
+          "Monthly Archives: April 2025",
+          "Monthly Archives: May 2024",
+          "Monthly Archives: March 2024",
+          "Monthly Archives: June 2024",
+          "Monthly Archives: July 2024",
+          "Monthly Archives: January 2024",
+          "Monthly Archives: February 2024",
+          "Monthly Archives: April 2024",
+          "Monthly Archives: October 2023",
+          "Monthly Archives: November 2023",
+          "Monthly Archives: March 2023",
+          "Monthly Archives: January 2023",
+          "Monthly Archives: February 2023",
+          "Monthly Archives: December 2023",
+          "Monthly Archives: September 2022",
+          "Monthly Archives: October 2022",
+          "Monthly Archives: November 2022",
+          "Monthly Archives: May 2022",
+          "Monthly Archives: March 2022",
+          "Monthly Archives: July 2022",
+          "Monthly Archives: January 2022",
+          "Monthly Archives: February 2022",
+          "Monthly Archives: December 2022",
+          "Monthly Archives: August 2022",
+          "Monthly Archives: April 2022",
+          "Monthly Archives: November 2021",
+          "Monthly Archives: May 2021",
+          "Monthly Archives: June 2021",
+          "Monthly Archives: January 2021",
+          "Monthly Archives: December 2021",
+          "Monthly Archives: August 2021",
+          "Monthly Archives: April 2021",
+          "Monthly Archives: September 2020",
+          "Monthly Archives: October 2020",
+          "Monthly Archives: November 2020",
+          "Monthly Archives: May 2020",
+          "Monthly Archives: July 2020",
+          "Monthly Archives: August 2020",
+          "Tag: #civilengineering",
+          "Tag: #complex-engineering-problems",
+          "Tag: #construction",
+          "Tag: #drainage",
+          "Tag: #drainagebasin",
+          "Tag: #drainagebresilien",
+          "Tag: #drainagecover",
+          "Tag: #drainagecell",
+          "Tag: #drainagechannel",
+          "Tag: #drainagechannels",
+          "Tag: #drainagecontractor",
+          "Tag: #drainagedesign",
+          "Tag: #drainageditch",
+          "Tag: #drainageengineer",
+          "Tag: #drainageholes",
+          "Tag: #drainageissues",
+          "Tag: Drainage Inspection Methods",
+          "Tag: #drainagelife",
+          "Tag: #drainageline",
+          "Tag: #drainagepathways",
+          "Tag: #drainagepipe",
+          "Tag: #drainagepipes",
+          "Tag: #drainageproblems",
+          "Tag: #drainageproducts",
+          "Tag: #drainageproject",
+          "Tag: #drainagesolution",
+          "Tag: #drainagesolutions",
+          "Tag: #drainagespecialists",
+          "Tag: #drainagesystem",
+          "Tag: #drainagesystems",
+          "Tag: #drainagetile",
+          "Tag: #drainagevisage",
+          "Tag: #drainagework",
+          "Tag: #drainageworks",
+          "Tag: #engineeringfundamentals",
+          "Tag: #engineeringpractices",
+          "Tag: #floodwatercontrol",
+          "Tag: Nigeria",
+          "Tag: #quality-of-engineering-products",
+          "Tag: stormwatermanagement",
+          "Tag: #stormwater",
+          "Tag: #storm-water-drainage",
+          "Tag: #stormwatermanagement",
+          "Tag: #sustainable-stormwater-management",
+          "Tag: #youngengineer",
+          "Category Archives: Case Studies",
+          "Category Archives: Environmental",
+          "Category Archives: Construction Law",
+          "Category Archives: Construction Technology",
+          "Category Archives: Feasibility And Economic Studies",
+          "Category Archives: Engineering Surveys",
+          "Category Archives: Consultancy And Advisory Services",
+          "Category Archives: Engineering Design And Simulation",
+          "Category Archives: Industry News And Trends",
+          "Category Archives: Mechanical, Electrical And Plumbing (MEP)",
+          "Category Archives: Project Supervision And Management",
+          "Category Archives: Project Valuation And Cost Control",
+          "Category Archives: Safety And Regulations",
+          "Category Archives: Training And Education",
+          "Category Archives: Uncategorized",
+        ];
+
+        async function fetchSuggestions(term) {
+          const res = await fetch(`/autocomplete?q=${encodeURIComponent(term)}`);
+          return res.ok ? await res.json() : [];
+        }
+
+        function autocomplete(inp, arr) {
+          let currentFocus;
+          inp.addEventListener("input", async function () {
+            closeAllLists();
+            const val = this.value;
+            if (!val) return false;
+
+            currentFocus = -1;
+            const list = document.createElement("DIV");
+            list.setAttribute("id", this.id + "autocomplete-list");
+            list.setAttribute("class", "autocomplete-items");
+            this.parentNode.appendChild(list);
+            const suggestions = await fetchSuggestions(val);
+            suggestions.forEach(item => {
+              const div = document.createElement("DIV");
+              div.innerHTML = `<strong>${item.title.substr(0, val.length)}</strong>${item.title.substr(val.length)}`;
+              div.innerHTML += `<input type='hidden' value='${item.title}'>`;
+
+              div.addEventListener("click", function () {
+                closeAllLists();
+                // Redirect to the result's actual URL
+                window.location.href = item.url || `/search?q=${encodeURIComponent(item.title)}`;
+              });
+              list.appendChild(div);
+            })
+
+            for (let i = 0; i < arr.length; i++) {
+              if (arr[i].toUpperCase().includes(val.toUpperCase())) {
+                const item = document.createElement("DIV");
+                item.innerHTML =
+                  "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                item.innerHTML += arr[i].substr(val.length);
+                item.innerHTML += `<input type='hidden' value='${arr[i]}'/>`;
+                item.addEventListener("click", function () {
+                  inp.value = this.querySelector("input").value;
+                  closeAllLists();
+                  inp.form.submit(); // Redirect!
+                });
+                list.appendChild(item);
+              }
+            }
+          });
+
+          inp.addEventListener("keydown", function (e) {
+            let x = document.getElementById(this.id + "autocomplete-list");
+            if (x) x = x.getElementsByTagName("div");
+            if (e.keyCode == 40) {
+              currentFocus++;
+              addActive(x);
+            } else if (e.keyCode == 38) {
+              currentFocus--;
+              addActive(x);
+            } else if (e.keyCode == 13) {
+              e.preventDefault();
+              if (currentFocus > -1) {
+                if (x) x[currentFocus].click();
+              }
+            }
+          });
+
+          function addActive(x) {
+            if (!x) return false;
+            removeActive(x);
+            if (currentFocus >= x.length) currentFocus = 0;
+            if (currentFocus < 0) currentFocus = x.length - 1;
+            x[currentFocus].classList.add("autocomplete-active");
+          }
+
+          function removeActive(x) {
+            for (let i = 0; i < x.length; i++) {
+              x[i].classList.remove("autocomplete-active");
+            }
+          }
+
+          function closeAllLists(elmnt) {
+            const items = document.getElementsByClassName("autocomplete-items");
+            for (let i = 0; i < items.length; i++) {
+              if (elmnt !== items[i] && elmnt !== inp) {
+                items[i].parentNode.removeChild(items[i]);
+              }
+            }
+          }
+
+          document.addEventListener("click", function (e) {
+            closeAllLists(e.target);
+          });
+        }
+
+        autocomplete(document.getElementById("searchInput"), keywords);
+      });
+    </script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </nav>
+  <section
+    class="featurette bg-primary"
+    style="
+      background: url('https://jefconassociates.com/wp-content/themes/jefcon-pentagon/assets/images2/dark-green-background.jpg')
+      no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-attachment: fixed;
+    "
+  >
+    <div class="container my-5">
+      <div class="row">
+        <div class="col text-center">
+          <h1 class="display-4 text-light">
+            <em><u>SERVICES - Jefcon & Associates Ltd</u></em>
+          </h1>
+          <p class="lead text-light">
+            <em>
+              Welcome to Jefcon Associates. Learn more about who we are and what
+              we stand for.</em
+            >
+          </p>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col-md-6">
+          <img
+            src="/images/J4.jpg"
+            alt="About Jefcon"
+            class="img-fluid rounded shadow-sm"
+          />
+        </div>
+        <div class="col-md-6 lead text-light">
+          <h2 class="lead text-light"><u>Our Story</u></h2>
+          <p class="lead text-light">
+            <em>
+              Jefcon Associates is a multidisciplinary consulting firm committed
+              to excellence in engineering, environmental studies, and project
+              supervision. We bring decades of experience to clients across
+              industries.</em
+            >
+          </p>
+          <p class="lead text-light">
+            <em
+              >We believe in sustainable design, innovative approaches, and
+              delivering value with integrity.</em
+            >
+          </p>
+        </div>
+      </div>
+      <div class="row my-5">
+        <div class="col-md-4">
+          <h4 class="lead text-light">
+            <u><em>Our Mission</em></u>
+          </h4>
+          <p class="lead text-light">
+            <em>
+              To deliver high-quality professional service s that support
+              sustainable infrastructure and environmental resilience.</em
+            >
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h4 class="lead text-light">
+            <u><em>Our Vision</em></u>
+          </h4>
+          <p class="lead text-light">
+            <em>
+              To be the leading consultancy in Nigeria and across Africa for
+              engineering excellence and environmental stewardship.</em
+            >
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h4 class="lead text-light">
+            <u><em>Our Values</em></u>
+          </h4>
+          <ul class="lead text-light">
+            <li><em>Integrity</em></li>
+            <br />
+            <li><em>Innovation</em></li>
+            <br />
+            <li><em>Sustainability</em></li>
+            <br />
+            <li><em>Collaboration</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="text-center text-light py-4" style="background-color: #121222;">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+          <div class="col-md-6 text-center mb-5">
+            <ul class="footer-links justify-content-end lead" >
+              <li><a href="/Jefcon_Associates" class="text-decoration-underline text-success"><em>ABOUT US</em></a></li>
+              <li><a href="/services_footer" class="text-decoration-underline text-success"><em>SERVICES</em></a></li>
+              <li><a href="/project_footer" class="text-decoration-underline text-success"><em>PROJECTS</em></a></li>
+              <li><a href="/blogs" class="text-decoration-underline text-success"><em>BLOGS</em></a></li>
+              <li><a href="/contact" class="text-decoration-underline text-success"><em>CONTACT</em></a></li>
+              <li><a href="/faq_footer" class="text-decoration-underline text-success"><em>FAQ</em></a></li>
+              <li><a href="/privacy_policy_footer" class="text-decoration-underline text-success"><em>PRIVACY</em></a></li>
+            </ul>             
+          </div>
+        </div>
+        <div class="container">
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div id="main" class="container">
+                <div class="card" style="background-color: #6d835c">           
+                  <img src="http://localhost:3000/images/jefcon-address.jpg" alt="jefcon-address">
+                </div>
+                <div id="post-757" class="card post-757 text-start mt-3 pl-3 pr-3 mb-3 text-light lead" style="background-color: #6d835c;">
+                  <span class="card-text placeholder-glow mt-3 pl-2">
+                    <span class="placeholder col-6"></span>         
+                    <span class="placeholder col-7"><a class="btn btn-success" style="background-color: #6D835C;" href="/contact">Contact us</a></span>
+                    <span class="placeholder col-6"></span>   
+                  </span> 
+                  <hr>
+                  <p class="lead pl-2"><i>▪</i>&ensp;<em><u>+234 805 582 720</u></em></p>
+                  <p class="lead pl-2"><i>▪</i>&ensp;<em><u>+234 805 5015 045</u></em></p> 
+                  <hr>
+                  <p class="lead pl-2"><em> No. 11 Engr. John Chiegbuniwe Drive, <br>
+                    Off Mariam Babangida Way, <br>
+                    Phase V, Core Area, Asaba, <br>
+                    Delta State, Nigeria. </em>
+                  </p>
+                  <hr>
+                  <p class="text-decoration-underline mb-3"><em>https://jefconassociates.com</em></p>  
+                  <button class="btn btn-light mb-3" href="/contact"><em>info@jefcon&associates.com</em></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="background-color: #6d835c";>
+                <div class="card-body text-light text-start lead">
+                  <h4 class="card-title text-light mt-3 text-decoration-underline"><em>Meta</em></h4>
+                  <div class="<ul class="list-unstyled>
+                    <li><a class="text-light" href="https://jefconassociates.com/wp-login.php"><em>Log in</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/feed/"><em>Entries feed</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/comments/feed/"><em>Comments feed</em></a></li>
+                    <li><a class="text-light" href="https://expressjs.com/"><em>Express.org</em></a></li>
+                    </ul>          
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="background-color: #6D835C";>
+                <div class="card-body text-start text-light lead">
+                  <div class="<ul class="list-unstyled> 
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/case-studies/"><em>Case Studies</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/construction-law/"><em>Construction Law</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/construction-technology/"><em>Construction Technology</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/consultancy-and-advisory-services/"><em>Consultancy And Advisory Services</em></a></li>  
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/engineering-design-and-simulation/"><em>Engineering Design And Simulation</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/engineering-surveys/"><em>Engineering Surveys</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/environmental/"><em>Environmental</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/feasibility-and-economic-studies/"><em>Feasibility And Economic Studies</em></a></li>  
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/industry-news-and-trends/"><em>Industry News And Trends</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/innovation-and-research/"><em>Innovation And Research</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/mechanical-electrical-and-plumbing-mep/"><em>Mechanical, Electrical, And Plumbing (MEP)</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/project-supervision-and-management/"><em>Project Supervision And Management</em></a></li>  
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/project-valuation-and-cost-control/"><em>Project Valuation And Cost Control</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/safety-and-regulations/"><em>Safety And Regulations</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/training-and-education/"><em>Training And Education</em></a></li>
+                    <li><a class="text-light" href="https://jefconassociates.com/blog/category/uncategorised/"><em>Uncategorized</em></a></li>  
+                  </ul>          
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+    <hr>
+    <p class="mb-2"><strong><em>JEFCON & ASSOCIATES LTD</em></strong></p>
+    <p class="mb-0">&copy; <%= new Date().getFullYear() %> Jefcon Associates. All rights reserved.</p>
+  </footer>
+</html>

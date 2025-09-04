@@ -1,0 +1,59 @@
+<% layout('partials/layout') %>
+
+<div class="container my-4">
+  <h2 class="text-center text-light mb-4"><em><u>Search Results for "<%= query %>"</u></em></h2>
+
+  <% 
+    // Ensure every section array exists
+    const sections = [
+      { title: "Blogs", results: blogResults || [] },
+      { title: "Projects", results: projectResults || [] },
+      { title: "Services", results: serviceResults || [] },
+      { title: "Archives", results: archiveResults || [] },
+      { title: "FAQ Categories", results: faqCategoryResults || [] },
+      { title: "Tags", results: tagResults || [] },
+      { title: "Categories", results: categoryResults || [] }
+    ];
+  %>
+
+  <% sections.forEach(section => { %>
+    <div class="mb-5 text-light">
+      <h4 class="text-primary mb-3"><em><u><%= section.title %></u></em></h4>
+
+      <% if (!section.results || section.results.length === 0) { %>
+        <p class="text-light"><em>No results found.</em></p>
+      <% } else { %>
+        <div class="row">
+          <% section.results.forEach(item => { %>
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                  
+                  <% if(item.type === 'Blog' || item.type === 'Project' || item.type === 'Service' || item.type === 'Archive' || item.type === 'FAQ') { %>
+                    <h5 class="card-title">
+                      <a href="<%= item.link %>" class="text-decoration-none text-dark">
+                        <em><u><%= item.title %></u></em>
+                      </a>
+                    </h5>
+                    <p class="card-text flex-grow-1"><em><%= item.slug %></em></p>
+                    <a href="<%= item.link %>" class="btn btn-sm btn-primary mt-auto">Read More</a>
+                  <% } else if(item.type === 'Tag' || item.type === 'Category') { %>
+                    <h5 class="card-title">
+                      <a href="<%= item.link %>" class="text-decoration-none text-dark">
+                        <em><u><%= item.title %></u></em>
+                      </a>
+                    </h5>
+                    <p class="card-text flex-grow-1"><em><%= item.slug || 'Click to view items' %></em></p>
+                  <% } %>
+
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      <% } %>
+    </div>
+  <% }) %>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

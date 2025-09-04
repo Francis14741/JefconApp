@@ -1,0 +1,17 @@
+<% layout('partials/layout') %>
+
+<div class="container my-5">
+  <h1 class="mb-4">All Categories</h1>
+
+  <% if (!categories || categories.length === 0) { %>
+    <p>No categories found.</p>
+  <% } else { %>
+    <ul class="list-group">
+      <% categories.forEach(cat => { %>
+        <li class="list-group-item">
+          <a href="/categories/<%= cat.slug %>"><%= cat.title %></a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</div>

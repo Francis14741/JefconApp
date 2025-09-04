@@ -1,0 +1,51 @@
+<% layout('partials/layout') %>
+
+<div class="container py-4 text-light">
+  <h1 class="text-light"><%= category.title %></h1>
+  <p><%= category.description || "No description available." %></p>
+
+  <p><%= category.content %></p>
+
+  <h3 class="text-light"><em>Posts in this category</em></h3>
+  <ul class="text-light">
+    <% if (posts.length === 0) { %>
+    <li><em>No posts found for this category.</em></li>
+    <% } else { %> <% posts.forEach(post => { %>
+    <li><a href="/posts/<%= post.slug %>"><%= post.title %></a></li>
+    <% }) %> <% } %>
+  </ul>
+
+  <hr />
+
+  <% if (services && services.length > 0) { %>
+  <h3 class="text-light">
+    <em
+      ><b><u>Related Services</u></b></em
+    >
+  </h3>
+  <ul>
+    <% services.forEach(service => { %>
+    <li><a href="/services/<%= service.slug %>"><%= service.title %></a></li>
+    <% }) %>
+  </ul>
+  <% } else { %>
+  <p class="text-light"><em>No related services found.</em></p>
+  <% } %>
+
+  <hr />
+
+  <% if (posts && posts.length > 0) { %>
+  <h3 class="text-light">
+    <em
+      ><b><u>Related Posts</u></b></em
+    >
+  </h3>
+  <ul>
+    <% posts.forEach(post => { %>
+    <li><a href="/posts/<%= post.slug %>"><%= post.title %></a></li>
+    <% }) %>
+  </ul>
+  <% } else { %>
+  <p class="text-light"><em>No related posts found.</em></p>
+  <% } %>
+</div>

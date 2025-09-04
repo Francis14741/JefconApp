@@ -1,0 +1,15 @@
+<div class="container my-5">
+  <h1 class="mb-4">Our Services</h1>
+
+  <% if (!services || services.length === 0) { %>
+    <p>No services found.</p>
+  <% } else { %>
+    <ul class="list-group">
+      <% services.forEach(service => { %>
+        <li class="list-group-item">
+          <a href="/services/<%= service.slug %>"><%= service.title %></a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</div>

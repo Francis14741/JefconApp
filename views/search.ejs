@@ -1,0 +1,650 @@
+<% layout('partials/layout') %>
+
+<h4 class="display-6 mb-md-2 mt-5 text-center lead mb-3 pb-3 text-light">
+  <em>Search results for: "<%= query %>"</em>
+</h4>
+<div
+  class="position-relative d-inline-block w-100 ml-lg-5 mt-2 mt-md-0"
+  style="max-width: 400px"
+>
+  <form
+    class="form-inline my-2 my-lg-0 position-relative"
+    action="/search"
+    method="GET"
+  >
+    <input
+      id="searchInput"
+      class="form-control mr-sm-2"
+      name="q"
+      type="search"
+      placeholder="Search..."
+      aria-label="Search"
+      autocomplete="off"
+    />
+    <button
+      class="btn btn-outline-success my-2 my-sm-0 d-flex align-items-center justify-content-center px-3"
+      type="submit"
+      style="font-size: 17px; padding: 10px 15px; cursor: pointer"
+    >
+      <i class="fas fa-search" style="font-size: 1rem"></i>
+    </button>
+    <ul
+      id="search-suggestions"
+      class="list-group position-absolute top-100 start-0 w-100"
+      style="z-index: 1050; display: none; max-height: 200px; overflow-y: auto"
+    ></ul>
+  </form>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const keywords = [
+      "Preventing Stormwater Pollution: Implementing Effective QC For Drainage Systems In Nigeria",
+      "Understanding Geotechnical Considerations for Stormwater Drainage QC in Nigeria",
+      "Best Practices For Concrete Work In Stormwater Drainage: Quality Control for Durability in Nigerian Climates",
+      "Challenges of Storm Water Management In Urban Areas of Nigeria: A Critical Analysis",
+      "The Relationship Between Land-use Change And Urban Hydrology",
+      "Ensuring Stormwater Drainage System Efficiency",
+      "The Urgent Need For Sustainable Management Engineering Pracices",
+      "Examples of Sustainable Stormwater Management Practices In Urban Areas",
+      "Challenges Posed By Traditional Storm Water Management Practices",
+      "Evaluating The Success And Effectiveness Of Existing Drainage Systems For Managing Rainwater Runoff In Nigeria",
+      "Addressing Nigeria Water Pollution Crisis",
+      "Navigating The Risk Of Floods: Civil Engineering Strategies For Managing Flood-Prone Areas",
+      "Oil Hubs in Delta State, Nigeria",
+      "Tributaries To The River Niger Within Asaba, Delta State, Nigeria",
+      "Flooding: A Global Warming Aftermath",
+      "Recommended Actions For A Young Engineer-1",
+      "Recommended Actions For A Young Engineer-2",
+      "Working With Standard Engineering Codes",
+      "Improving Professional Efficiency And Quality Of Engineering Products",
+      "The Young Engineer: Importance Of Training And Mentorship",
+      "Study And Design Of Stormwater Management And Control Measures For Asaba, Warri, Effurun And Environs In Delta State, Nigeria",
+      "Challenges Of A Young Engineer",
+      "Sample Post",
+      "Recommendations For Stormwater Management And Control",
+      "Considerations In The Design Of Stormwater Channels",
+      "Channel Selection For Stormwater Control",
+      "Hydraulic Design Of Drainage Channels",
+      "Description Of Core Hydrological Terminologies In Flood Control Analysis",
+      "Engineering Design And Hydrological Analysis For Effective And Efficient Flood Control",
+      "Engineering Survey For Effective And Efficient Flood Control",
+      "Findings And Observations In Flood-Prone Areas Of Delta State -1",
+      "Findings And Observations In Flood-Prone Areas Of Delta State -2",
+      "Hydrological Basins In Delta State, Nigeria",
+      "Merits Of The Recommended Options For Storm Water Management And Control",
+      "7 Things You Need To Know Before Hiring A STORMWATER CONSTRUCTION COMPANY",
+      "7 Ways To Handle Flooding In Any Parts Of Nigeria",
+      "8 Important Facts About StormWater Drainage Systems",
+      "Assessing Quality Civil Engineering Practices In Nigeria",
+      "Rising Tides, Sinking Cities: How Climate Change Is Driving More Extreme Flooding",
+      "Commitments And Strategy",
+      "Team",
+      "Privacy Policy",
+      "Vision Statement",
+      "Mission Statement",
+      "Core Values",
+      "Team Building",
+      "Business Concepts",
+      "Business Strategy",
+      "Frequently asked questions",
+      "Faq About Participation On Our Website",
+      "Faq About Storm-water Management Services",
+      "Faq About Consultancy Services",
+      "Faq About Construction Services",
+      "Services",
+      "Environmental Impact Management Studies",
+      "Project Supervision And Management",
+      "Feasibility And Economic Studies",
+      "Engineering Surveys",
+      "Engineering Design",
+      "Advisory Services In Engineering",
+      "Project Costing And Valuation",
+      "Projects",
+      "Past Projects",
+      "Gallery1 Project",
+      "Stormwater Project",
+      "Drone Project",
+      "Recent Projects",
+      "Archives Of: DEPROF",
+      "Archives Of: Engr. John Cee Onwualu",
+      "Archives Of: Abdul M. Yahaya",
+      "Monthly Archives: June 2025",
+      "Monthly Archives: April 2025",
+      "Monthly Archives: May 2024",
+      "Monthly Archives: March 2024",
+      "Monthly Archives: June 2024",
+      "Monthly Archives: July 2024",
+      "Monthly Archives: January 2024",
+      "Monthly Archives: February 2024",
+      "Monthly Archives: April 2024",
+      "Monthly Archives: October 2023",
+      "Monthly Archives: November 2023",
+      "Monthly Archives: March 2023",
+      "Monthly Archives: January 2023",
+      "Monthly Archives: February 2023",
+      "Monthly Archives: December 2023",
+      "Monthly Archives: September 2022",
+      "Monthly Archives: October 2022",
+      "Monthly Archives: November 2022",
+      "Monthly Archives: May 2022",
+      "Monthly Archives: March 2022",
+      "Monthly Archives: July 2022",
+      "Monthly Archives: January 2022",
+      "Monthly Archives: February 2022",
+      "Monthly Archives: December 2022",
+      "Monthly Archives: August 2022",
+      "Monthly Archives: April 2022",
+      "Monthly Archives: November 2021",
+      "Monthly Archives: May 2021",
+      "Monthly Archives: June 2021",
+      "Monthly Archives: January 2021",
+      "Monthly Archives: December 2021",
+      "Monthly Archives: August 2021",
+      "Monthly Archives: April 2021",
+      "Monthly Archives: September 2020",
+      "Monthly Archives: October 2020",
+      "Monthly Archives: November 2020",
+      "Monthly Archives: May 2020",
+      "Monthly Archives: July 2020",
+      "Monthly Archives: August 2020",
+      "Tag: Drainage-inspection-method" ,
+      "Tag: Drainage-system-best-practices" ,
+      "Tag: Drainage-system-inspection-tips" ,
+      "Tag: Easy-tips-for-drainage-quality" ,
+      "Tag: Effective-drainage-qc" ,
+      "Tag: Drainage-system-quality-control" ,
+      "Tag: Stormwater-pollution-control-nigeria" ,
+      "Tag: Pollution-prevention-technique" ,
+      "Tag: Nigeria-drainage-system-maintenance" ,
+      "Tag: How-to-reduce-urbanwater-pollution" ,
+      "Tag: Preventing-stormwater-pollution" ,
+      "Tag: Rainwater-runoff" ,
+      "Tag: Stormwater-pollution-guide" ,
+      "Tag: Stormwater-pollution-trend-2025" ,
+      "Tag: Stormwater-runoff-solution" ,
+      "Tag: Water-safety-tips-nigeria" ,
+      "Tag: Urban-water-safety" ,
+      "Tag: Water-pollution-prevention-2025" ,
+      "Tag: Civil-engineering" ,
+      "Tag: Complex-engineering-problems" ,
+      "Tag: Drainage-holes" ,
+      "Tag: Drainage" ,
+      "Tag: Drainage-bresilien" ,
+      "Tag: Drainage-basin" ,
+      "Tag: Drainage-cover" ,
+      "Tag: Drainage-cell" ,
+      "Tag: Construction" ,
+      "Tag: Drainage-channel" ,
+      "Tag: Drainage-channels" ,
+      "Tag: Drainage-contractor" ,
+      "Tag: Drainage-design" ,
+      "Tag: Drainage-ditch" ,
+      "Tag: Drainage-engineer" ,
+      "Tag: Drainage-hole" ,
+      "Tag: Drainage-issues" ,
+      "Tag: Drainage-life" ,
+      "Tag: Drainage-line" ,
+      "Tag: Drainage-pathway" ,
+      "Tag: Drainage-pipe" ,
+      "Tag: Drainage-pipes" ,
+      "Tag: Drainage-problems" ,
+      "Tag: Drainage-products" ,
+      "Tag: Drainage-project" ,
+      "Tag: Drainage-solution" ,
+      "Tag: Drainage-solutions" ,
+      "Tag: Drainage-specialists" ,
+      "Tag: Drainage-system" ,
+      "Tag: Drainage-systems" ,
+      "Tag: Drainage-tile" ,
+      "Tag: Drainage-visage" ,
+      "Tag: Drainage-work" ,
+      "Tag: Drainage-works" ,
+      "Tag: Engineering-fundamentals" ,
+      "Tag: Flood-water-control" ,
+      "Tag: Nigeria" ,
+      "Tag: Quality-of-engineering-products" ,
+      "Tag: Stormwater" ,
+      "Tag: Stormwater-drainage" ,
+      "Tag: Stormwater-management" ,
+      "Tag: Sustainable-stormwater-management" ,
+      "Tag: Young-engineer" ,
+      "Tag: Bearing-capacity" ,
+      "Tag: Erosion-control" ,
+      "Tag: Foundation-design" ,
+      "Tag: Geosynthesis" ,
+      "Tag: Geotechnical-engineering" ,
+      "Tag: Hydrology" ,
+      "Tag: Infrastructure" ,
+      "Tag: Nigerian-construction" ,
+      "Tag: Pavement-design" ,
+      "Tag: Permeability" ,
+      "Tag: Stormwater-management-nigeria" ,
+      "Tag: Quality-control-qc-nigeria" ,
+      "Tag: Sediment-control" ,
+      "Tag: Slope-stability" ,
+      "Tag: Soil-investigation" ,
+      "Tag: Site-investigation" ,
+      "Tag: Soil-mechanics" ,
+      "Tag: Soil-properties" ,
+      "Tag: Water-management" ,
+      "Tag: Civil-engineers" ,
+      "Tag: Construction-proffesionals-in-nigeria" ,
+      "Tag: Efficiency" ,
+      "Tag: Nigeria-government-policy-makers" ,
+      "Tag: Quality-control" ,
+      "Tag: Urban-planners" ,
+      "Tag: Sustainable-development" ,
+      "Tag: Climate-change" ,
+      "Tag: Urban-areas" ,
+      "Tag: Urbanization" ,
+      "Tag: Drainage-planning" ,
+      "Tag: Environmental-impact" ,
+      "Tag: Nigeria-environment" ,
+      "Tag: Urban-planning" ,
+      "Tag: Water-infrastructure" ,
+      "Tag: Nigeria-water-pollution" ,
+      "Tag: Urbanization-challenges" ,
+      "Tag: Green-infrastructure" ,
+      "Tag: Resilient-cities" ,
+      "Tag: Stormwater-mitigation" ,
+      "Tag: Sustainability" ,
+      "Tag: Water-sustainability" ,
+      "Tag: Land-use-change" ,
+      "Tag: Urban-environment" ,
+      "Tag: Urban-hydrology" ,
+      "Tag: Urban-water-management" ,
+      "Tag: Bioswales" ,
+      "Tag: Low-impact-development" ,
+      "Tag: Permeable-pavement" ,
+      "Tag: Rain-barrels" ,
+      "Tag: Rain-gardens" ,
+      "Tag: Rainwater-harvesting" ,
+      "Tag: Stormwater-best-practices" ,
+      "Tag: Stormwater-education" ,
+      "Tag: Stormwater-filtration" ,
+      "Tag: Sustainable-urban-planning" ,
+      "Tag: Urban-runoff-mitigation" ,
+      "Tag: Water-conservation" ,
+      "Tag: Environmental-protection" ,
+      "Tag: Green-solutions" ,
+      "Tag: Stormwater-challenge" ,
+      "Tag: Community-involvement" ,
+      "Tag: Detective-systems" ,
+      "Tag: Drainage-systems-design-and-construction" ,
+      "Tag: Ecological-rehabilitation-and-sustainaibility" ,
+      "Tag: Flood-management" ,
+      "Tag: Flood-prone-areas" ,
+      "Tag: Flood-proof-construction-techniques" ,
+      "Tag: Infrastructure-development" ,
+      "Tag: Mitigation-strategies" ,
+      "Tag: Preventative-measures" ,
+      "Tag: Restorative-engagement-strategies" ,
+      "Tag: Riskawareness-and-planning" ,
+      "Tag: Asaba-drainage" ,
+      "Tag: Delta-drainage" ,
+      "Tag: Nigeria-drainage" ,
+      "Tag: Flooding" ,
+      "Tag: Flooding-2018" ,
+      "Tag: Flooding-2019" ,
+      "Tag: Flooding-alert" ,
+      "Tag: Flooding-cookie" ,
+      "Tag: Flooding-cookies" ,
+      "Tag: Flooding-cookies-with-royal-icing" ,
+      "Tag: Flooding-everywhere" ,
+      "Tag: Flooding-feeds" ,
+      "Tag: Flooding-friday" ,
+      "Tag: Flooding-icing" ,
+      "Tag: Flooding-ig" ,
+      "Tag: Flooding-insta" ,
+      "Tag: Flooding-insTag:ram" ,
+      "Tag: Flooding-insTag:ram-with-cute-pics-of-zeus" ,
+      "Tag: Flooding-in-texas" ,
+      "Tag: Flooding-my-timeline" ,
+      "Tag: Flooding-rain" ,
+      "Tag: Flooding-rains" ,
+      "Tag: Flooding-river" ,
+      "Tag: Flooding-roads" ,
+      "Tag: Floodings" ,
+      "Tag: Flooding-sucks" ,
+      "Tag: Flooding-technique" ,
+      "Tag: Flooding-your-news-feeds" ,
+      "Tag: Flooding-your-time" ,
+      "Tag: Flooding-your-timeline-today" ,
+      "Tag: Flooding-your-timelines" ,
+      "Tag: Flooding-your-ig" ,
+      "Tag: Storm-wreck" ,
+      "Tag: Stormwater-bmp" ,
+      "Tag: Stormwater-cm" ,
+      "Tag: Stormwater-compliance" ,
+      "Tag: Stormwater-creek" ,
+      "Tag: Stormwater-design" ,
+      "Tag: Stormwater-drain" ,
+      "Tag: Stormwater-drains" ,
+      "Tag: Stormwater-engineering" ,
+      "Tag: Stormwater-runoffs" ,
+      "Tag: Stormwater-harvesting" ,
+      "Tag: Stormwater-360" ,
+      "Tag: Stormwater-australia" ,
+      "Tag: Stormwater-fact-of-the-day" ,
+      "Tag: Stormwater-pollution" ,
+      "Tag: Stormwater-pollution-prevention" ,
+      "Tag: Stormwater-pond" ,
+      "Tag: Stormwater-retention" ,
+      "Tag: Stormwater-savvy" ,
+      "Tag: Stormwater-smart" ,
+      "Tag: Stormwater-treatment" ,
+      "Tag: Stormwater-systems" ,
+      "Tag: Stormwater-system" ,
+      "Tag: Stormwater-stewards" ,
+      "Tag: Stormwater-pit" ,
+      "Tag: Stormwater-pipe" ,
+      "Tag: Stormwater-maintenance" ,
+      "Tag: Stormwater-hawaii" ,
+      "Tag: Stormwater-awareness-week" ,
+      "Tag: Stormwater-studios" ,
+      "Tag: Stormwater-sydney" ,
+      "Tag: Flooding-the-timeline" ,
+      "Tag: Flooding-timelines-today" ,
+      "Tag: Flooding-the-streets" ,
+      "Tag: Flooding-timelines-tonight" ,
+      "Tag: Flooding-video" ,
+      "Tag: Flooding-waters" ,
+      "Tag: Flooding-yall" ,
+      "Tag: Flooding-yall-timeline" ,
+      "Tag: Storm-water-aware" ,
+      "Tag: Flooding-your-tl" ,
+      "Tag: Flooding-the-gram" ,
+      "Tag: Engineering-challenges" ,
+      "Tag: Engineering-challenges-2020" ,
+      "Tag: Engineering-challenges-for-students" ,
+      "Tag: Engineering-challenges-of-the-21st-century" ,
+      "Tag: Engineering-codes" ,
+      "Tag: Engineering-professionals" ,
+      "Tag: Young-engineers" ,
+      "Tag: Young-engineers-bricks-challenge" ,
+      "Tag: Young-engineers-fellowship" ,
+      "Tag: Young-engineers-program" ,
+      "Tag: British-standard-codes" ,
+      "Tag: Eurocodes" ,
+      "Tag: European-standard-codes" ,
+      "Tag: Engineering-practice" ,
+      "Tag: Engineering-practices" ,
+      "Tag: Engineering-works" ,
+      "Tag: Engineering-workshop" ,
+      "Tag: Professional-efficiency" ,
+      "Tag: Quality-engineering-jobs" ,
+      "Tag: Engineer" ,
+      "Tag: Mentorship" ,
+      "Tag: Training" ,
+      "Tag: Dynamic-world" ,
+      "Tag: Scientific-and-natural-laws" ,
+      "Tag: Hydraulic-engineering" ,
+      "Tag: Projects" ,
+      "Tag: And-rivers-in-delta-state-of-nigeria" ,
+      "Tag: Effurun" ,
+      "Tag: Including-existing-drains-in-asaba" ,
+      "Tag: Natural-water-courses" ,
+      "Tag: Well-researched-studies-were-conducted-over-entire-flood-prone-areas" ,
+      "Tag: Best-practiceS-in-stormwater-construction" ,
+      "Tag: Construction-stormwater" ,
+      "Tag: Developing-and-remediations-of-basins" ,
+      "Tag: Erosion-control-construction-and-stormwater-management" ,
+      "Tag: Permits-for-stormwater-systems-on-construction-sites" ,
+      "Tag: Sediment-control-and-stormwater" ,
+      "Tag: Standards-and-guidelines-for-construction" ,
+      "Tag: Stormwater-construction" ,
+      "Tag: Stormwater-controls-for-construction" ,
+      "Tag: Stormwater-infrastructure" ,
+      "Tag: Stormwater-solutions-for-construction-sites" ,
+      "Tag: Training-in-stormwater-for-construction-purposes" ,
+      "Tag: Dangers-of-flood-in-nigeria" ,
+      "Tag: Devastating-nigeria-landslide-and-flooding" ,
+      "Tag: Disaster-relief-in-action-for-floodvictims-in-nigeria" ,
+      "Tag: Extreme-heat-cause-storm-to-last-in-nigeria" ,
+      "Tag: Fighting-the-rising-waters-from" ,
+      "Tag: Flooding-in-nigeria" ,
+      "Tag: Flooding-situation-in-nigeria" ,
+      "Tag: Heavy-rainfall-has-ruined-many-nigeria-homes" ,
+      "Tag: Nigeria-devastating-flood" ,
+      "Tag: Nigeria-flooding" ,
+      "Tag: Rainfall-in-nigeria-floods" ,
+      "Tag: Severe-weather-in-nigeria-inundation" ,
+      "Tag: Detention-basins-and-pump-systems" ,
+      "Tag: Engineering-hydrology-techniques" ,
+      "Tag: Gabion-systems" ,
+      "Tag: Permits-and-guidance-for-surface-drainage" ,
+      "Tag: Raingarden-solutions" ,
+      "Tag: Rainharvest-systems" ,
+      "Tag: Roof-drains-and-downpipe-systems" ,
+      "Tag: Stormwater-runoff-solutions" ,
+      "Tag: Surface-and-belowground-drainage" ,
+      "Tag: Community-engagement" ,
+      "Tag: Education" ,
+      "Tag: Environmental-education" ,
+      "Tag: Watershed-management" ,
+      "Tag: Building-practices-in-nigeria" ,
+      "Tag: Civil-engineering-practices-in-nigeria" ,
+      "Tag: Construction-practices-in-nigeria" ,
+      "Tag: Design-engineering-services-in-nigeria" ,
+      "Tag: Development-and-planning-in-nigeria" ,
+      "Tag: Project-management" ,
+      "Tag: Environmental-engineering-practices-in-nigeria" ,
+      "Tag: Professional-practices-in-nigeria" ,
+      "Tag: Safety-practices-in-nigeria" ,
+      "Tag: Sustainable-engineering-practices-in-nigeria" ,
+      "Tag: Technical-engineering-practices-in-nigeria" ,
+      "Tag: Value-engineering-practices-in-nigeria" ,
+      "Category Archives: Case Studies",
+      "Category Archives: Environmental",
+      "Category Archives: Construction Law",
+      "Category Archives: Construction Technology",
+      "Category Archives: Feasibility And Economic Studies",
+      "Category Archives: Engineering Surveys",
+      "Category Archives: Consultancy And Advisory Services",
+      "Category Archives: Engineering Design And Simulation",
+      "Category Archives: Industry News And Trends",
+      "Category Archives: Mechanical, Electrical And Plumbing (MEP)",
+      "Category Archives: Project Supervision And Management",
+      "Category Archives: Project Valuation And Cost Control",
+      "Category Archives: Safety And Regulations",
+      "Category Archives: Training And Education",
+      "Category Archives: Uncategorized",
+    ];
+
+    function autocomplete(inp, arr) {
+      let currentFocus;
+      inp.addEventListener("input", function () {
+        closeAllLists();
+        const val = this.value;
+        if (!val) return false;
+
+        currentFocus = -1;
+        const list = document.createElement("DIV");
+        list.setAttribute("id", this.id + "autocomplete-list");
+        list.setAttribute("class", "autocomplete-items");
+        this.parentNode.appendChild(list);
+
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i].toUpperCase().includes(val.toUpperCase())) {
+            const item = document.createElement("DIV");
+            item.innerHTML =
+              "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+            item.innerHTML += arr[i].substr(val.length);
+            item.innerHTML += `<input type='hidden' value='${arr[i]}'/>`;
+            item.addEventListener("click", function () {
+              inp.value = this.querySelector("input").value;
+              closeAllLists();
+              inp.form.submit(); // Redirect!
+            });
+            list.appendChild(item);
+          }
+        }
+      });
+
+      inp.addEventListener("keydown", function (e) {
+        let x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+          currentFocus++;
+          addActive(x);
+        } else if (e.keyCode == 38) {
+          currentFocus--;
+          addActive(x);
+        } else if (e.keyCode == 13) {
+          e.preventDefault();
+          if (currentFocus > -1) {
+            if (x) x[currentFocus].click();
+          }
+        }
+      });
+
+      function addActive(x) {
+        if (!x) return false;
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = x.length - 1;
+        x[currentFocus].classList.add("autocomplete-active");
+      }
+
+      function removeActive(x) {
+        for (let i = 0; i < x.length; i++) {
+          x[i].classList.remove("autocomplete-active");
+        }
+      }
+
+      function closeAllLists(elmnt) {
+        const items = document.getElementsByClassName("autocomplete-items");
+        for (let i = 0; i < items.length; i++) {
+          if (elmnt !== items[i] && elmnt !== inp) {
+            items[i].parentNode.removeChild(items[i]);
+          }
+        }
+      }
+
+      document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+      });
+    }
+
+    autocomplete(document.getElementById("searchInput"), keywords);
+  });
+</script>
+<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+<div class="container my-4">
+  <h2 class="mb-4"><em><u>Search Results for "<%= query %>"</u></em></h2>
+
+  <!-- Blogs -->
+  <% if (blogs && blogs.length > 0) { %>
+    <h4 class="mb-3"><em><u>Blogs</u></em></h4>
+    <div class="row">
+      <% blogs.forEach(blog => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><%= blog.title %></h5>
+              <p class="card-text"><%= blog.summary || blog.content.substring(0, 100) + "..." %></p>
+              <a href="/blogs/<%= blog.slug %>" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <!-- FAQs -->
+  <% if (faqs && faqs.length > 0) { %>
+    <h4 class="mb-3"><em><u>FAQs</u></em></h4>
+    <div class="row">
+      <% faqs.forEach(faq => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><%= faq.question %></h5>
+              <p class="card-text"><%= faq.answer.substring(0, 100) + "..." %></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <!-- Services -->
+  <% if (services && services.length > 0) { %>
+    <h4 class="mb-3"><em><u>Services</u></em></h4>
+    <div class="row">
+      <% services.forEach(service => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><%= service.title %></h5>
+              <p class="card-text"><%= service.summary || service.content.substring(0, 100) + "..." %></p>
+              <a href="/services/<%= service.slug %>" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <!-- Projects -->
+  <% if (projects && projects.length > 0) { %>
+    <h4 class="mb-3"><em><u>Projects</u></em></h4>
+    <div class="row">
+      <% projects.forEach(project => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><%= project.title %></h5>
+              <p class="card-text"><%= project.summary || project.content.substring(0, 100) + "..." %></p>
+              <a href="/projects/<%= project.slug %>" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <!-- Archives -->
+  <% if (archives && archives.length > 0) { %>
+    <h4 class="mb-3"><em><u>Archives</u></em></h4>
+    <div class="row">
+      <% archives.forEach(archive => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><%= archive.title %></h5>
+              <a href="/archives/<%= archive.slug %>" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <!-- Tags -->
+  <% if (tags && tags.length > 0) { %>
+    <h4 class="mb-3"><em><u>Tags</u></em></h4>
+    <div class="row">
+      <% tags.forEach(tag => { %>
+        <div class="col-md-3 mb-3">
+          <a href="/tags/<%= tag.slug %>" class="btn btn-outline-info btn-block"><%= tag.name %></a>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <% if (
+    (!blogs || blogs.length === 0) &&
+    (!faqs || faqs.length === 0) &&
+    (!services || services.length === 0) &&
+    (!projects || projects.length === 0) &&
+    (!archives || archives.length === 0) &&
+    (!tags || tags.length === 0)
+  ) { %>
+    <p>No results found.</p>
+  <% } %>
+</div>
+
+

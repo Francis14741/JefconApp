@@ -1,0 +1,11 @@
+<% layout('partials/layout') %>
+
+<section class="container py-5 lead text-light text-center">
+  <div class="container text-light mt-4">
+    <h2 class="lead text-light"><%= service.title %></h2>
+    <p class="lead text-light"><%= service.description %></p>
+    <p class="text-muted">
+      Posted on <%= post.fullDate %> &mdash; <%= post.relativeDate %>
+    </p>
+  </div>
+</section>

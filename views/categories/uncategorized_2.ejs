@@ -1,0 +1,721 @@
+<% layout('partials/layout') %>
+  <style>
+    .accordion {
+      list-style: none;
+      padding-left: 0;
+    }
+    .accordion li {
+      margin-bottom: 1rem;
+      border: 1px solid #6d835c;
+      border-radius: 4px;
+    }
+    .accordion input[type="radio"] {
+      display: none;
+    }
+    .accordion label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background-color: #6d835c;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .accordion label a {
+      color: white;
+      text-decoration: none;
+      flex-grow: 1;
+    }
+    .accordion label a:hover {
+      text-decoration: underline;
+    }
+    .accordion .toggle-icon {
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-left: 0.5rem;
+    }
+    .accordion .content {
+      display: none;
+      padding: 1rem;
+      background-color: #566443;
+      color: white;
+      font-style: italic;
+    }
+    .accordion input[type="radio"]:checked ~ .content {
+      display: block;
+    }
+  </style>
+
+  <div class="container">
+    <h5 class="display-6 lead text-light text-center text-decoration-underline pl-2 pt-2">
+      <strong><em>Category Archives: Uncategorized Page 2</em></strong>
+    </h5>
+    <div id="previous-next-parent"> 
+      <h3 class="lead pl-2 mb-3" style="margin-right: auto;">
+        <a href="/categories/uncategorized_3" class="lead pl-4"> <i> ↞ </i><em> Older Post</em></a> 
+      </h3>
+      <h3 class="lead pl-2 mb-3" style="margin-left: auto;">
+        <a href="/categories/uncategorized" class="lead pl-4"><em> Newer Post</em><i> ↠ </i></a> 
+      </h3>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row g-3">
+      <div class="col-sm-6 mb-sm-0">
+        <div class="card" style="background-color: #6d835c">
+          <img src="http://localhost:3000/images/NavigatingImg.jpg" alt="NavigatingImg" />
+          <div class="card-body text-center">
+            <ul class="accordion">
+              <li>
+                <input type="radio" name="accordion" id="first" />
+                <label for="first">
+                  <a href="/blogs/navigat_risk_flooding">
+                    <strong><em>Navigating The Risk Of Floods: Civil Engineering Strategies For Managing Flood-Prone Areas</em></strong>
+                  </a>
+                  <span class="toggle-icon">+</span>
+                </label>
+                <div class="content">
+                  <p class="lead text-light pt-2">
+                    <em> By, Engr. John Cee Onwualu, JP (FNSE, <br> FNICE,
+                    FNIWE, P.E., R.ENG. MASCE, COREN)</em>
+                  </p>
+                  <div class="d-flex justify-content-center gap-2 flex-wrap">
+                    <a href="/archives/archives_2023_jan" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                     Posted on 30 January 2023 - 8:30 pm
+                    </a>
+                    <a href="/archives/deprof_archive" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                      <em>By, DEPROF</em>
+                    </a>
+                  </div>
+                  <p class="lead text-light pt-3">
+                    <em>
+                      "A wise man adapts himself to circumstances, as water shapes itself to the vessel that contains it."<br> - Chinese Proverb. <br> Flooding is a major concern in many areas, causing damage and destruction to homes, businesses, and communities. In addition to the physical damage, floods can lead to significant economic [...]</em
+                    >
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="background-color: #6D835C;">
+                <img src="http://localhost:3000/images/AccessingQualImg.jpg" alt="AccessingQualImg" class="card-img-top">
+                <div class="card-body text-center">
+                  <ul class="accordion">
+                    <li>
+                      <input type="radio" name="accordion" id="second" />
+                      <label for="second">
+                        <a href="/blogs/accessin_qual_engPract">
+                          <strong><em>Assessing Quality Civil Engineering Practices In Nigeria</em></strong>
+                        </a>
+                        <span class="toggle-icon">+</span>
+                      </label>
+                      <div class="content">
+                        <p class="lead text-light pt-2">
+                          <em> By, Engr. John Cee Onwualu, JP (FNSE, <br> FNICE,
+                          FNIWE, P.E., R.ENG. MASCE, COREN)</em>
+                        </p>
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                          <a href="/archives/archives_2022_dec" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                          <em>Posted on 29 December 2022 - 7:21 pm</em>
+                          </a>
+                          <a href="/archives/deprof_archive" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                            <em>By, DEPROF</em>
+                          </a>
+                        </div>
+                        <p class="lead text-light pt-3">
+                          <em>
+                            The quality of Civil Engineering practices in Nigeria has become an increasingly important priority in recent years. As the country continues to grow and change, it is important that these practice s meet the standards of a modern, wealthy country. Assessing the quality of Civil Engineering practices in Nigera is [...]</em
+                          >
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>  
+        <div class="container">
+          <div class="row g-3 pt-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="background-color: #6D835C;">
+                <img src="http://localhost:3000/images/8factsImg.jpg" alt="addressPollutImg" class="card-img-top">
+                <div class="card-body text-center">
+                  <ul class="accordion">
+                    <li>
+                      <input type="radio" name="accordion" id="third" />
+                      <label for="third">
+                        <a href="/blogs/eightfacts_about_storm">
+                          <strong><em>8 Important Facts About StormWater Drainage Systems</em></strong>
+                        </a>
+                        <span class="toggle-icon">+</span>
+                      </label>
+                      <div class="content">
+                        <p class="lead text-light pt-2">
+                          <em> By, Engr. John Cee Onwualu, JP (FNSE, <br> FNICE,
+                          FNIWE, P.E., R.ENG. MASCE, COREN)</em>
+                        </p>
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                          <a href="/archives/archives_2022_nov" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                          <em>Posted on 30 November 2022 - 4:12 pm</em>
+                          </a>
+                          <a href="/archives/deprof_archive" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                            <em>By, DEPROF</em>
+                          </a>
+                        </div>
+                        <p class="lead text-light pt-3">
+                          <em>
+                            "Storm-water drainage systems are essential to our
+                            health and safety - they help protect us from flooding
+                            and prevent water pollution, making them an important
+                            part of our infrastructure."
+                          </em>
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+        <div class="row g-3">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card" style="background-color: #6D835C;">
+              <img src="http://localhost:3000/images/FloodingImg.jpg" alt="sewaarImg" class="card-img-top">
+              <div class="card-body text-center">
+                <ul class="accordion">
+                  <li>
+                    <input type="radio" name="accordion" id="fourth" />
+                    <label for="fourth">
+                      <a href="/blogs/seven_ways_handle_flood">
+                        <strong><em>7 Ways To Handle Flooding In Any Parts Of Nigeria</em></strong>
+                      </a>
+                      <span class="toggle-icon">+</span>
+                    </label>
+                    <div class="content">
+                      <p class="lead text-light pt-2">
+                        <em> By, Engr. John Cee Onwualu, JP (FNSE, <br> FNICE,
+                        FNIWE, P.E., R.ENG. MASCE, COREN)</em>
+                      </p>
+                      <div class="d-flex justify-content-center gap-2 flex-wrap">
+                        <a href="/archives/archives_2022_oct" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                        <em>Posted on 30 October 2022 - 3:04 pm</em>
+                        </a>
+                        <a href="/archives/deprof_archive" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                          <em>By, DEPROF</em>
+                        </a>
+                      </div>
+                      <p class="lead text-light pt-3">
+                        <em
+                          >Flooding is a very serious issue in Nigeria, as it can
+                          lead to significant damages to property and even loss of
+                          life. Floods can occur due to heavy seasonal rains or
+                          from overflowing bodies of water such as rivers and
+                          oceans. Flooding can be a major problem for those
+                          [...]</em
+                        >
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="background-color: #6D835C;">
+                <img src="http://localhost:3000/images/7teamImg.jpeg" alt="beautifulHome" class="card-img-top">
+                <div class="card-body text-center">
+                  <ul class="accordion">
+                    <li>
+                      <input type="radio" name="accordion" id="fifth" />
+                      <label for="fifth">
+                        <a href="/blogs/seven_things_toKnow">
+                          <strong><em>7 Things You Need To Know Before Hiring A STORMWATER CONSTRUCTION COMPANY</em></strong>
+                        </a>
+                        <span class="toggle-icon">+</span>
+                      </label>
+                      <div class="content">
+                        <p class="lead text-light pt-2">
+                          <em> By, Engr. John Cee Onwualu, JP (FNSE, <br> FNICE,
+                          FNIWE, P.E., R.ENG. MASCE, COREN)</em>
+                        </p>
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                          <a href="/archives/archives_2022_oct" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                          <em>Posted on 29 September 2022 - 1:43 pm</em>
+                          </a>
+                          <a href="/archives/deprof_archive" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                            <em>By, DEPROF</em>
+                          </a>
+                        </div>
+                        <p class="lead text-light pt-3">
+                          <em
+                            >When it comes to stormwater drainage construction, it is
+                            important to hire a reputable and experienced company.
+                            The process is complex and requires a number of steps to
+                            ensure the job is done correctly and efficiently. If you
+                            are considering hiring a stormwater drainage
+                            construction company, there are a [...]</em
+                          >
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+        <div class="container">
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="background-color: #6D835C;">
+                <img src="http://localhost:3000/images/MeritsImg.jpg" alt="MeritsImg" class="card-img-top">
+                <div class="card-body text-center">
+                  <ul class="accordion">
+                    <li>
+                      <input type="radio" name="accordion" id="sixth" />
+                      <label for="sixth">
+                        <a href="/blogs/merits_recomend_options">
+                          <strong><em>Merits Of The Recommended Options For Storm Water
+                          Management And Control</em></strong>
+                        </a>
+                        <span class="toggle-icon">+</span>
+                      </label>
+                      <div class="content">
+                        <p class="lead text-light pt-2">
+                          <em> By, Engr. John Cee Onwualu, JP (FNSE, <br> FNICE,
+                          FNIWE, P.E., R.ENG. MASCE, COREN)</em>
+                        </p>
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                          <a href="/archives/archives_2022_august" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                          <em>Posted on 24 August 2022 - 1:06 am</em>
+                          </a>
+                          <a href="/archives/deprof_archive" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                            <em>By, DEPROF</em>
+                          </a>
+                        </div>
+                        <p class="lead text-light pt-3">
+                          <em
+                          >Excerpts from Presentation at Nigerian Society of
+                          Engineers, Asaba Chapter Technical Section of Study <br>
+                          &amp; Design of Stormwater Management And Control.</em
+                          >
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="background-color: #6D835C;">
+                <img src="http://localhost:3000/images/RecomendImg.jpg" alt="RecomendImg" class="card-img-top">
+                <div class="card-body text-center">
+                  <ul class="accordion">
+                    <li>
+                      <input type="radio" name="accordion" id="seventh" />
+                      <label for="seventh">
+                        <a href="/blogs/recommend_stormWater">
+                          <strong><em>Recommendations For Stormwater Management And
+                          Control</em></strong>
+                        </a>
+                        <span class="toggle-icon">+</span>
+                      </label>
+                      <div class="content">
+                        <p class="lead text-light pt-2">
+                          <em
+                          >By, Engr. John Cee Onwualu JP., <br> Jefcon &amp; Associates
+                          Ltd-Engineering Consultants
+                        </em>
+                        </p>
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                          <a href="/archives/archives_2022_july" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                          <em>Posted on 31 July 2022 - 1:31 am</em>
+                          </a>
+                          <a href="/archives/deprof_archive" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                            <em>By, DEPROF</em>
+                          </a>
+                        </div>
+                        <p class="lead text-light pt-3">
+                          <em
+                          >Excerpts from Presentation at Nigerian Society of
+                          Engineers, Asaba Chapter Technical Section of Study <br>
+                          &amp; Design of Stormwater Management And Control.</em>
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>              
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="background-color: #6D835C;">
+                <img src="http://localhost:3000/images/web-works.jpg" alt="web-works" class="card-img-top">
+                <div class="card-body text-center">
+                  <ul class="accordion">
+                    <li>
+                      <input type="radio" name="accordion" id="eighth" />
+                      <label for="eighth">
+                        <a href="/blogs/channel_select_stormwater">
+                          <strong><em>Channel Selection For Stormwater Control</em></strong>
+                        </a>
+                        <span class="toggle-icon">+</span>
+                      </label>
+                      <div class="content">
+                        <p class="lead text-light pt-2">
+                          <em
+                          >By, Engr. John Cee Onwualu JP., <br> Jefcon &amp; Associates
+                          Ltd-Engineering Consultants
+                        </em>
+                        </p>
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                          <a href="/archives/archives_2022_april" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                          <em>Posted on 25 April 2022 - 7:53 pm</em>
+                          </a>
+                          <a href="/archives/deprof_archive" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                            <em>By, DEPROF</em>
+                          </a>
+                        </div>
+                        <p class="lead text-light pt-3">
+                          <em
+                          >Excerpts from Presentation at Nigerian Society of
+                          Engineers, Asaba Chapter Technical Section of Study <br>
+                          &amp; Design of Stormwater Management And Control.</em>
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>       
+        </div>
+      </div>  
+      <div class="col-sm-6">
+        <div class="card" style="background-color: #6d835c">
+        <h4
+          class="display-6 lead text-light mt-3 text-decoration-underline text-center"
+        >
+          <strong><em>About us</em></strong>
+        </h4>
+        <div class="card-body text-center">
+          <p class="lead text-light"><b>Jefcon & Associates Ltd</b> is a Civil Engineering Consulting Firm with high precision GNSS data acquisition solutions with capacities for delivering various Civil Engineering Design services, including Flood Vulnerability Studies, Modeling and Design of flood control infrastructures, Building and Civil/Structural engineering, high precision Surveying and mapping.</p>
+          <div class="row">
+            <div class="col-sm-6 mb-sm-0">
+              <div class="card mt-1" style="background-color: #6d835c">
+                <h4 class="text-light text-center text-decoration-underline pt-3"><em>Recent Posts</em></h4>
+                <div class="card-body text-light text-start pl-5">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <hr>
+                      <a class="text-light d-block" href="/archives/archives_2025_june" style="text-decoration: none;"><em>June 2025</em></a><br><a href="/preventing_stormwater" class="text-light"><em>Preventing Stormwater Pollution: Implementing Effective QC For Drainage Systems In Nigeria <br> By, Engr. John Cee Onwualu, JP (FNSE, FNICE, FNIWE, P.E., R.ENG., MASCE, COREN)</em></a>
+                      <hr>
+                      <a class="text-light d-block" href="/archives/archives_2025_april" style="text-decoration: none;"><em>April 2025</em></a><br><a href="/understan_geotechnical" class="text-light"><em>Understanding Geotechnical Considerations For Storm Water Drainage In Nigeria  <br> By, Engr. John Cee Onwualu, JP (FNSE, FNICE, FNIWE, P.E., R.ENG., MASCE, COREN)</em></a>
+                      <hr>
+                      <a class="text-light d-block" href="/archives/archives_2024_july" style="text-decoration: none;"><em>July 2024</em></a><br><a href="/best_pract_stormwater" class="text-light"><em>Best Practices For Concrete Work In Stormwater Drainage: Quality Control For Durability In Nigerian Climates <br> By, Engr. John Cee Onwualu, JP (FNSE, FNICE, FNIWE, P.E., R.ENG., MASCE, COREN)</em></a>
+                      <hr>
+                      <a class="text-light d-block" href="/archives/archives_2024_june" style="text-decoration: none;"><em>June 2024</em></a><br><a href="/ensuringStormwater" class="text-light"><em>Ensuring Stormwater Drainage System Efficiency: Quality Control Measures In Nigerian Construction Projects <br> By, Engr. John Cee Onwualu, JP (FNSE, FNICE, FNIWE, P.E., R.ENG., MASCE, COREN)</em></a>
+                      <hr>
+                      <a class="text-light d-block" href="/archives/archives_2024_may" style="text-decoration: none;"><em>May 2024</em></a><br><a href="/chal_stormwat_criticalAnal" class="text-light"><em>Challenges Of Stormwater Management In Urban Areas Of Nigeria: A Critical Analysis</em></a>
+                      <hr>
+                      <a class="text-light d-block"  href="/archives/archives_2024_april" style="text-decoration: none;"><em>April 2024</em></a><br><a href="/eval_succ_effec_exisDrain" class="text-light"><em>Evaluating The Success And Effectiveness Of Existing Drainage Systems For Managing Rainwater Runoff In Nigeria</em></a>                      
+                      <hr>
+                    </div>
+                  </div>
+                </div>     
+              </div>
+            </div>
+          </div>                 
+          <div class="card" style="background-color: #6D835C";> 
+            <h4
+              class="display-8 pt-3 text-light text-decoration-underline text-center"
+            >
+              <strong><em>Jefcon Blog Post</em></strong>
+            </h4>       
+            <div class="row">
+              <div class="col-sm-6 mb-sm-0 text-start">
+                <ul style="display: inline-block;">
+                  <a class="lead text-light" href="/categories/case_studies"><em>Case Studies</em></a><br>
+                  <a class="lead text-light" href="/categories/construction_law"><em>Construction Law</em></a><br>
+                  <a class="lead text-light" href="/categories/construction_technology"><em>Construction Technology</em></a><br>
+                  <a class="lead text-light" href="/categories/consultancy_advisory"><em>Consultancy And Advisory Services</em></a><br>
+                  <a class="lead text-light" href="/categories/engdesign_simulation"><em>Engineering Design And Simulation</em></a><br>
+                  <a class="lead text-light" href="/categories/category_eng_surveys"><em>Engineering Surveys</em></a><br>
+                  <a class="lead text-light" href="/categories/cat_environmental"><em>Environmental</em></a><br>
+                  <a class="lead text-light" href="/categories/cat_feasibility_eco"><em>Feasibility And Economic Studies</em></a><br>
+                  <a class="lead text-light" href="/categories/industrynews_trend"><em>Industry News And Trends</em></a><br>
+                  <a class="lead text-light" href="/categories/innovation_research"><em>Innovation And Research</em></a><br>
+                  <a class="lead text-light" href="/categories/mech_elec_plumbing"><em>Mechanical, Electrical, And Plumbing (MEP)</em></a><br>
+                  <a class="lead text-light" href="/categories/pro_superv_cat"><em>Project Supervision And Management</em></a><br>
+                  <a class="lead text-light" href="/categories/proj_valuation_cost"><em>Project Valuation And Cost Control</em></a><br>
+                  <a class="lead text-light" href="/categories/safety_regulations"><em>Safety And Regulations</em></a><br>
+                  <a class="lead text-light" href="/categories/training_education"><em>Training And Education</em></a><br>
+                  <a class="lead text-light" href="/categories/uncategorized"><em>Uncategorized</em></a> 
+                </ul>
+              </div>
+              <div class="col-sm-6 mb-sm-0 text-start">
+                <ul style="display: inline-block;">
+                  <a class="lead text-light" href="/archives/archives_2025_june"><em>June 2025</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2025_april"><em>April 2025</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2024_july"><em>July 2024</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2024_june"><em>June 2024</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2024_may"><em>May 2024</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2024_april"><em>April 2024</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2024_march"><em>March 2024</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2024_feb"><em>February 2024</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2024_jan"><em>January 2024</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2023_dec"><em>December 2023</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2023_nov"><em>November 2023</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2023_oct"><em>October 2023</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2023_march"><em>March 2023</em></a><br>
+                  <a class="lead text-light" href="/archives/archives_2023_feb"><em>February 2023</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2023_jan"><em>January 2023</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2022_dec"><em>December 2022</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2022_nov"><em>November 2022</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2022_oct"><em>October 2022</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2022_sept"><em>September 2022</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2022_august"><em>August 2022</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2022_july"><em>July 2022</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2022_may"><em>May 2022</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2022_april"><em>April 2022</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2022_march"><em>March 2022</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2022_feb"><em>February 2022</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2022_jan"><em>January 2022</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2021_dec"><em>December 2021</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2021_nov"><em>November 2021</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2021_august"><em>August 2021</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2021_june"><em>June 2021</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2021_may"><em>May 2021</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2021_april"><em>April 2021</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2021_jan"><em>January 2021</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2020_nov"><em>November 2020</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2020_oct"><em>October 2020</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2020_sept"><em>September 2020</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2020_august"><em>August 2020</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2020_july"><em>July 2020</em></a> <br> 
+                  <a class="lead text-light" href="/archives/archives_2020_may"><em>May 2020</em></a> 
+                </ul>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="card" style="background-color: #6d835c">
+                    <div class="card-body">
+                      <h4 class="display-8  text-light mt-3 text-decoration-underline text-center">
+                        <strong><em>Popular Tags</em></strong>
+                      </h4>
+                      <div class="row">
+                        <div class="col-sm-6 mb-sm-0 text-start">
+                          <ul style="display: inline-block;">
+                            <a class="lead text-light" href="/tags/tag_drainagechannels"><em>#drainagechannel(2)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_floodwatercontrol"><em>#flood-water-control(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_stormwater"><em>#stormwater(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_stormwatermanagement"><em>#storm-water-management(5)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_civilengineering"><em>#civilengineering(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_construction"><em>#construction(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainage"><em>#drainage(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagebasin"><em>#drainagebasin(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagebresilien"><em>#drainagebresilien(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagecell"><em>#drainagecell(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagechannel"><em>#drainagechannel(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagecontractor"><em>#drainagecontractor(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagecover"><em>#drainagecover(3)</em></a>  <br> 
+                            <a class="lead text-light" href="/tags/tag_drainagedesign"><em>#drainagedesign(6)</em></a> <br>  
+                            <a class="lead text-light" href="/tags/tag_drainageditch"><em>#drainageditch(3)</em></a> <br> 
+                            <a class="lead text-light" href="/tags/tag_drainageengineer"><em>#drainageengineer(6)</em></a> <br>  
+                            <a class="lead text-light" href="/tags/tag_drainagehole"><em>#drainageholes(3)</em></a> <br>
+                            <a class="lead text-light" href="/tags/tag_drainageissues"><em>#drainageissues(3)</em></a> <br>
+                            <a class="lead text-light" href="/tags/tag_drainagelife"><em>#drainagelife(3)</em></a> <br>
+                            <a class="lead text-light" href="/tags/tag_drainageline"><em>#drainageline(3)</em></a> <br>
+                            <a class="lead text-light" href="/tags/tag_drainagepathway"><em>#drainagepathways(3</em>)</a> <br>  
+                            <a class="lead text-light" href="/tags/tag_drainagepipe"><em>#drainagepipe(3)</em></a>   
+                          </ul>
+                        </div>
+                        <div class="col-sm-6 mb-sm-0 text-start">
+                          <ul style="display: inline-block;">
+                            <a class="lead text-light" href="/tags/tag_drainagepipes"><em>#drainagepipes(3)</em></a> <br>  
+                            <a class="lead text-light" href="/tags/tag_drainageproblems"><em>#drainageproblems(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainageproducts"><em>#drainageproducts(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainageproject"><em>#drainageproject(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagesolution"><em>#drainagesolution(6)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagesolutions"><em>#drainagesolutions(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagespecialists"><em>#drainagespecialists(6)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagesystem"><em>#drainagesystem(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagesystems"><em>#drainagesystems(4)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagetile"><em>#drainagetile(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagevisage"><em>drainagevisage(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainagework"><em>#drainagework(3)</em></a><br>
+                            <a class="lead text-light" href="/tags/tag_drainageworks"><em>#drainageworks(3)</em></a><br> 
+                            <a class="lead text-light" href="/tags/tag_engineeringfundamentals"><em>#engineering-fundamentals(2)</em></a> <br> 
+                            <a class="lead text-light" href="/tags/tag_engineeringpractices"><em>#engineeringpractices(3)</em></a> <br> 
+                            <a class="lead text-light" href="/tags/tag_nigeria"><em>#Nigeria(3)</em></a> <br> 
+                            <a class="lead text-light" href="/tags/tag_qualityofengineeringproducts"><em>#quality-of-engineering-products(2)</em></a> <br> 
+                            <a class="lead text-light" href="/tags/tag_stormwaterdrainage"><em>#storm-water-drainage(3)</em></a> <br> 
+                            <a class="lead text-light" href="/tags/tag_stormwatermanagement"><em>stormwater-management(5)</em></a> <br> 
+                            <a class="lead text-light" href="/tags/tag_sustainablestormwatermanagement"><em>#sustainable-storm-water-management(3)</em></a> <br> 
+                            <a class="lead text-light" href="/tags/tag_youngengineer"><em>#youngengineer(2)</em></a> 
+                          </ul>
+                        </div>
+                      </div>  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+        <div class="container">
+          <div class="card" style="background-color: #6d835c">
+            <h4 class="card-title text-light text-decoration-underline text-center mt-2"><em>Categories</em></h4>
+              <div class="card-body text-light lead">
+                <div class="list-unstyled"> 
+                  <a class="text-light pl-3" href="/categories/case_studies"><em>Case Studies</em></a><br>                         
+                  <a class="text-light pl-3" href="/categories/construction_law"><em>Construction Law</em></a> <br>                        
+                  <a class="text-light pl-3" href="/categories/construction_technology"><em>Construction Technology</em></a><br>                         
+                  <a class="text-light pl-3" href="/categories/consultancy_advisory"><em>Consultancy And Advisory Services</em></a><br>                        
+                  <a class="text-light pl-3" href="/categories/engdesign_simulation"><em>Engineering Design And Simulation</em></a><br>                       
+                  <a class="text-light pl-3" href="/categories/category_eng_surveys"><em>Engineering Surveys</em></a><br>                       
+                  <a class="text-light pl-3" href="/categories/cat_environmental"><em>Environmental</em></a><br>                       
+                  <a class="text-light pl-3" href="/categories/cat_feasibility_eco"><em>Feasibility And Economic Studies</em></a><br>
+                  <a class="text-light pl-3" href="/categories/industrynews_trend"><em>Industry News And Trends</em></a><br>
+                  <a class="text-light pl-3" href="/categories/innovation_research"><em>Innovation And Research</em></a><br>
+                  <a class="text-light pl-3" href="/categories/mech_elec_plumbing"><em>Mechanical, Electrical, And Plumbing (MEP)</em></a><br>
+                  <a class="text-light pl-3" href="/categories/pro_superv_cat"><em>Project Supervision And Management</em></a><br>
+                  <a class="text-light pl-3" href="/categories/proj_valuation_cost"><em>Project Valuation And Cost Control</em></a><br>
+                  <a class="text-light pl-3" href="/categories/safety_regulations"><em>Safety And Regulations</em></a><br>
+                  <a class="text-light pl-3" href="/categories/training_education"><em>Training And Education</em></a><br>
+                  <a class="text-light pl-3" href="/categories/uncategorized"><em>Uncategorized</em></a><br>
+                  <p>
+                    <a class="btn btn-success mt-3 ml-3" href="/blogs"><em>More ⇥</em></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="background-color: #6D835C;">
+                <img src="http://localhost:3000/images/ConsideDesignImg.jpg" alt="ConsideDesignImg" class="card-img-top">
+                <div class="card-body text-center">
+                  <ul class="accordion">
+                    <li>
+                      <input type="radio" name="accordion" id="ninth" />
+                      <label for="ninth">
+                        <a href="/blogs/consideratns_stormwater">
+                          <strong><em>Considerations In The Design Of Stormwater Channels</em></strong>
+                        </a>
+                        <span class="toggle-icon">+</span>
+                      </label>
+                      <div class="content">
+                        <p class="lead text-light pt-2">
+                          <em
+                          >By, Engr. John Cee Onwualu JP., <br> Jefcon &amp; Associates
+                          Ltd-Engineering Consultants
+                        </em>
+                        </p>
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                          <a href="/archives/archives_2022_may" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                          <em>Posted on 31 May 2022 - 8:41 pm</em>
+                          </a>
+                          <a href="/archives/deprof_archive" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                            <em>By, DEPROF</em>
+                          </a>
+                        </div>
+                        <p class="lead text-light pt-3">
+                          <em
+                          >Excerpts from Presentation at Nigerian Society of
+                          Engineers, Asaba Chapter Technical Section of Study <br>
+                          &amp; Design of Stormwater Management And Control.</em>
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div> 
+            </div>
+          </div>         
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="background-color: #6D835C;">
+                <img src="http://localhost:3000/images/DescCorImg.jpg" alt="DescCorImg" class="card-img-top">
+                <div class="card-body text-center">
+                  <ul class="accordion">
+                    <li>
+                      <input type="radio" name="accordion" id="tenth" />
+                      <label for="tenth">
+                        <a href="/blogs/hydraulic_design">
+                          <strong><em>Hydraulic Design Of Drainage Channels</em></strong>
+                        </a>
+                        <span class="toggle-icon">+</span>
+                      </label>
+                      <div class="content">
+                        <p class="lead text-light pt-2">
+                          <em
+                          >By, Engr. John Cee Onwualu JP., <br> Jefcon &amp; Associates
+                          Ltd-Engineering Consultants
+                        </em>
+                        </p>
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                          <a href="/archives/archives_2022_march" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                          <em>Posted on 21 March 2022 - 1:51 am</em>
+                          </a>
+                          <a href="/archives/deprof_archive" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                            <em>By, DEPROF</em>
+                          </a>
+                        </div>
+                        <p class="lead text-light pt-3">
+                          <em
+                          >Excerpts from Presentation at Nigerian Society of
+                          Engineers, Asaba Chapter Technical Section of Study <br>
+                          &amp; Design of Stormwater Management And Control.</em>
+                        </p>
+                      </div>
+                    </li>
+                  </ul>                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>      
+      </div>
+    </div>
+    <div id="previous-next-parent"> 
+      <h3 class="lead pl-2 pb-3" style="margin-right: auto;">
+        <a href="/categories/uncategorized_3" class="lead pl-4"> <i> ↞ </i><em> Older Post</em></a> 
+      </h3>
+      <h3 class="lead pr-3 pb-3" style="margin-left: auto;">
+        <a href="/categories/uncategorized" class="lead"><em> Newer Post</em><i> ↠ </i></a> 
+      </h3>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const radios = document.querySelectorAll(".accordion input[type='radio']");
+        radios.forEach((radio) => {
+          radio.addEventListener("change", () => {
+            radios.forEach((r) => {
+              const label = r.nextElementSibling;
+              const icon = label.querySelector(".toggle-icon");
+              if (icon) icon.textContent = r.checked ? "-" : "+";
+            });
+          });
+        });
+      });
+    </script>     
+  </section>
+

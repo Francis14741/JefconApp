@@ -1,0 +1,191 @@
+<nav class="navbar navbar-expand-md mb-3 navbar-light bg-dark fixed-top">
+  <div class="container">
+    <a class="nav-brand" href="/">
+      <img
+        src="/images/jefconlogo.jpeg"
+        alt="jefconlogo"
+        style="height: 50px; width: auto; float: left; margin-right: 8px"
+      />
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarContent"
+      aria-controls="navbarContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav nav-spacing mt-2 ml-2 lead">
+        <li class="nav-item active me-3">
+          <a class="nav-link text-success" href="/"
+            ><b
+              ><em><u>JEFCON&ASSOCIATES</u></em></b
+            ></a
+          >
+        </li>
+
+        <!-- About Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-success"
+            data-toggle="dropdown"
+            href="/about"
+            ><b
+              ><em><u>ABOUT US</u></em></b
+            ></a
+          >
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/about/team"
+              ><b><em>Team</em></b></a
+            >
+            <a class="dropdown-item" href="/about/commitment"
+              ><b><em>Commitments And Strategy</em></b></a
+            >
+            <a class="dropdown-item" href="/about/privacyPolicy"
+              ><b><em>Privacy Policy</em></b></a
+            >
+          </div>
+        </li>
+
+        <!-- Services Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-success"
+            data-toggle="dropdown"
+            href="/services"
+            ><b
+              ><em><u>SERVICES</u></em></b
+            ></a
+          >
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/services/engineering_design"
+              ><b><em>Engineering Design And Construction</em></b></a
+            >
+            <a class="dropdown-item" href="/services/environmental_impact"
+              ><b><em>Environmental Impact Studies And Management</em></b></a
+            >
+            <a class="dropdown-item" href="/services/advisory_services"
+              ><b><em>Advisory Services In Engineering</em></b></a
+            >
+            <a class="dropdown-item" href="/services/engineering_surveys"
+              ><b><em>Engineering Surveys</em></b></a
+            >
+            <a class="dropdown-item" href="/services/feasibility_ecoStudies"
+              ><b><em>Feasibility And Economic Studies</em></b></a
+            >
+            <a class="dropdown-item" href="/services/project_supervision"
+              ><b><em>Project Supervision And Management</em></b></a
+            >
+            <a class="dropdown-item" href="/services/project_costing"
+              ><b><em>Project Costing, Valuation And Tender Analysis</em></b></a
+            >
+          </div>
+        </li>
+
+        <!-- Projects Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-success"
+            data-toggle="dropdown"
+            href="/projects"
+            ><em
+              ><b><u>PROJECTS</u></b></em
+            ></a
+          >
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/projects/recentProjects"
+              ><b><em>Recent Projects</em></b></a
+            >
+            <a class="dropdown-item" href="/projects/pastProjects"
+              ><b><em>Past Projects</em></b></a
+            >
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-success" href="/blogs"
+            ><b
+              ><em><u>BLOGS</u></em></b
+            ></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-success" href="/contact"
+            ><b
+              ><em><u>CONTACT</u></em></b
+            ></a
+          >
+        </li>
+
+        <!-- FAQ Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-success"
+            data-toggle="dropdown"
+            href="/faqs"
+            ><b
+              ><em><u>FAQ</u></em></b
+            ></a
+          >
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/faqs/faq_construction"
+              ><b><em>Faq About Construction Services</em></b></a
+            >
+            <a class="dropdown-item" href="/faqs/faq_stormwater"
+              ><b><em>Faq About Storm-water Management Services</em></b></a
+            >
+            <a class="dropdown-item" href="/faqs/faq_consultancy"
+              ><b><em>Faq About Consultancy Services</em></b></a
+            >
+            <a class="dropdown-item" href="/faqs/faq_participation"
+              ><b><em>Faq About Participation On Our Website</em></b></a
+            >
+          </div>
+        </li>
+      </ul>
+      <div
+        class="position-relative d-inline-block w-100 ml-lg-5 mt-2 mt-md-0"
+        style="max-width: 400px"
+      >
+        <form
+          class="form-inline my-2 my-lg-0 position-relative"
+          action="/search"
+          method="GET"
+        >
+          <input
+            id="searchInput"
+            name="q"
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            autocomplete="off"
+          />
+          <button
+            class="btn btn-outline-success my-2 my-sm-0 d-flex align-items-center justify-content-center px-3"
+            type="submit"
+            style="font-size: 17px; padding: 10px 15px; cursor: pointer"
+          >
+            <i class="fas fa-search" style="font-size: 1rem"></i>
+          </button>
+        </form>
+        <ul
+          id="search-suggestions"
+          class="list-group position-absolute top-100 start-0 w-100"
+          style="
+            z-index: 1050;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+          "
+        ></ul>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,24 @@
+<% layout('partials/layout') %>
+
+<div class="container my-5 text-light text-center">
+  <h1 class="mb-4 text-light"><em><u>All Blogs</u></em></h1>
+
+  <% if (blogs && blogs.length > 0) { %>
+    <div class="row">
+      <% blogs.forEach(blog => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><%= blog.title %></h5>
+              <p class="card-text"><%= blog.summary || blog.content.substring(0, 100) + "..." %></p>
+              <a href="/blogs/<%= blog.slug %>" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p>No blogs found.</p>
+  <% } %>
+</div>
+

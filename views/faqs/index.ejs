@@ -1,0 +1,43 @@
+<% layout('partials/layout') %>
+
+<div class="container my-4 text-light">
+  <h2 class="text-center text-light mb-4"><em><u>FAQ Categories</u></em></h2>
+  <div class="row">
+    <% faqs.forEach(faq => { %>
+      <div class="col-md-6 mb-3">
+        <div class="card shadow-sm p-3">
+          <h4>
+            <a href="/faqs/<%= faq.slug %>"><%= faq.category %></a>
+          </h4>
+          <p><%= faq.description || "No description available" %></p>
+          <% if (faq.tags && faq.tags.length) { %>
+            <p class="mt-2">
+              <strong>Tags:</strong>
+              <% faq.tags.forEach(tag => { %>
+                <span class="badge bg-secondary"><%= tag %></span>
+              <% }) %>
+            </p>
+          <% } %>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<!-- 
+<div class="container my-4">
+  <h2 class="text-light"><em><u>All FAQs</u></em></h2>
+  <div class="row">
+    <% faqs.forEach(faq => { %>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><%= faq.title %></h5>
+            <p class="card-text"><%= faq.question %></p>
+            <a href="/faqs/<%= faq.slug %>" class="btn btn-primary"><em>Read More</em></a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div> -->

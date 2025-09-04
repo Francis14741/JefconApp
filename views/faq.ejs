@@ -1,0 +1,33 @@
+<%- include('partials/footer') %> <%- include('../partials/header') %>
+<h2 class="text-center text-light">Frequently Asked Questions</h2>
+<p class="text-center text-light lead">
+  <em
+    >This FAQ page covers a range of topics related to the Jefcon's services,
+    process, payment, warranty, safety, quality and customer service. This is to
+    provide detailed information to help our customers understand the company's
+    policies and procedures, reducing the need for frequent inquiries and
+    support requests.</em
+  >
+</p>
+<div class="accordion" id="faqAccordion">
+  <% faqs.forEach((faq, index) => { %>
+  <div class="card">
+    <div class="card-header" id="heading<%= index %>">
+      <h5 class="mb-0">
+        <button
+          class="btn btn-link"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapse<%= index %>"
+        >
+          <%= faq.question %>
+        </button>
+      </h5>
+    </div>
+    <div id="collapse<%= index %>" class="collapse" data-parent="#faqAccordion">
+      <div class="card-body"><%= faq.answer %></div>
+    </div>
+  </div>
+  <% }) %>
+</div>
+<%- include('../partials/footer') %>

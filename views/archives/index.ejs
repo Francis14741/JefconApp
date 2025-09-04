@@ -1,0 +1,17 @@
+<% layout('partials/layout') %>
+
+<div class="container my-5 text-light text-center">
+  <h1 class="mb-4 text-light"><em><u>All Archives</u></em></h1>
+
+  <% if (!archives || archives.length === 0) { %>
+    <p class="text-light"><em>No archives found.</em></p>
+  <% } else { %>
+    <ul class="list-group">
+      <% archives.forEach(archive => { %>
+        <li class="list-group-item">
+          <a href="/archives/<%= archive.slug %>"><%= archive.title %></a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</div>

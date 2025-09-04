@@ -1,0 +1,68 @@
+<% layout('partials/layout') %>
+
+<!-- Page Background -->
+
+  <div class="bg-dark py-5 text-light">
+    <div class="container">
+        <h3 class="text-center"><u><em>Search Results for "<%= query %>"</em></u></h3>
+  </div>
+  </div>
+
+    <!-- Search Results Section -->
+  <section class="py-5">
+    <div class="container" style="background-color: rgb(112, 111, 110);">
+        <% if (results.length === 0) { %>
+        <p class="text-center text-light display-6"><em>No results found for "<%= query %>"</em></p>
+        <% } else { %>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <% results.forEach(r => { %>
+            <% 
+                // ✅ Map type -> correct base route
+                let basePath = '/';
+                switch (r.type) {
+                case 'blog':
+                    basePath = '/blogs';
+                    break;
+                case 'faq':
+                    basePath = '/faqs';
+                    break;
+                case 'service':
+                    basePath = '/services';
+                    break;
+                case 'project':
+                    basePath = '/projects';
+                    break;
+                case 'archive':
+                    basePath = '/archives';
+                    break;
+                case 'tag':
+                    basePath = '/tags';
+                    break;
+                case 'category':
+                    basePath = '/categories';
+                    break;
+                default:
+                    basePath = '/';
+                }
+            %>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                <div class="card-body text-center d-flex flex-column">
+                    <h5 class="card-title">
+                    <a href="<%= basePath %>/<%= r.slug %>"><%= r.title %></a>
+                    </h5>
+                    <p class="card-text text-truncate">
+                    <%= r.description ? r.description.substring(0, 150) : 'No description available.' %>
+                    <%= r.description && r.description.length > 150 ? '...' : '' %>
+                    </p>
+                    <span class="badge bg-secondary mt-auto">
+                    <%= r.type.charAt(0).toUpperCase() + r.type.slice(1) %>
+                    </span>
+                </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+        <% } %>
+    </div>    
+  </section>

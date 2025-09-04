@@ -1,0 +1,87 @@
+<% layout('partials/layout') %>
+
+<div class="container my-4 text-center text-light">
+  <h3 class="mb-3 text-light"><em><u>Search Results for "<%= query %>"</u></em></h3>
+
+  <div class="row g-3">
+    <% if (blogs && blogs.length) { %>
+      <% blogs.forEach(blog => { %>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><a href="/blogs/<%= blog.slug %>"><%= blog.title %></a></h5>
+              <p class="card-text"><%= blog.content.substring(0, 100) %>...</p>
+              <a href="/blogs/<%= blog.slug %>" class="btn btn-outline-primary btn-sm">Read More</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+
+    <% if (services && services.length) { %>
+      <% services.forEach(service => { %>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm border-success">
+            <div class="card-body">
+              <h5 class="card-title text-success"><a href="/services/<%= service.slug %>"><%= service.title %></a></h5>
+              <p class="card-text"><%= service.description.substring(0, 100) %>...</p>
+              <a href="/services/<%= service.slug %>" class="btn btn-outline-success btn-sm">View Service</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+
+    <% if (projects && projects.length) { %>
+      <% projects.forEach(project => { %>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm border-info">
+            <div class="card-body">
+              <h5 class="card-title text-info"><a href="/projects/<%= project.slug %>"><%= project.title %></a></h5>
+              <p class="card-text"><%= project.description.substring(0, 100) %>...</p>
+              <a href="/projects/<%= project.slug %>" class="btn btn-outline-info btn-sm">View Project</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+
+    <% if (archives && archives.length) { %>
+      <% archives.forEach(archive => { %>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm border-warning">
+            <div class="card-body">
+              <h5 class="card-title text-warning"><a href="/archives/<%= archive.slug %>"><%= archive.title %></a></h5>
+              <p class="card-text"><%= archive.content.substring(0, 100) %>...</p>
+              <a href="/archives/<%= archive.slug %>" class="btn btn-outline-warning btn-sm">View Archive</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+
+  <!-- FAQs block as 5th card type -->
+  <% if (faqs && faqs.length) { %>
+    <div class="mt-5">
+      <h4 class="mb-3">Related FAQs</h4>
+      <div class="accordion" id="faqAccordion">
+        <% faqs.forEach((faq, i) => { %>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading<%= i %>">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= i %>">
+                <%= faq.question %>
+              </button>
+            </h2>
+            <div id="collapse<%= i %>" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                <%= faq.answer %>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  <% } %>
+
+</div>

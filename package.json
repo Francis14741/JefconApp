@@ -1,0 +1,46 @@
+{
+  "name": "jefconapp",
+  "version": "1.0.0",
+  "description": "An Engineering Design, Construction and Consultancy Firm",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "seed": "node seeds/seedAll.js"
+  },
+
+  "keywords": [],
+  "author": "Francis Ifeanyi Anwuzia",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "cheerio": "^1.1.0",
+    "compression": "^1.8.1",
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "debug": "^4.4.1",
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "ejs-lint": "^2.0.1",
+    "ejs-mate": "^4.0.0",
+    "express": "^5.1.0",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^8.0.1",
+    "express-session": "^1.18.2",
+    "gray-matter": "^4.0.3",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.17.2",
+    "morgan": "^1.10.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "router": "^2.2.0",
+    "slugify": "^1.6.6",
+    "timeago.js": "^4.0.2",
+    "xss": "^1.0.15"
+  }
+}
