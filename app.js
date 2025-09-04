@@ -17,12 +17,8 @@ const MongoStore = require('connect-mongo');
 dotenv.config();
 const app = express();
 
-// ---------- MongoDB Connection ----------
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URL)
   .then(() => console.log('✅ MongoDB Connected'))
   .catch(err => console.error('❌ MongoDB connection error:', err));
 
@@ -31,29 +27,29 @@ app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Body parser
+// ---------- Middleware ----------
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(compression());                 // Compress responses
-app.use(morgan("dev")); 
+app.use(morgan('dev')); 
 
-// XSS sanitization
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// ---------- INPUT SANITIZATION ----------
 app.use((req, res, next) => {
   if (req.query) {
     for (let key in req.query) {
-      req.query[key] = xss(req.query[key]);
+      if (req.query[key]) req.query[key] = xss(req.query[key]);
     }
   }
   if (req.body) {
     for (let key in req.body) {
-      req.body[key] = xss(req.body[key]);
+      if (req.body[key]) req.body[key] = xss(req.body[key]);
     }
   }
   next();
 });
-
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
 
 // ---------- Rate Limiting ----------
 const limiter = rateLimit({
@@ -74,18 +70,26 @@ app.use(
     crossOriginEmbedderPolicy: false,
   })
 );
-
 app.use(helmet.hidePoweredBy());
 app.use(helmet.frameguard({ action: "sameorigin" }));
 
 // ---------- Session (if needed) ----------
-app.use(session({
-  secret: process.env.SESSION_SECRET || 'supersecret',
-  resave: false,
-  saveUninitialized: false,
-  store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-  cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 day
-}));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "fallbacksecret",
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URL, // 👈 must be defined
+      ttl: 14 * 24 * 60 * 60, // 14 days
+    }),
+    cookie: {
+      secure: process.env.NODE_ENV === 'production',
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+    },
+  })
+);
 
 // ---------- Routes ----------
 const pagesRoutes = require('./routes/pages'); // homepage & static
@@ -115,6 +119,11 @@ app.use('/commitment', commitmentRoutes);
 app.use('/about', aboutRoutes);
 app.use('/search', searchRoutes);
 app.use('/admin', adminRoutes);
+
+
+app.get('/', (req, res) => {
+  res.send('🚀 Render Deployment Works with MongoDB + Sessions!');
+});
 
 // ---------- Error Handling ----------
 app.use((err, req, res, next) => {

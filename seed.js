@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const slugify = require("slugify");
 
 // Import your models
-const Tag = require("./models/Tag");
-const Category = require("./models/Category");
-const Archive = require("./models/Archive");
-const Blog = require("./models/Blog");
+const Tag = require("./models/tag");
+const Category = require("./models/category");
+const Archive = require("./models/archive");
+const Blog = require("./models/blog");
 
 // Import your seed data
 const tags = require("./data/tags");
