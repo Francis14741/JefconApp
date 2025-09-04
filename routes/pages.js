@@ -7,7 +7,7 @@ const Project = require('../models/project');
 const Archive = require('../models/archive');
 const Category = require('../models/category');
 const Tag = require('../models/tag');
-const Message = require("../models/Message");
+const Message = require("../models/message");
 
 // Home page
 router.get('/', (req, res) => {
