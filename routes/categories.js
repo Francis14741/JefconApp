@@ -115,12 +115,19 @@ router.get('/', async (req, res) => {
 });
 
 // Single category by slug
+// router.get('/:slug', async (req, res) => {
+//   const category = await Category.findOne({ slug: req.params.slug });
+//   if (!category) return res.status(404).render('error/404', { url: req.originalUrl, layout: 'partials/layout' });
+
+//   const blogs = await Blog.find({ categories: category._id });
+//   res.render('categories/show', { category, blogs, title: `Category: ${category.title}`, layout: 'partials/layout' });
+// });
+
 router.get('/:slug', async (req, res) => {
   const category = await Category.findOne({ slug: req.params.slug });
-  if (!category) return res.status(404).render('error/404', { url: req.originalUrl, layout: 'partials/layout' });
-
-  const blogs = await Blog.find({ categories: category._id });
-  res.render('categories/show', { category, blogs, title: `Category: ${category.title}`, layout: 'partials/layout' });
+  if (!category) return res.status(404).render('pages/404');
+  const blogs = await Blog.find({ category: category._id });
+  res.render('categories/show', { category, blogs });
 });
 
 module.exports = router;

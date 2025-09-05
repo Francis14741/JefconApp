@@ -22,19 +22,22 @@ router.get("/faq_participation", async (req, res) => {
   res.render("faqs/faq_participation", { faq });
 });
 
-router.get('/', async (req, res) => {
-  const faqs = await Faq.find().sort({ createdAt: -1 });
-  res.render('faqs/index', { faqs });
+router.get("/", async (req, res) => {
+  const faqs = await Faq.find();
+  res.render("faqs/index", { faqs });
 });
 
-router.get('/:slug', async (req, res) => {
+// show single FAQ by slug
+router.get("/:slug", async (req, res) => {
   try {
     const faq = await Faq.findOne({ slug: req.params.slug });
-    if (!faq) return res.status(404).render('pages/404');
-    res.render('faqs/show', { faq });
+    if (!faq) {
+      return res.status(404).render("error/404", { url: req.originalUrl });
+    }
+    res.render("faqs/show", { faq });
   } catch (err) {
-    console.error(err);
-    res.status(500).send('Server Error');
+    console.error("Error loading FAQ:", err);
+    res.status(500).render("error/500", { error: err });
   }
 });
 

@@ -4,4 +4,4 @@ const privacyPolicySchema = new mongoose.Schema({
   policy: String,
 });
 
-module.exports = mongoose.model("privacyPolicy", privacyPolicySchema);
+module.exports = mongoose.model("PrivacyPolicy", privacyPolicySchema);

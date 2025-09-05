@@ -1,51 +1,43 @@
 <% layout('partials/layout') %>
 
-<div class="container my-5 text-light">
-  <h1 class="mb-4 text-light mt-4"><em><u><%= blog.title %></u></em></h1>
+<div class="container py-5 text-light">
+  <h1 class="mb-4"><em><u><%= blog.title %></u></em></h1>
 
-  <% if (blog.content) { %>
-    <p class="text-light"><em><%= blog.content %></em></p>
-  <% } %>
+  <div class="mb-4 text-light">
+    <p><em><%= blog.content %></em></p>
+  </div>
 
-  <% if (blog.tags && blog.tags.length > 0) { %>
-    <p class="text-light">Tags:
-      <% blog.tags.forEach(tag => { %>
-        <a href="/tags/<%= tag.slug %>"><%= tag.title %></a>
-      <% }) %>
-    </p>
-  <% } %>
-
+  <!-- Tags -->
   <p class="text-light">
-    <strong><u><em>Tags:</em></u></strong>
-    <% if (blog.tags && blog.tags.length > 0) { %>
+    <strong><em><u>Tags:</u></em></strong>
+    <% if (blog.tags && blog.tags.length) { %>
       <% blog.tags.forEach(tag => { %>
-        <a href="/tags/<%= tag.slug %>"><%= tag.title %></a>
+        <a href="/tags/<%= tag.slug %>" class="badge bg-primary me-1"><em><%= tag.title %></em></a>
       <% }) %>
     <% } else { %>
-      No tags assigned
+      <span><em>No tags assigned</em></span>
     <% } %>
   </p>
 
-  <p class="text-light">
-    <strong><u><em>Categories:</em></u></strong>
-    <% if (blog.categories && blog.categories.length > 0) { %>
-      <% blog.categories.forEach(category => { %>
-        <a href="/categories/<%= category.slug %>"><%= category.title %></a>
+  <!-- Categories -->
+  <p>
+    <strong><em><u>Categories:</u></em></strong>
+    <% if (blog.categories && blog.categories.length) { %>
+      <% blog.categories.forEach(cat => { %>
+        <a href="/categories/<%= cat.slug %>" class="badge bg-success me-1"><em><%= cat.title %></em></a>
       <% }) %>
     <% } else { %>
-      No categories assigned!
+      <span><em>Uncategorized</em></span>
     <% } %>
   </p>
 
-  <p class="text-light">
-    <strong><u><em>Archives:</em></u></strong>
-    <% if (blog.archives && blog.archives.length > 0) { %>
-      <% blog.archives.forEach(archive => { %>
-        <a href="/archives/<%= archive.slug %>"><%= archive.title %></a>
-      <% }) %>
+  <!-- Archive -->
+  <p>
+    <strong><em><u>Archive:</u></em></strong>
+    <% if (blog.archive) { %>
+      <a href="/archives/<%= blog.archive.slug %>" class="badge bg-success"><em><%= blog.archive.title %></em></a>
     <% } else { %>
-      No archives assigned!
+      <span><em>No archive assigned</em></span>
     <% } %>
   </p>
 </div>
-

@@ -52,7 +52,7 @@
         "tag_nigerianconstruction",
         "tag_pavementdesign",
         "tag_permeability",
-        "tag_qualitycontrol(QC)nigeria",
+        "tag_qualitycontrol-qc-nigeria",
         "tag_sedimentcontrol",
         "tag_siteinvestigation",
         "tag_slopestability",
@@ -60,9 +60,7 @@
         "tag_soilmechanics",
         "tag_soilproperties",
         "tag_stormwaterdrainage",
-        "tag_watermanagement"
-        
-    
+        "tag_watermanagement"    
         ],
         "category": ["consultancy_advisory", "cat_feasibility_eco", "innovation_research", "pro_superv_cat", "safety_regulations"],
         "archive": ["archives_2025_april"],

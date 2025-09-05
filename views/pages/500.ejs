@@ -1,0 +1,10 @@
+<% layout('partials/layout') %>
+
+<div class="container py-5 text-center text-light">
+  <h1 class="display-4 text-danger">500 - Server Error</h1>
+  <p class="lead">Something went wrong on our side. Please try again later.</p>
+  <% if (error) { %>
+    <pre class="text-start bg-dark text-light p-3 rounded"><%= error.message %></pre>
+  <% } %>
+  <a href="/" class="btn btn-primary mt-3">Back to Home</a>
+</div>

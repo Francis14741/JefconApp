@@ -1,24 +1,28 @@
-const mongoose = require('mongoose');
-const slugify = require('slugify');
+const mongoose = require("mongoose");
+const slugify = require("slugify");
 
 const faqSchema = new mongoose.Schema({
-  title: String,           // category title
-  slug: { type: String, unique: true },
-  description: String,     // category description
-  questions: [             // array of question objects
-    {
-      question: { type: String, required: true },
-      answer: { type: String, required: true },
-    },
-  ],
+  question: String,
+  answer: String,
+  category: { type: mongoose.Schema.Types.ObjectId, ref: "FaqCategory" },
+  slug: String,
+  createdAt: { type: Date, default: Date.now }
 });
 
-// Generate slug before saving
-faqSchema.pre('save', function(next) {
-  if (!this.isModified('title')) return next();
-  this.slug = slugify(this.title, { lower: true, strict: true });
+// Pre-save hook: generate slug from title
+faqSchema.pre("save", function (next) {
+  if (!this.slug && this.title) {
+    this.slug = slugify(this.title, { lower: true, strict: true });
+  }
   next();
 });
 
-module.exports =
-  mongoose.models.faq || mongoose.model("faq", faqSchema);
+// Text index for search
+faqSchema.index({
+  title: "text",
+  description: "text",
+  "questions.question": "text",
+  "questions.answer": "text"
+});
+
+module.exports = mongoose.models.Faq || mongoose.model("Faq", faqSchema);

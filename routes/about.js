@@ -15,7 +15,7 @@ router.get("/commitment", async (req, res) => {
 });
 
 router.get("/privacyPolicy", async (req, res) => {
-  const privacyPolicy = await privacyPolicy.find({});
+  const privacyPolicy = await PrivacyPolicy.find({});
   res.render("about/privacyPolicy", { currentRoute: "other" });
 });
 

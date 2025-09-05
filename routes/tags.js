@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const Tag = require('../models/tag');
 const Blog = require('../models/blog');
@@ -1589,95 +1589,30 @@ router.get("/tag_valueengineeringpracticesinnigeria", async (req, res) => {
 });
 
 // All tags
-router.get("/", async (req, res) => {
-  try {
-    const tags = await Tag.find().lean();
-    res.render("tags/showAll", { tags });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Server error");
-  }
+router.get('/', async (req, res) => {
+  const tags = await Tag.find().sort({ createdAt: -1 });
+  res.render('tags/index', { tags, title: 'All Tags', layout: 'partials/layout' });
 });
 
-
-// router.get('/:slug', async (req, res) => {
-//   try {
-//     const tag = await Tag.findOne({ slug: req.params.slug });
-//     if (!tag) {
-//       return res.status(404).render('pages/404');
-//     }
-
-//     // Find blogs associated with this tag
-//     const blogs = await Blog.find({ tags: tag._id }).sort({ createdAt: -1 });
-
-//     res.render('tags/show', { tag, blogs });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).send('Server Error');
-//   }
-// });
-
-
+// Show tag + blogs
 router.get("/:slug", async (req, res) => {
-  const tag = req.params.slug;
-
-  const blogs = await Blog.find({ tags: { $in: [tag] } }); // This must be correct
-  res.render("tags/show", {
-    blogs,
-    tag,
-    message: blogs.length ? null : "No posts found.",
-  });
-});
-
-router.get("/tags/:tagName", async (req, res) => {
   try {
-    const tag = req.params.tagName;
-
-    // Find blogs where tags array contains this tag
-    const blogs = await Blog.find({ tags: tag });
-
-    if (!blogs.length) {
-      return res.render("tags/show", {
-        tag,
-        blogs: [],
-        message: "No blogs found under this tag.",
-      });
+    const tag = await Tag.findOne({ slug: req.params.slug });
+    if (!tag) {
+      return res.status(404).send("Tag not found");
     }
 
-    res.render("tags/show", {
-      tag,
-      blogs,
-      message: null,
-    });
+    // Find blogs with this tag
+    const blogs = await Blog.find({ tags: tag._id });
+    console.log("Tag slug:", tag.slug);
+    console.log("Blogs found:", blogs.length);
+
+    res.render("tags/show", { tag, blogs });
+
   } catch (err) {
-    console.error(err);
-    res.status(500).render("error/500", { error: err });
-  }
-});
-
-router.get("/:tag", async (req, res) => {
-  const tag = req.params.tag;
-
-  try {
-    // Option 1: Use distinct to get unique _id's
-    const postIds = await Blog.distinct("_id", { tags: tag });
-
-    // Then fetch posts by those unique ids
-    const blogs = await Blog.find({ _id: { $in: postIds } }).sort({
-      createdAt: -1,
-    });
-
-    res.render("tags/show", {
-      tag,
-      blogs,
-      formatFullDate,
-      message: blogs.length === 0 ? `No posts found for tag "${tag}".` : null,
-    });
-  } catch (err) {
-    console.error("Error fetching posts for tag:", err);
+    console.error("Tag route error:", err);
     res.status(500).send("Server error");
   }
 });
-
 
 module.exports = router;
