@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 
 const privacyPolicySchema = new mongoose.Schema({
-  policy: String,
+  title: { type: String, default: "Privacy Policy" },
+  content: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model("privacyPolicy", privacyPolicySchema);
+module.exports = mongoose.model("PrivacyPolicy", privacyPolicySchema);
