@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Team = require('../models/team');
 const Commitment = require('../models/commitment');
-const PrivacyPolicy = require('../models/privacyPolicy');
+const PrivacyPolicy = require("../models/privacyPolicy");
 
 router.get("/team", async (req, res) => {
   const team = await Team.find({});
