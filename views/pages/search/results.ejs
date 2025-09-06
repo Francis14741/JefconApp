@@ -1,17 +1,17 @@
 <% layout('partials/layout') %>
 
-<div class="container my-5 text-light">
-  <h2 class="text-center mb-4"><em>Search Results for "<%= query %>"</em></h2>
+<div class="container my-5">
+  <h2 class="text-center mb-4">Search Results for "<%= query %>"</h2>
 
   <!-- BLOGS -->
   <% if (blogResults.length > 0) { %>
-    <h3 class="text-light"><em><u>Blogs</u></em></h3>
+    <h3>Blogs</h3>
     <div class="row">
       <% blogResults.forEach(blog => { %>
         <div class="col-md-6 mb-3">
           <div class="card p-3 h-100">
-            <h5><a href="<%= blog.link %>"><em><%= blog.title %></em></a></h5>
-            <p><em><%= blog.description %></em></p>
+            <h5><a href="<%= blog.link %>"><%= blog.title %></a></h5>
+            <p><%= blog.description %></p>
           </div>
         </div>
       <% }) %>
@@ -20,13 +20,13 @@
 
   <!-- SERVICES -->
   <% if (serviceResults.length > 0) { %>
-    <h3 class="text-light"><em><u>Services</u></em></h3>
+    <h3>Services</h3>
     <div class="row">
       <% serviceResults.forEach(service => { %>
         <div class="col-md-6 mb-3">
           <div class="card p-3 h-100">
-            <h5><a href="<%= service.link %>"><em><%= service.title %></em></a></h5>
-            <p><em><%= service.description %></em></p>
+            <h5><a href="<%= service.link %>"><%= service.title %></a></h5>
+            <p><%= service.description %></p>
           </div>
         </div>
       <% }) %>
@@ -35,13 +35,13 @@
 
   <!-- PROJECTS -->
   <% if (projectResults.length > 0) { %>
-    <h3 class="text-light"><em><u>Projects</u></em></h3>
+    <h3>Projects</h3>
     <div class="row">
       <% projectResults.forEach(project => { %>
         <div class="col-md-6 mb-3">
           <div class="card p-3 h-100">
-            <h5><a href="<%= project.link %>"><em><%= project.title %></em></a></h5>
-            <p><em><%= project.description %></em></p>
+            <h5><a href="<%= project.link %>"><%= project.title %></a></h5>
+            <p><%= project.description %></p>
           </div>
         </div>
       <% }) %>
@@ -50,62 +50,55 @@
 
   <!-- ARCHIVES -->
   <% if (archiveResults.length > 0) { %>
-    <h3 class="text-light"><em><u>Archives</u></em></h3>
+    <h3>Archives</h3>
     <div class="row">
       <% archiveResults.forEach(archive => { %>
         <div class="col-md-6 mb-3">
           <div class="card p-3 h-100">
             <h5><a href="<%= archive.link %>"><%= archive.title %></a></h5>
-            <p><em><%= archive.description %></em></p>
+            <p><%= archive.description %></p>
           </div>
         </div>
       <% }) %>
     </div>
   <% } %>
 
-  <!-- FAQ Categories -->
-  <% if (faqCategories && faqCategories.length > 0) { %>
-  <h3 class="text-light"><em><u>FAQ Categories</u></em></h3>
-    <ul>
-      <% faqCategories.forEach(faq => { %>
-        <li>
-          <a href="/faqs/<%= faq.slug %>"><%= faq.title %></a>
-          <% if (faq.description) { %>
-            <p><%= faq.description.substring(0, 100) %>...</p>
-          <% } %>
-        </li>
+ <!-- FAQ Results -->
+  <% if (faqResults && faqResults.length > 0) { %>
+    <h3 class="mt-4">FAQs</h3>
+    <div class="row">
+      <% faqResults.forEach(faq => { %>
+        <div class="col-md-6 mb-3">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a href="/faqs/<%= faq.slug %>"><%= faq.category %></a>
+              </h5>
+              <p class="card-text"><%= faq.description %></p>
+              <ul class="list-unstyled">
+                <% faq.questions.forEach(q => { %>
+                  <li class="mb-2">
+                    <strong><%= q.question %></strong><br>
+                    <small><%= q.answer %></small>
+                  </li>
+                <% }) %>
+              </ul>
+            </div>
+          </div>
+        </div>
       <% }) %>
-    </ul>
-  <% } %>
-
-  <!-- FAQ Questions & Answers -->
-  <% if (faqWithQA && faqWithQA.length > 0) { %>
-    <h3 class="text-light"><em><u>FAQ Questions & Answers</u></em></h3>
-    <% faqWithQA.forEach(faq => { %>
-      <h5><a href="/faqs/<%= faq.slug %>"><%= faq.title %></a></h5>
-      <ul>
-        <% faq.questions.forEach(q => { %>
-          <% if (q.question.toLowerCase().includes(query.toLowerCase())) { %>
-            <li>
-              <strong><%= q.question %></strong><br>
-              <small><%= q.answer.substring(0, 120) %>...</small><br>
-              <a href="/faqs/<%= faq.slug %>#<%= q._id %>">Read more</a>
-            </li>
-          <% } %>
-        <% }) %>
-      </ul>
-    <% }) %>
+    </div>
   <% } %>
 
   <!-- TAGS -->
   <% if (tagResults.length > 0) { %>
-    <h3><em><u>Tags</u></em></h3>
+    <h3>Tags</h3>
     <div class="row">
       <% tagResults.forEach(tag => { %>
         <div class="col-md-6 mb-3">
           <div class="card p-3 h-100">
-            <h5><a href="<%= tag.link %>"><em><%= tag.title %></em></a></h5>
-            <p><em><%= tag.description %></em></p>
+            <h5><a href="<%= tag.link %>"><%= tag.title %></a></h5>
+            <p><%= tag.description %></p>
           </div>
         </div>
       <% }) %>
@@ -114,13 +107,13 @@
 
   <!-- CATEGORIES -->
   <% if (categoryResults.length > 0) { %>
-    <h3 class="text-light"><em><u>Categories</u></em></h3>
+    <h3>Categories</h3>
     <div class="row">
       <% categoryResults.forEach(cat => { %>
         <div class="col-md-6 mb-3">
           <div class="card p-3 h-100">
-            <h5><a href="<%= cat.link %>"><em><%= cat.title %></em></a></h5>
-            <p><em><%= cat.description %></em></p>
+            <h5><a href="<%= cat.link %>"><%= cat.title %></a></h5>
+            <p><%= cat.description %></p>
           </div>
         </div>
       <% }) %>
@@ -129,14 +122,14 @@
 
   <!-- No results -->
   <% if (
-      blogResults.length === 0 &&
-      serviceResults.length === 0 &&
-      projectResults.length === 0 &&
-      archiveResults.length === 0 &&
-      (faqCategories.length === 0 && faqWithQA.length === 0) &&
-      tagResults.length === 0 &&
-      categoryResults.length === 0
-) { %>
-  <p class="text-center"><em>No results found for "<%= query %>".</em></p>
-<% } %>
+        blogResults.length === 0 &&
+        serviceResults.length === 0 &&
+        projectResults.length === 0 &&
+        archiveResults.length === 0 &&
+        faqResults.length === 0 &&
+        tagResults.length === 0 &&
+        categoryResults.length === 0
+      ) { %>
+    <p class="text-center mt-4">No results found for "<%= query %>".</p>
+  <% } %>
 </div>

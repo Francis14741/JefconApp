@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const Team = require('../models/team');
-const Commitment = require('../models/commitment');
-const PrivacyPolicy = require("../models/privacyPolicy");
+const Team = require("../models/team");
+const Commitment = require("../models/commitment");
+
+// ✅ Removed PrivacyPolicy model import
 
 router.get("/team", async (req, res) => {
   const team = await Team.find({});
@@ -14,8 +15,8 @@ router.get("/commitment", async (req, res) => {
   res.render("about/commitment", { currentRoute: "other" });
 });
 
-router.get("/privacyPolicy", async (req, res) => {
-  const privacyPolicy = await PrivacyPolicy.find({});
+// ✅ Static Privacy Policy page
+router.get("/privacyPolicy", (req, res) => {
   res.render("about/privacyPolicy", { currentRoute: "other" });
 });
 

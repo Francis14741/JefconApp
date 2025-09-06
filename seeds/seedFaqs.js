@@ -1,61 +1,16 @@
 const mongoose = require("mongoose");
+const Faq = require("../models/faq");
 const slugify = require("slugify");
-const Faq = require("../models/faq"); // Adjust if your model path differs
 
-// MongoDB connection
-mongoose.connect(
-  "mongodb+srv://francisanwuzia3:MC7LQpb4jTXAHN5x@jefconapp.4ufns6z.mongodb.net/jefconapp?retryWrites=true&w=majority&appName=jefconapp",
-  {
-    useNewUrlParser: true,
-  }
-)
-.then(() => console.log("MongoDB connected"))
-.catch((err) => console.log("MongoDB connection error:", err));
-
-// Seed data
 const faqs = [
-  {
-    title: "General Inquiries",
-    description: "Common questions about Jefcon Associates.",
-    questions: [
-      {
-        question: "What services does Jefcon Associates provide?",
-        answer: "We specialize in environmental consultancy, advisory services, project planning, and engineering solutions tailored to your needs.",
-      },
-      {
-        question: "Where is Jefcon Associates located?",
-        answer: "We are headquartered in Nigeria, but we work with clients globally through both onsite and remote engagements.",
-      },
-      {
-        question: "What Kind Of Warranty Do You Offer?",
-        answer: "We offer a [length]-year warranty on all our construction projects.",
-      },
-      {
-        question: "Are Your Workers Insured?",
-        answer: "Yes, all our workers are fully insured with worker's compensation and liability insurance.",
-      },
-      {
-        question: "What Kind Of Materials Do You Use?",
-        answer: "We use only high-quality materials from reputable suppliers.",
-      },
-      {
-        question: "What Safety Measures Do You Take On Site?",
-        answer: "We take safety very seriously and follow all industry standards and regulations to ensure a safe working environment.",
-      },
-      {
-        question: "How Do You Ensure Quality Workmanship?",
-        answer: "We have a quality control process in place to ensure that all work meets our high standards.",
-      },
-      {
-        question: "Do You Handle Permits And Code Compliance?",
-        answer: "Yes, we handle all necessary permits and ensure that our work complies with local building codes and regulations.",
-      },
-    ],
-  },
   {
     title: "FAQs about Construction Services",
     description: "Questions about Construction Services at Jefcon Associates.",
     questions: [
+      {
+        question: "What does the FAQ section cover?",
+        answer: "This FAQ page covers topics related to Jefcon's services, process, payment, warranty, safety, quality and customer service."
+      },
       {
         question: "How Do I Get A Quote For My Project?",
         answer: "You can contact us through our website, by phone, or by visiting our office. We will schedule a consultation to discuss your project and provide a quote.",
@@ -80,7 +35,6 @@ const faqs = [
   },
   {
     title: "FAQs about Consultancy Services",
-    slug: slugify("Consultancy Services", { lower: true, strict: true }),
     description: "Questions about Consultancy Services at Jefcon Associates.",
     questions: [
       {
@@ -115,7 +69,6 @@ const faqs = [
   },
   {
     title: "FAQs about Stormwater Management Services",
-    slug: slugify("Stormwater Management Services", { lower: true, strict: true }),
     description: "Questions about Stormwater Management Services at Jefcon Associates.",    
     questions: [
       {
@@ -138,9 +91,16 @@ const faqs = [
   },
   {
     title: "FAQs about Participation on our website",
-    slug: slugify("Participation On Our Website", { lower: true, strict: true }),
     description: "Questions about participating on our website ",
     questions: [
+      {
+        question: "What services does Jefcon Associates provide?",
+        answer: "We specialize in environmental consultancy, advisory services, project planning, and engineering solutions tailored to your needs.",
+      },
+      {
+        question: "Where is Jefcon Associates located?",
+        answer: "We are headquartered in Nigeria, but we work with clients globally through both onsite and remote engagements.",
+      },
       {
         question: "How can I participate on the Jefcon website?",
         answer: "You can sign up, post comments, and submit project proposals."
@@ -157,27 +117,21 @@ const faqs = [
   }
 ];
 
-// Seed function
-async function seedFaqs() {
+(async () => {
   try {
-    console.log("Clearing existing FAQs...");
+    await mongoose.connect("mongodb+srv://francisanwuzia3:MC7LQpb4jTXAHN5x@jefconapp.4ufns6z.mongodb.net/jefconapp?retryWrites=true&w=majority&appName=jefconapp");
     await Faq.deleteMany({});
+    console.log("🗑️ Old FAQs cleared");
 
-    console.log("Seeding new FAQs...");
     for (let faq of faqs) {
-      // Generate slug from title
       faq.slug = slugify(faq.title, { lower: true, strict: true });
-
-      const newFaq = new Faq(faq);
-      await newFaq.save();
+      await Faq.create(faq);
     }
 
-    console.log("✅ FAQs seeded successfully.");
+    console.log("🌱 FAQs seeded");
+    process.exit();
   } catch (err) {
-    console.error("❌ Error seeding FAQs:", err);
-  } finally {
-    mongoose.connection.close();
+    console.error(err);
+    process.exit(1);
   }
-}
-
-seedFaqs();
+})();

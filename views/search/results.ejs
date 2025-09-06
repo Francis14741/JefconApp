@@ -3,7 +3,7 @@
 <div class="container my-4 text-light">
   <h2 class="text-light"><em>Search Results for "<%= query %>"</em></h2>
 
-  <% [blogResults, serviceResults, projectResults, archiveResults, faqCategoryResults, tagResults, categoryResults].forEach(results => { %>
+  <% [blogResults, serviceResults, projectResults, archiveResults, faqResults, tagResults, categoryResults].forEach(results => { %>
     <% if (results && results.length) { %>
       <div class="row">
         <% results.forEach(item => { %>
@@ -20,4 +20,36 @@
       </div>
     <% } %>
   <% }) %>
+
+  <% if (faqResults && faqResults.length > 0) { %>
+  <h3>FAQs</h3>
+  <div class="row">
+    <% faqResults.forEach(faq => { %>
+      <div class="col-md-6 mb-4">
+        <div class="card bg-dark text-light shadow">
+          <div class="card-body">
+            <h5><a href="/faqs/<%= faq.slug %>" class="text-info"><%= faq.title %></a></h5>
+            <p><%= faq.description || "" %></p>
+            
+            <% if (faq.questions && faq.questions.length > 0) { %>
+              <ul>
+                <% faq.questions.forEach(q => { %>
+                  <li><strong><%= q.question %></strong></li>
+                <% }) %>
+              </ul>
+            <% } %>
+
+            <% if (faq.tags && faq.tags.length > 0) { %>
+              <p>
+                <% faq.tags.forEach(tag => { %>
+                  <span class="badge bg-secondary"><%= tag %></span>
+                <% }) %>
+              </p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+<% } %>
 </div>

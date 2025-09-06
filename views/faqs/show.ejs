@@ -1,4 +1,4 @@
-<!-- <% layout('partials/layout') %>
+<% layout('partials/layout') %>
 
 <div class="container my-4 text-light">
 
@@ -45,16 +45,4 @@
       </div>
     <% }) %>
   </div>
-</div> -->
-
-<% layout('partials/layout') %>
-
-<div class="container my-4 text-light">
-  <h1 class="text-light"><em><u><%= faq.title %></u></em></h1>
-  <% faq.questions.forEach(q => { %>
-    <div class="faq-item">
-      <h5 class="text-light"><em><%= q.question %></em></h5>
-      <p class="text-light"><em><%= q.answer %></em></p>
-    </div>
-  <% }) %>
 </div>

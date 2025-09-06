@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-const Blog = require("../models/blog");
-const Service = require("../models/service");
-const Project = require("../models/project");
-const Archive = require("../models/archive");
-const Faq = require("../models/faq");
-const Tag = require("../models/tag");
-const Category = require("../models/category");
+const Blog = require('../models/blog');
+const Service = require('../models/service');
+const Project = require('../models/project');
+const Archive = require('../models/archive');
+const Faq = require('../models/faq');
+const Tag = require('../models/tag');
+const Category = require('../models/category');
 
 router.get("/", async (req, res) => {
   const query = req.query.q || "";
@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
       title: s.title,
       description: s.content?.substring(0, 50) || "",
       link: `/services/${s.slug}`,
-      type: "Service"
+      type: 'Service'
     }));
 
     // --- PROJECTS ---
@@ -38,7 +38,7 @@ router.get("/", async (req, res) => {
       title: p.title,
       description: p.content?.substring(0, 50) || "",
       link: `/projects/${p.slug}`,
-      type: "Project"
+      type: 'Project'
     }));
 
     // --- ARCHIVES ---
@@ -47,21 +47,19 @@ router.get("/", async (req, res) => {
       title: a.title,
       description: a.content?.substring(0, 50) || "",
       link: `/archives/${a.slug}`,
-      type: "Archive"
+      type: 'Archive'
     }));
 
-    // --- FAQ CATEGORIES ---
-    const faqCategories = await Faq.find({
-      $or: [
-        { title: new RegExp(query, "i") },
-        { description: new RegExp(query, "i") }
-      ]
-    });
+    // --- FAQ Categories & FAQ Q/A ---    
+    const faqs = await Faq.find({ $text: { $search: query } });
 
-    // --- FAQ Q&A ---
-    const faqWithQA = await Faq.find({
-      "questions.question": new RegExp(query, "i")
-    });
+    const faqResults = faqs.map(faq => ({
+      title: faq.title,
+      description: faq.description,
+      slug: faq.slug,
+      questions: faq.questions.slice(0, 2), // preview first 2
+      tags: faq.tags || []
+    }));
 
     // --- TAGS ---
     const tags = await Tag.find({ $text: { $search: query } });
@@ -79,18 +77,17 @@ router.get("/", async (req, res) => {
       title: cat.title,
       description: `View all items in category "${cat.title}"`,
       link: `/categories/${cat.slug}`,
-      type: "Category"
+      type: 'Category'
     }));
 
-    // --- Render once with ALL results ---
-    res.render("pages/search/results", {
+    // --- Render search results ---
+    res.render("search/results", {
       query,
       blogResults,
       serviceResults,
       projectResults,
       archiveResults,
-      faqCategories,  // category-level matches
-      faqWithQA,      // question-level matches
+      faqResults,
       tagResults,
       categoryResults
     });
