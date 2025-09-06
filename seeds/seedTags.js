@@ -1,15 +1,6 @@
 const Tag = require("../models/tag");
-const mongoose = require("mongoose");
 const slugify = require("slugify");
 
-mongoose.connect("mongodb+srv://francisanwuzia3:MC7LQpb4jTXAHN5x@jefconapp.4ufns6z.mongodb.net/jefconapp?retryWrites=true&w=majority&appName=jefconapp", {
-  useNewUrlParser: true,
-  // useUnifiedTopology is deprecated in driver v4+, so we omit it
-})
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.log('MongoDB connection error:', err));
-
-// "Tag: #construction",
 const tags = [
    { title: "tag_drainageinspectionmethod" },
   { title: "tag_drainagesystembestpractices" },
@@ -300,28 +291,17 @@ const tags = [
   { title: "tag_valueengineeringpracticesinnigeria" },
 ];
 
-    
 async function seedTags() {
-  try {
-    console.log('Clearing existing Tags...');
-    await Tag.deleteMany({});
+  console.log('Clearing existing Tags...');
+  await Tag.deleteMany({});
+  console.log('Seeding new Tags...');
 
-    console.log('Seeding new Tags...');
-    for (let tag of tags) {
-      // Ensure unique slug
-      tag.slug = slugify(tag.title, { lower: true, strict: true });
-
-      const newTag = new Tag(tag);
-      await newTag.save();
-    }
-
-    console.log('✅ Tags seeded successfully.');
-    mongoose.connection.close();
-  } catch (err) {
-    console.error('❌ Error seeding Tags:', err);
-    mongoose.connection.close();
+  for (let tag of tags) {
+    tag.slug = slugify(tag.title, { lower: true, strict: true });
+    await new Tag(tag).save();
   }
+
+  console.log('✅ Tags seeded successfully.');
 }
 
-seedTags();
-
+module.exports = { seedTags };

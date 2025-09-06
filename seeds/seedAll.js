@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 // Import individual seeders
-const seedTags = require("./seedTags");
-const seedCategories = require("./seedCategories");
-const seedArchives = require("./seedArchives");
-const seedFaqs = require("./seedFaqs");
-const seedServices = require("./seedServices");
-const seedProjects = require("./seedProjects");
-const seedBlogs = require("./seedBlogs");
+const { seedTags } = require("./seedTags");
+const { seedCategories } = require("./seedCategories");
+const { seedArchives } = require("./seedArchives");
+const { seedFaqs } = require("./seedFaqs");
+const { seedServices } = require("./seedServices");
+const { seedProjects } = require("./seedProjects");
+const { seedBlogs } = require("./seedBlogs");
 
 const MONGO_URI = "mongodb+srv://francisanwuzia3:MC7LQpb4jTXAHN5x@jefconapp.4ufns6z.mongodb.net/jefconapp?retryWrites=true&w=majority&appName=jefconapp"
 
