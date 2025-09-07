@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
-const Service = require("../models/service");
+const Service = require("../models/service"); // adjust path if needed
+const slugify = require("slugify");
 
 const services = [
-    {
+  {
         title: "Engineering Surveys",
         slug: "engineering_surveys",
         description: "Engineering Survey Services",
@@ -44,18 +44,23 @@ const services = [
         description: "Project Supervision And Management Services...",
         content: "Our function in your project management is to ensure that the project objectives are achieved within the planned budget and schedule. Our methods ensure, among other things, the smooth continuation of the project while the project manager is away or if the project manager is replaced.  We pride ourselves on our expertise in this aspect of engineering. Our team of experienced professionals ensures that your construction project is completed on time, within budget, and to the highest quality standards.."
     },
-  
 ];
 
 async function seedServices() {
-  try {
-    await Service.deleteMany({});
-    const createdServices = await Service.insertMany(services);
-    console.log(`✅ ${createdServices.length} Services seeded`);
-    return createdServices;
-  } catch (err) {
-    console.error("❌ Error seeding Services:", err);
+  console.log("🗑️ Clearing old Services...");
+  await Service.deleteMany({});
+
+  console.log("🌱 Seeding new Services...");
+  for (let service of services) {
+    service.slug = slugify(service.title, { lower: true, strict: true });
+    await Service.updateOne(
+      { title: service.title },
+      { $set: service },
+      { upsert: true } // avoids duplicates
+    );
   }
+
+  console.log("✅ Services seeded successfully");
 }
 
 module.exports = seedServices;

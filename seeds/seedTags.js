@@ -1,10 +1,11 @@
-const Tag = require("../models/tag");
+const mongoose = require("mongoose");
 const slugify = require("slugify");
+const Tag = require("../models/tag");
 
 const tags = [
-   { title: "tag_drainageinspectionmethod" },
+  { title: "tag_drainageinspectionmethod" },
   { title: "tag_drainagesystembestpractices" },
-  { title: "tag_drainagesysteminspectiontips" },
+  { title: "tag_drainagesystemInspectionTips" },
   { title: "tag_easytipsfordrainagequality" },
   { title: "tag_effectivedrainageqc" },
   { title: "tag_drainagesystemqualitycontrol" },
@@ -16,14 +17,13 @@ const tags = [
   { title: "tag_rainwaterrunoff" },
   { title: "tag_stormwaterpollutionguide" },
   { title: "tag_stormwaterpollutiontrend2025" },
-  { title: "tag_stormwaterRunoffsolution" },
+  { title: "tag_stormwaterrunoffsolution" },
   { title: "tag_watersafetytipsnigeria" },
   { title: "tag_urbanwatersafety" },
   { title: "tag_waterpollutionprevention2025" },
   { title: "tag_civilengineering" },
   { title: "tag_complexengineeringproblems" },
   { title: "tag_drainageholes" },
-  { title: "tag_drainagehole" },
   { title: "tag_drainage" },
   { title: "tag_drainagebresilien" },
   { title: "tag_drainagebasin" },
@@ -36,6 +36,7 @@ const tags = [
   { title: "tag_drainagedesign" },
   { title: "tag_drainageditch" },
   { title: "tag_drainageengineer" },
+  { title: "tag_drainagehole" },
   { title: "tag_drainageissues" },
   { title: "tag_drainagelife" },
   { title: "tag_drainageline" },
@@ -288,20 +289,22 @@ const tags = [
   { title: "tag_safetypracticesinnigeria" },
   { title: "tag_sustainableengineeringpracticesinnigeria" },
   { title: "tag_technicalengineeringpracticesinnigeria" },
-  { title: "tag_valueengineeringpracticesinnigeria" },
+  { title: "tag_valueengineeringpracticesinnigeria" },      
 ];
 
-async function seedTags() {
-  console.log('Clearing existing Tags...');
-  await Tag.deleteMany({});
-  console.log('Seeding new Tags...');
 
+async function seedTags() {
+  console.log("🗑️ Clearing existing Tags...");
+  await Tag.deleteMany({});
+
+  console.log("🌱 Seeding new Tags...");
   for (let tag of tags) {
     tag.slug = slugify(tag.title, { lower: true, strict: true });
-    await new Tag(tag).save();
+    await Tag.create(tag);
   }
 
-  console.log('✅ Tags seeded successfully.');
+  console.log("✅ Tags seeded successfully");
 }
 
-module.exports = { seedTags };
+// Export as named function for seedAll.js
+module.exports =  seedTags ;

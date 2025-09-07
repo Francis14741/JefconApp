@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const Faq = require("../models/faq");
 const slugify = require("slugify");
 
@@ -117,21 +116,31 @@ const faqs = [
   }
 ];
 
-(async () => {
+async function seedFaqs() {
   try {
-    await mongoose.connect("mongodb+srv://francisanwuzia3:MC7LQpb4jTXAHN5x@jefconapp.4ufns6z.mongodb.net/jefconapp?retryWrites=true&w=majority&appName=jefconapp");
+    console.log("🗑️ Clearing old FAQs...");
     await Faq.deleteMany({});
-    console.log("🗑️ Old FAQs cleared");
+
+    const faqs = [
+      {
+        title: "FAQ about Participation on Our Website",
+        description: "Some description...",
+        questions: [
+          { question: "How do I participate?", answer: "You can..." }
+        ]
+      },
+      // add more FAQ objects here
+    ];
 
     for (let faq of faqs) {
       faq.slug = slugify(faq.title, { lower: true, strict: true });
       await Faq.create(faq);
     }
 
-    console.log("🌱 FAQs seeded");
-    process.exit();
+    console.log("🌱 FAQs seeded successfully");
   } catch (err) {
-    console.error(err);
-    process.exit(1);
+    console.error("❌ Error seeding FAQs:", err);
   }
-})();
+}
+
+module.exports = seedFaqs;

@@ -1,10 +1,8 @@
-const Archive = require("../models/archive");
+const Archive = require("../models/archive"); // adjust path if needed
+const slugify = require("slugify");
 
-async function seedArchives() {
-  try {
-    await Archive.deleteMany({});
-    await Archive.insertMany([
-        {
+const archives = [
+  {
             title: "Archives Of: DEPROF",
             slug: "deprof_archive",
             content:"What is a Stormwater?  Stormwater, which can also be spelled as storm water, is a body of water that formed as a result of rainfall, snow or ice melt. Stormwater can infiltrate the soil, be stored on the land surface in ponds and puddles, evaporate, or resolved to runoff. Most runoff is conveyed directly to [...]",
@@ -214,11 +212,24 @@ async function seedArchives() {
             slug: "archives_2020_august",
             content:"Presentation at Nigerian Society of Engineers, Asaba Chapter Technical Section of Study &amp; Design of Stormwater Management. &amp; Control by Engr. John Cee Onwualu, Jefcon &amp; Associates Ltd &#8211; Engineering Consultants. ABSTRACT Climate change which is a direct effect of global warming has brought extreme weather changes to our environment, such as sea-level rise, more [...]",
         },
-    ]);
-    console.log("✅ Archives seeded");
-  } catch (err) {
-    console.error("❌ Error seeding Archives:", err);
+  // add other archives
+];
+
+async function seedArchives() {
+  console.log("🗑️ Clearing existing Archives...");
+  await Archive.deleteMany({});
+  console.log("🌱 Seeding new Archives...");
+
+  for (let archive of archives) {
+    archive.slug = slugify(archive.title, { lower: true, strict: true });
+    await Archive.updateOne(
+      { title: archive.title },
+      { $set: archive },
+      { upsert: true }
+    );
   }
+
+  console.log("✅ Archives seeded successfully");
 }
 
 module.exports = seedArchives;

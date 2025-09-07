@@ -1,50 +1,41 @@
-const mongoose = require("mongoose");
-const slugify = require("slugify");
 const Project = require("../models/project");
+const slugify = require("slugify");
 
 const projects = [
+  { title: "Drone Project", description: "..." },
+  { title: "Stormwater Project", description: "..." },
   {
       "title": "Drone Survey Project",
       "slug": "drone_project",
       "description": "Using drones for topographical surveys",
-      "content": "Full project details",
-      "tags": [],
-      "services": []
     },
     {
       "title": "Stormwater Flooding Control Project",
       "slug": "stormwater_project",
       "description": "Implementing stormwater flooding control solutions",
-      "content": "Full project details",
-      "tags": [],
-      "services": []
     },
     {
       "title": "Gallery 1 Project",
       "slug": "gallery1_project",
       "description": "Gallery 1 project solutions",
-      "content": "Full project details",
-      "tags": [],
-      "services": []
     }
 ];
 
 async function seedProjects() {
-  try {
-    await Project.deleteMany({});
-    console.log("🗑️ Cleared old projects");
+  console.log("🗑️ Clearing old Projects...");
+  await Project.deleteMany({});
 
-    const seeded = await Project.insertMany(
-      projects.map((proj) => ({
-        ...proj,
-        slug: slugify(proj.title, { lower: true, strict: true }),
-      }))
+  console.log("🌱 Seeding new Projects...");
+  for (let project of projects) {
+    project.slug = slugify(project.title, { lower: true, strict: true });
+    await Project.updateOne(
+      { title: project.title },
+      { $set: project },
+      { upsert: true }
     );
-
-    console.log(`✅ ${seeded.length} Projects seeded`);
-  } catch (err) {
-    console.error("❌ Error seeding Projects:", err);
   }
+
+  console.log("✅ Projects seeded successfully");
 }
 
 module.exports = seedProjects;
