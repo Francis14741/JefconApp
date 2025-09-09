@@ -38,18 +38,24 @@ router.get("/advisory_services", async (req, res) => {
   const service = await Service.findOne({ slug: "advisory_services" });
   res.render("services/advisory_services", { service });
 });
+
 // All services
 router.get('/', async (req, res) => {
   const services = await Service.find().sort({ createdAt: -1 });
   res.render('services/index', { services, title: 'Our Services', layout: 'partials/layout' });
 });
 
-// Single service
-router.get('/:slug', async (req, res) => {
-  const service = await Service.findOne({ slug: req.params.slug });
-  if (!service) return res.status(404).render('error/404', { url: req.originalUrl, layout: 'partials/layout' });
+router.get("/:slug", async (req, res) => {
+  try {
+    const service = await Service.findOne({ slug: req.params.slug })
 
-  res.render('services/show', { service, title: service.title, layout: 'partials/layout' });
+    if (!service) return res.status(404).render("404", { message: "Service not found" });
+
+    res.render("services/show", { service });
+  } catch (err) {
+    console.error("Service route error:", err);
+    res.status(500).send("Server Error");
+  }
 });
 
 module.exports = router;

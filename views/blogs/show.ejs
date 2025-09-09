@@ -34,10 +34,12 @@
   <!-- Archive -->
   <p>
     <strong><em><u>Archive:</u></em></strong>
-    <% if (blog.archive) { %>
-      <a href="/archives/<%= blog.archive.slug %>" class="badge bg-success"><em><%= blog.archive.title %></em></a>
+    <% if (blog.archives && blog.archives.length > 0) { %>
+      <% blog.archives.forEach(archive => { %>
+        <a href="/archives/<%= archive.slug %>" class="badge bg-secondary me-1"><em><%= archive.title %></em></a><br>
+      <% }) %>
     <% } else { %>
-      <span><em>No archive assigned</em></span>
+      <p><em>No archives assigned>/</p>
     <% } %>
   </p>
 </div>

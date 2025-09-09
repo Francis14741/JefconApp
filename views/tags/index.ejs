@@ -9,7 +9,7 @@
     <ul class="list-group">
       <% tags.forEach(tag => { %>
         <li class="list-group-item">
-          <a href="/tags/<%= tag.slug %>"><%= tag.title %></a>
+          <a href="/tags/<%= tag.slug %>"><em><%= tag.title %></em></a>
         </li>
       <% }) %>
     </ul>

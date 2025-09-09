@@ -1,18 +1,18 @@
 <% layout('partials/layout') %>
 
 <section class="container py-4">
-  <h2 class="mb-4 text-center text-light text-uppercase"><%= title %></h2>
+  <h2 class="mb-4 text-center text-light text-uppercase"><em><%= title %></em></h2>
 
   <% if (blogs && blogs.length > 0) { %>
   <ul class="list-group">
     <% blogs.forEach(blog => { %>
     <li class="list-group-item">
-      <a href="/blogs/<%= blog.slug %>"><%= blog.title %></a>
+      <a href="/blogs/<%= blog.slug %>"><em><%= blog.title %></em></a>
     </li>
     <% }) %>
     <% tags.forEach(tag => { %>
     <li class="list-group-item">
-      <a href="/tags/<%= tag.slug %>"><%= tag.title %></a>
+      <a href="/tags/<%= tag.slug %>"><em><%= tag.title %></em></a>
     </li>
     <% }) %>
   </ul>

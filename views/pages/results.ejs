@@ -1,86 +1,136 @@
 <% layout('partials/layout') %>
 
-    <div class="container py-4 bg-dark text-light">
-      <h2 class="text-light mb-4"><em><u>Search Results for "<%= query %>"</u></em></h2>
+<div class="container py-4 bg-dark text-light">
+  <h2 class="text-center mb-5"><em>Search Results for:"<%= query %>"</em></h2>
 
-      <% /* Blogs */ %>
-      <% if (results.blogs && results.blogs.length) { %>
-        <h4 class="mt-4">Blogs</h4>
-        <div class="row">
-          <% results.blogs.forEach(blog => { %>
-            <div class="col-md-4 mb-3">
-              <div class="card bg-secondary text-light h-100">
-                <div class="card-body">
-                  <h5 class="card-title"><%= blog.name %></h5>
-                  <p class="card-text"><%= blog.content %></p>
-                  <a href="/blogs/<%= blog.slug %>" class="btn btn-primary btn-sm">Read More</a>
-                </div>
-              </div>
+  <!-- Blogs -->
+  <% if (results.blogs && results.blogs.length) { %>
+    <h3 class="mb-3"><em><u>Blogs</u></em></h3>
+    <div class="row">
+      <% results.blogs.forEach(blog => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow">
+            <div class="card-body">
+              <h5 class="card-title"><em><%= blog.title %></em></h5>
+              <p class="card-text"><em><%= blog.description || blog.excerpt || "" %></em></p>
+              <a href="/blogs/<%= blog.slug %>" class="btn btn-primary btn-sm"><em>Read More</em></a>
             </div>
-          <% }) %>
+          </div>
         </div>
-      <% } else { %>
-        <p>No blogs found.</p>
-      <% } %>
-
-      <% /* FAQs */ %>
-      <% if (results.faqs && results.faqs.length) { %>
-        <h4 class="mt-4">FAQs</h4>
-        <div class="row">
-          <% results.faqs.forEach(faq => { %>
-            <div class="col-md-6 mb-3">
-              <div class="card bg-secondary text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><%= faq.question %></h5>
-                  <p class="card-text"><%= faq.answer %></p>
-                </div>
-              </div>
-            </div>
-          <% }) %>
-        </div>
-      <% } %>
-
-      <% /* Tags */ %>
-      <% if (results.tags && results.tags.length) { %>
-        <h4 class="mt-4">Tags</h4>
-        <div class="row">
-          <% results.tags.forEach(tag => { %>
-            <div class="col-md-3 mb-2">
-              <a href="/tags/<%= tag.slug %>" class="btn btn-outline-light btn-sm w-100">
-                <%= tag.name %>
-              </a>
-            </div>
-          <% }) %>
-        </div>
-      <% } %>
-
-      <% /* Categories */ %>
-      <% if (results.categories && results.categories.length) { %>
-        <h4 class="mt-4">Categories</h4>
-        <div class="row">
-          <% results.categories.forEach(cat => { %>
-            <div class="col-md-3 mb-2">
-              <a href="/categories/<%= cat.slug %>" class="btn btn-outline-light btn-sm w-100">
-                <%= cat.title %>
-              </a>
-            </div>
-          <% }) %>
-        </div>
-      <% } %>
-
-      <% /* Archives */ %>
-      <% if (results.archives && results.archives.length) { %>
-        <h4 class="mt-4">Archives</h4>
-        <div class="row">
-          <% results.archives.forEach(archive => { %>
-            <div class="col-md-4 mb-2">
-              <a href="/archives/<%= archive.slug %>" class="btn btn-outline-light btn-sm w-100">
-                <%= archive.title %>
-              </a>
-            </div>
-          <% }) %>
-        </div>
-      <% } %>
+      <% }) %>
     </div>
+  <% } else { %>
+    <p><em>No blogs found.</em></p>
+  <% } %>
 
-    
+  <!-- Tags -->
+  <% if (results.tags && results.tags.length) { %>
+    <h3 class="mt-5 mb-3"><em><u>Tags</u></em></h3>
+    <div class="row">
+      <% results.tags.forEach(tag => { %>
+        <div class="col-md-4 mb-3">
+          <div class="card h-100 bg-secondary text-light">
+            <div class="card-body">
+              <h5 class="card-title"><em><%= tag.title %></em></h5>
+              <a href="/tags/<%= tag.slug %>" class="btn btn-light btn-sm"><em>View Tag</em></a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p><em>No tags found.</em></p>
+  <% } %>
+
+  <!-- Categories -->
+  <% if (results.categories && results.categories.length) { %>
+    <h3 class="mt-5 mb-3"><em><u>Categories</u></em></h3>
+    <div class="row">
+      <% results.categories.forEach(cat => { %>
+        <div class="col-md-4 mb-3">
+          <div class="card h-100 bg-secondary text-light">
+            <div class="card-body">
+              <h5 class="card-title"><em><%= cat.title %></em></h5>
+              <a href="/categories/<%= cat.slug %>" class="btn btn-light btn-sm"><em>View Category</em></a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p><em>No categories found.</em></p>
+  <% } %>
+
+  <!-- Archives -->
+  <% if (results.archives && results.archives.length) { %>
+    <h3 class="mt-5 mb-3"><em><u>Archives</u></em></h3>
+    <div class="row">
+      <% results.archives.forEach(archive => { %>
+        <div class="col-md-3 mb-3">
+          <a href="/archives/<%= archive.slug %>" class="btn btn-outline-warning w-100">
+            <em><%= archive.title %></em>
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p><em>No archives found.</em></p>
+  <% } %>
+
+  <!-- Services -->
+  <% if (results.services && results.services.length > 0) { %>
+    <h3 class="mt-5 mb-3"><em><u>Services</u></em></h3>
+    <div class="row">
+      <% results.services.forEach(service => { %>
+        <div class="col-md-4 mb-3">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><em>
+                <a href="<%= service.link %>"><%= service.title %></a></em>
+              </h5>
+              <p class="card-text"><em><%= service.description.substring(0, 100) %>...</em></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <!-- FAQs -->
+  <% if (results.faqs && results.faqs.length) { %>
+    <h3 class="mt-5 mb-3"><em><u>FAQs</u></em></h3>
+    <div class="row">
+      <% results.faqs.forEach(faq => { %>
+        <div class="col-md-6 mb-3">
+          <div class="card bg-dark text-light shadow">
+            <div class="card-body">
+              <h5><a href="/faqs/<%= faq.slug %>" class="text-info"><em><%= faq.title %></em></a></h5>
+              <p><em><%= faq.description || "" %></em></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p><em>No FAQs found.</em></p>
+  <% } %>
+
+  <!-- Projects -->
+  <% if (results.projects && results.projects.length > 0) { %>
+    <h3 class="mt-5 mb-3"><em><u>Projects</u></em></h3>
+    <div class="row">
+      <% results.projects.forEach(project => { %>
+        <div class="col-md-4 mb-3">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><em>
+                <a href="<%= project.link %>"><%= project.title %></a></em>
+              </h5>
+              <p class="card-text"><em><%= project.description.substring(0, 100) %>...</em></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+</div>

@@ -1,7 +1,7 @@
 <% layout('partials/layout') %>
 
 <div class="container text-light my-4">
-  <h3 class="mb-4 text-center">Search Results for "<%= query %>"</h3>
+  <h3 class="mb-4 text-center"><em>Search Results for "<%= query %>"</em></h3>
 
   <% if (results.length === 0) { %>
     <div class="alert alert-warning text-center"><em>No results found.</em></div>
@@ -12,33 +12,33 @@
           <div class="card h-100 shadow-sm">
             <div class="card-body">
               <% if (result.type === "blog") { %>
-                <h5 class="card-title"><a href="/blogs/<%= result.slug %>"><%= result.title %></a></h5>
-                <p class="card-text"><%= result.excerpt || result.content.substring(0,100) %>...</p>
-                <a href="/blogs/<%= result.slug %>" class="btn btn-sm btn-primary">Read More</a>
+                <h5 class="card-title"><a href="/blogs/<%= result.slug %>"><em><%= result.title %></em></a></h5>
+                <p class="card-text"><em><%= result.excerpt || result.content.substring(0,100) %>...</em></p>
+                <a href="/blogs/<%= result.slug %>" class="btn btn-sm btn-primary"><em>Read More</em></a>
               
               <% } else if (result.type === "faq") { %>
-                <h5 class="card-title"><%= result.question %></h5>
-                <p class="card-text text-muted"><%= result.answer %></p>
+                <h5 class="card-title"><em><%= result.question %></em></h5>
+                <p class="card-text text-muted"><em><%= result.answer %></em></p>
 
               <% } else if (result.type === "service") { %>
-                <h5 class="card-title"><a href="/services/<%= result.slug %>"><%= result.title %></a></h5>
-                <p class="card-text"><%= result.description.substring(0,120) %>...</p>
+                <h5 class="card-title"><a href="/services/<%= result.slug %>"><em><%= result.title %></em></a></h5>
+                <p class="card-text"><em><%= result.description.substring(0,120) %>...</em></p>
 
               <% } else if (result.type === "project") { %>
-                <h5 class="card-title"><a href="/projects/<%= result.slug %>"><%= result.title %></a></h5>
-                <p class="card-text"><%= result.description.substring(0,120) %>...</p>
+                <h5 class="card-title"><a href="/projects/<%= result.slug %>"><em><%= result.title %></em></a></h5>
+                <p class="card-text"><em><%= result.description.substring(0,120) %>...</em></p>
 
               <% } else if (result.type === "category") { %>
-                <h5 class="card-title"><a href="/categories/<%= result.slug %>"><%= result.title %></a></h5>
-                <p class="text-muted">Category</p>
+                <h5 class="card-title"><a href="/categories/<%= result.slug %>"><em><%= result.title %></em></a></h5>
+                <p class="text-muted"><em><u>Category</u></em></p>
 
               <% } else if (result.type === "tag") { %>
-                <h5 class="card-title"><a href="/tags/<%= result.slug %>"><%= result.title %></a></h5>
-                <p class="text-muted">Tag</p>
+                <h5 class="card-title"><a href="/tags/<%= result.slug %>"><em><%= result.title %></em></a></h5>
+                <p class="text-muted"><em><u>Tag</u></em></p>
 
               <% } else if (result.type === "archive") { %>
-                <h5 class="card-title"><a href="/archives/<%= result.slug %>"><%= result.title %></a></h5>
-                <p class="text-muted">Archive</p>
+                <h5 class="card-title"><a href="/archives/<%= result.slug %>"><em><%= result.title %></em></a></h5>
+                <p class="text-muted"><em><u>Archive</u></em></p>
               <% } %>
             </div>
           </div>

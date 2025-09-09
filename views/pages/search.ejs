@@ -1,20 +1,22 @@
 <% layout('partials/layout') %>
+<div class="container text-light">
 
-<div class="card mb-3 shadow-sm">
-  <div class="card-body text-light">
-    <h5 class="card-title"><%= result.title %></h5>
+  <div class="card mb-3 shadow-sm">
+    <div class="card-body text-light">
+      <h5 class="card-title"><em><%= result.title %></em></h5>
 
-    <% if (result.mainPageSlug) { %>
-      <!-- Redirect to full page -->
-      <a href="/<%= result.mainPageSlug %>" class="btn btn-primary">
-        Read More
-      </a>
-    <% } else { %>
-      <!-- Show snippet + read more -->
-      <p class="card-text"><%= result.description || 'No description available.' %></p>
-      <a href="/<%= result.type %>/<%= result.slug %>" class="btn btn-primary">
-        Read More
-      </a>
-    <% } %>
+      <% if (result.mainPageSlug) { %>
+        <!-- Redirect to full page -->
+        <a href="/<%= result.mainPageSlug %>" class="btn btn-primary">
+          <em>Read More</em>
+        </a>
+      <% } else { %>
+        <!-- Show snippet + read more -->
+        <p class="card-text"><em><%= result.description || 'No description available.' %></em></p>
+        <a href="/<%= result.type %>/<%= result.slug %>" class="btn btn-primary">
+          <em>Read More</em>
+        </a>
+      <% } %>
+    </div>
   </div>
 </div>

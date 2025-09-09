@@ -1,11 +1,13 @@
 <% layout('partials/layout') %>
 
-<h2 class="text-light"><em><u>FAQs: <%= category.charAt(0).toUpperCase() + category.slice(1) %></u></em></h2>
-<ul class="text-light">
-  <% faqs.forEach(faq => { %>
-    <li>
-      <strong><%= faq.question %></strong><br>
-      <%= faq.answer %>
-    </li>
-  <% }) %>
-</ul>
+<div class="container">
+  <h2 class="text-light"><em><u>FAQs: <%= category.charAt(0).toUpperCase() + category.slice(1) %></u></em></h2>
+  <ul class="text-light">
+    <% faqs.forEach(faq => { %>
+      <li>
+        <strong><em><%= faq.question %></em></strong><br>
+        <em><%= faq.answer %></em>
+      </li>
+    <% }) %>
+  </ul>
+</div>

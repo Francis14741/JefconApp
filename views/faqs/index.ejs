@@ -1,15 +1,15 @@
 <% layout('partials/layout') %>
 
 <div class="container my-4 text-light">
-  <h2 class="text-center text-light mb-4"><em><u>FAQ Categories</u></em></h2>
+  <h2 class="text-center text-light mb-4"><em><u>Faq Categories</u></em></h2>
   <div class="row">
     <% faqs.forEach(faq => { %>
       <div class="col-md-6 mb-3">
         <div class="card shadow-sm p-3">
           <div class="list-group">
             <a href="/faqs/<%= faq.slug %>" class="list-group-item list-group-item-action">
-              <strong><%= faq.title %></strong>
-              <p><%= faq.description || "" %></p>
+              <strong><em><%= faq.title %></em></strong>
+              <p><em><%= faq.description || "" %></em></p>
             </a>
           </div>
         </div>

@@ -1,0 +1,18 @@
+<% layout('partials/layout') %>
+
+<div class="container text-light text-center mt-5">
+  <h2 class="text-center text-light mb-4"><em><u>Our Projects</u></em></h2>
+  <div class="row">
+    <% projects.forEach(project => { %>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title"><em><%= project.title %></em></h5>
+            <p class="card-text"><em><%= project.description.substring(0, 120) %>...</em></p>
+            <a href="/projects/<%= project.slug %>" class="btn btn-primary"><em>View Project</em></a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>

@@ -114,20 +114,36 @@ router.get('/', async (req, res) => {
   res.render('categories/index', { categories, title: 'All Categories', layout: 'partials/layout' });
 });
 
-// Single category by slug
-// router.get('/:slug', async (req, res) => {
-//   const category = await Category.findOne({ slug: req.params.slug });
-//   if (!category) return res.status(404).render('error/404', { url: req.originalUrl, layout: 'partials/layout' });
+router.get("/:slug", async (req, res) => {
+  try {
+    const category = await Category.findOne({ slug: req.params.slug });
+    if (!category) return res.status(404).send("Category not found");
 
-//   const blogs = await Blog.find({ categories: category._id });
-//   res.render('categories/show', { category, blogs, title: `Category: ${category.title}`, layout: 'partials/layout' });
+    const blogs = await Blog.find({ category: category._id });
+
+    res.render("pages/category", { category, blogs });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+// router.get("/:slug", async (req, res) => {
+//   try {
+//     const { slug } = req.params;
+//     const category = await Category.findOne({ slug });
+//     if (!category) return res.status(404).send("Category not found");
+
+//     // Fetch blogs in this category
+//     const blogs = await Blog.find({ category: category._id });
+
+//     res.render("categories/show", { category, blogs });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).send("Server error");
+//   }
 // });
 
-router.get('/:slug', async (req, res) => {
-  const category = await Category.findOne({ slug: req.params.slug });
-  if (!category) return res.status(404).render('pages/404');
-  const blogs = await Blog.find({ category: category._id });
-  res.render('categories/show', { category, blogs });
-});
+
 
 module.exports = router;

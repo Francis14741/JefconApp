@@ -218,29 +218,36 @@ router.get("/:filename", async (req, res) => {
   res.render(`archives/${file}`); // ✅ correct
 });
 
-// All archives
-router.get('/', async (req, res) => {
-  const archives = await Archive.find().sort({ createdAt: -1 });
-  res.render('archives/index', { archives, title: 'All Archives', layout: 'partials/layout' });
+router.get("/:slug", async (req, res) => {
+  try {
+    const { slug } = req.params;
+
+    // Find the archive by slug
+    const archive = await Archive.findOne({ slug });
+    if (!archive) {
+      return res.status(404).render("errors/404", { message: "Archive not found" });
+    }
+
+    // Find blogs that belong to this archive
+    const blogs = await Blog.find({ archives: archive._id });
+
+    // ✅ Always render the generic template
+    res.render("archives/show", { archive, blogs });
+  } catch (err) {
+    console.error("Error fetching archive:", err);
+    res.status(500).render("errors/500", { message: "Server error loading archive" });
+  }
 });
 
-router.get('/:slug', async (req, res) => {
-  const archive = await Archive.findOne({ slug: req.params.slug });
-  if (!archive) return res.status(404).render('pages/404', { url: req.originalUrl, layout: 'partials/layout' });
-  res.render('archives/show', { archive });
-
-   const blogs = await Blog.find({ archives: archive._id });
-  res.render('archives/show', { archive, blogs, title: `Archive: ${archive.title}`, layout: 'partials/layout' });
+// (optional) GET /archives (list of all archives)
+router.get("/", async (req, res) => {
+  try {
+    const archives = await Archive.find({});
+    res.render("archives/index", { archives });
+  } catch (err) {
+    console.error("Error fetching archives:", err);
+    res.status(500).render("errors/500", { message: "Server error loading archives" });
+  }
 });
-
-
-// Single archive by slug
-// router.get('/:slug', async (req, res) => {
-//   const archive = await Archive.findOne({ slug: req.params.slug });
-//   if (!archive) return res.status(404).render('error/404', { url: req.originalUrl, layout: 'partials/layout' });
-
-//   const blogs = await Blog.find({ archives: archive._id });
-//   res.render('archives/show', { archive, blogs, title: `Archive: ${archive.title}`, layout: 'partials/layout' });
-// });
 
 module.exports = router;

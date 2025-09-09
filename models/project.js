@@ -1,17 +1,16 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const slugify = require("slugify");
 
 const projectSchema = new mongoose.Schema({
-  slug: { type: String, unique: true },
-  title: String,
+  title: { type: String, required: true },
+  slug: { type: String, required: true, unique: true },
   description: String,
-  content: String,
 });
 
 projectSchema.index({
   title: "text",
-  slug: "text",
   description: "text",
-  content: "text",
 });
 
 projectSchema.pre("save", function (next) {

@@ -63,8 +63,8 @@ const keywords = [
   "Past Projects",
   "Recent Projects",
   "Archives Of: DEPROF",
-  "Engr. John Cee Onwualu, JP",
-  "Abdul M. Yahaya",
+  "Archives Of: Engr. John Cee Onwualu, JP",
+  "Archives Of: Abdul M. Yahaya",
   "Monthly Archives: June 2025",
   "Monthly Archives: April 2025",
   "Monthly Archives: May 2024",
@@ -236,7 +236,7 @@ const keywords = [
   "Tag: Mitigation-strategies" ,
   "Tag: Preventative-measures" ,
   "Tag: Restorative-engagement-strategies" ,
-  "Tag: Riskawareness-and-planning" ,
+  "Tag: Risk-awareness-and-planning" ,
   "Tag: Asaba-drainage" ,
   "Tag: Delta-drainage" ,
   "Tag: Nigeria-drainage" ,
@@ -253,8 +253,8 @@ const keywords = [
   "Tag: Flooding-icing" ,
   "Tag: Flooding-ig" ,
   "Tag: Flooding-insta" ,
-  "Tag: Flooding-insTag:ram" ,
-  "Tag: Flooding-insTag:ram-with-cute-pics-of-zeus" ,
+  "Tag: Flooding-instagram" ,
+  "Tag: Flooding-instagram-with-cute-pics-of-zeus" ,
   "Tag: Flooding-in-texas" ,
   "Tag: Flooding-my-timeline" ,
   "Tag: Flooding-rain" ,
@@ -322,7 +322,7 @@ const keywords = [
   "Tag: Young-engineers-fellowship" ,
   "Tag: Young-engineers-program" ,
   "Tag: British-standard-codes" ,
-  "Tag: Eurocodes" ,
+  "Tag: Euro-codes" ,
   "Tag: European-standard-codes" ,
   "Tag: Engineering-practice" ,
   "Tag: Engineering-practices" ,
@@ -505,47 +505,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-// const searchInput = document.getElementById("searchInput");
-// const suggestionBox = document.getElementById("search-suggestions");
-
-// if (searchInput && suggestionBox) {
-//   searchInput.addEventListener("input", () => {
-//     const query = searchInput.value.toLowerCase().trim();
-//     suggestionBox.innerHTML = "";
-
-//     if (!query) {
-//       suggestionBox.style.display = "none";
-//       return;
-//     }
-
-//     const matches = keywords.filter((keyword) =>
-//       keyword.toLowerCase().includes(query)
-//     );
-
-//     if (matches.length === 0) {
-//       suggestionBox.style.display = "none";
-//       return;
-//     }
-
-//     matches.forEach((keyword) => {
-//       const item = document.createElement("li");
-//       item.classList.add("list-group-item", "list-group-item-action");
-//       item.textContent = keyword;
-//       item.addEventListener("click", () => {
-//         searchInput.value = keyword;
-//         suggestionBox.style.display = "none";
-//       });
-//       suggestionBox.appendChild(item);
-//     });
-
-//     suggestionBox.style.display = "block";
-//   });
-
-//   // Hide suggestions on blur
-//   document.addEventListener("click", (e) => {
-//     if (!suggestionBox.contains(e.target) && e.target !== searchInput) {
-//       suggestionBox.style.display = "none";
-//     }
-//   });
-// }

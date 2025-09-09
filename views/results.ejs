@@ -20,6 +20,16 @@
     </li>
     <% }) %>
   </ul>
+  </ul>
+  <% } %> <% if (projects.length) { %>
+  <h5 class="text-light lead"><em>Projects</em></h5>
+  <ul class="text-light lead">
+    <% projects.forEach(p => { %>
+    <li class="text-light lead">
+      <a href="/projects/<%= p.slug %>"><%= p.title %></a>
+    </li>
+    <% }) %>
+  </ul>
   <% } %> <% if (blogs.length) { %>
   <h5 class="text-light lead"><em>Blogs</em></h5>
   <ul class="text-light lead">
@@ -30,7 +40,7 @@
     <% }) %>
   </ul>
   <% if (faqs && faqs.length > 0) { %>
-    <h3 class="mt-4">FAQs</h3>
+    <h3 class="mt-4 text-light">FAQs</h3>
     <div class="row">
       <% faqs.forEach(faq => { %>
         <div class="col-md-4 mb-3">

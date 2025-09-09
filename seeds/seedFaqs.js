@@ -1,10 +1,10 @@
 const Faq = require("../models/faq");
 const slugify = require("slugify");
 
-const faqs = [
+const faqsData = [
   {
     title: "FAQs about Construction Services",
-    description: "Questions about Construction Services at Jefcon Associates.",
+    "slug": "faq_construction",
     questions: [
       {
         question: "What does the FAQ section cover?",
@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     title: "FAQs about Consultancy Services",
-    description: "Questions about Consultancy Services at Jefcon Associates.",
+    "slug": "faq_consultancy",
     questions: [
       {
         question: "What does the FAQ section cover?",
@@ -68,7 +68,7 @@ const faqs = [
   },
   {
     title: "FAQs about Stormwater Management Services",
-    description: "Questions about Stormwater Management Services at Jefcon Associates.",    
+    "slug": "faq_stormwater",
     questions: [
       {
         question: "How Do I Request Service Or Support For My Project?",
@@ -90,7 +90,7 @@ const faqs = [
   },
   {
     title: "FAQs about Participation on our website",
-    description: "Questions about participating on our website ",
+    "slug": "faq_participation",
     questions: [
       {
         question: "What services does Jefcon Associates provide?",
@@ -118,29 +118,19 @@ const faqs = [
 
 async function seedFaqs() {
   try {
-    console.log("🗑️ Clearing old FAQs...");
+    console.log("🧹 Clearing old FAQs...");
     await Faq.deleteMany({});
 
-    const faqs = [
-      {
-        title: "FAQ about Participation on Our Website",
-        description: "Some description...",
-        questions: [
-          { question: "How do I participate?", answer: "You can..." }
-        ]
-      },
-      // add more FAQ objects here
-    ];
+    const faqs = faqsData.map(f => ({
+      ...f,
+      slug: slugify(f.title, { lower: true }),
+    }));
 
-    for (let faq of faqs) {
-      faq.slug = slugify(faq.title, { lower: true, strict: true });
-      await Faq.create(faq);
-    }
-
-    console.log("🌱 FAQs seeded successfully");
+    await Faq.insertMany(faqs);
+    console.log("✅ FAQs seeded successfully!");
   } catch (err) {
     console.error("❌ Error seeding FAQs:", err);
   }
 }
 
-module.exports = seedFaqs;
+module.exports = {seedFaqs};

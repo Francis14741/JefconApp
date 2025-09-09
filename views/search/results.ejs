@@ -1,7 +1,7 @@
 <% layout('partials/layout') %>
 
 <div class="container my-4 text-light">
-  <h2 class="text-light"><em>Search Results for "<%= query %>"</em></h2>
+  <h2 class="text-center mb-5"><em>Search Results for:"<%= query %>"</em></h2>
 
   <% [blogResults, serviceResults, projectResults, archiveResults, faqResults, tagResults, categoryResults].forEach(results => { %>
     <% if (results && results.length) { %>
@@ -22,14 +22,14 @@
   <% }) %>
 
   <% if (faqResults && faqResults.length > 0) { %>
-  <h3>FAQs</h3>
+  <h3 class="text-light"><em><u>FAQs</u></em></h3>
   <div class="row">
     <% faqResults.forEach(faq => { %>
       <div class="col-md-6 mb-4">
         <div class="card bg-dark text-light shadow">
           <div class="card-body">
-            <h5><a href="/faqs/<%= faq.slug %>" class="text-info"><%= faq.title %></a></h5>
-            <p><%= faq.description || "" %></p>
+            <h5><a href="/faqs/<%= faq.slug %>" class="text-info"><em><%= faq.title %></em></a></h5>
+            <p><em><%= faq.description || "" %></em></p>
             
             <% if (faq.questions && faq.questions.length > 0) { %>
               <ul>

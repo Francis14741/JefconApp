@@ -1,11 +1,11 @@
 <% layout('partials/layout') %>
 
-<div class="container my-4 text-light">
+  <div class="container my-4 text-light">
+    <h2 class="text-light"><em><u><%= faq.title %></u></em></h2>
+    <p><em><%= faq.question %></em></p>
+    <p><em><%= faq.answer %></em></p>
+  </div>
 
-  <h2 class="text-light"><%= faq.title %></h2>
-  <p><%= faq.question %></p>
-  <p><%= faq.answer %></p>
-</div>
   <h2 class="mb-3 text-light"><em><u><%= faq.category %></u></em></h2>
   <p class="text-light"><em><%= faq.description || "" %></em></p>
 
@@ -20,7 +20,7 @@
 
   <hr>
 
-  <h4>Questions & Answers</h4>
+  <h4 class="text-light"><em><u>Questions & Answers</u></em></h4>
   <div class="accordion" id="faqAccordion">
     <% faq.questions.forEach((q, i) => { %>
       <div class="accordion-item">
@@ -31,7 +31,7 @@
                   data-bs-target="#collapse<%= i %>"
                   aria-expanded="<%= i === 0 ? 'true' : 'false' %>"
                   aria-controls="collapse<%= i %>">
-            <%= q.question %>
+            <em><%= q.question %></em>
           </button>
         </h2>
         <div id="collapse<%= i %>"
@@ -39,7 +39,7 @@
              aria-labelledby="heading<%= i %>"
              data-bs-parent="#faqAccordion">
           <div class="accordion-body">
-            <%= q.answer %>
+            <em><%= q.answer %></em>
           </div>
         </div>
       </div>

@@ -23,11 +23,8 @@ faqSchema.pre("save", function (next) {
 });
 
 // Full-text index for search
-faqSchema.index({
-  title: "text",
-  description: "text",
-  "questions.question": "text",
-  "questions.answer": "text"
-});
+faqSchema.index({ title: 'text', description: 'text', 'questions.question': 'text', 'questions.answer': 'text' });
 
 module.exports = mongoose.models.Faq || mongoose.model("Faq", faqSchema);
+
+

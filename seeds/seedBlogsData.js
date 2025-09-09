@@ -995,5 +995,4 @@ module.exports = [
         service: ["advisory_services", "engineering_design", "feasibility_ecoStudies", "project_costing", "project_supervision"],
         createdAt: new Date("22-12-29T07:21:00Z")
       }     
-      // add more blog objects here
 ];

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Faq = require('../models/faq');
+const faq = require("../models/faq");
 
 router.get("/faq_construction", async (req, res) => {
   const faq = await Faq.findOne({ slug: "faq_construction" });
@@ -26,6 +27,12 @@ router.get("/", async (req, res) => {
   const faqs = await Faq.find();
   res.render("faqs/index", { faqs });
 });
+
+// router.get("/:slug", async (req, res) => {
+//   const Faq = await Faq.findOne({ slug: req.params.slug }).lean();
+//   if (!faq) return res.status(404).send("Faq not found");
+//   res.render("faqs/show", { faq });
+// });
 
 // show single FAQ by slug
 router.get("/:slug", async (req, res) => {

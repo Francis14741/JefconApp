@@ -4,12 +4,12 @@
 
   <div class="bg-dark py-5 text-light">
     <div class="container">
-        <h3 class="text-center"><u><em>Search Results for "<%= query %>"</em></u></h3>
-  </div>
+      <h3 class="text-center"><em>Search Results for <u>"<%= query %>"</u></em></h3>
+    </div>
   </div>
 
     <!-- Search Results Section -->
-  <section class="py-5">
+  <section class="py-5 text-light">
     <div class="container" style="background-color: rgb(112, 111, 110);">
         <% if (results.length === 0) { %>
         <p class="text-center text-light display-6"><em>No results found for "<%= query %>"</em></p>
@@ -46,14 +46,14 @@
                 }
             %>
             <div class="col">
-                <div class="card h-100 shadow-sm">
+            <div class="card h-100 shadow-sm">
                 <div class="card-body text-center d-flex flex-column">
-                    <h5 class="card-title">
-                    <a href="<%= basePath %>/<%= r.slug %>"><%= r.title %></a>
+                    <h5 class="card-title"><em>
+                    <a href="<%= basePath %>/<%= r.slug %>"><%= r.title %></a></em>
                     </h5>
-                    <p class="card-text text-truncate">
+                    <p class="card-text text-truncate"><em>
                     <%= r.description ? r.description.substring(0, 150) : 'No description available.' %>
-                    <%= r.description && r.description.length > 150 ? '...' : '' %>
+                    <%= r.description && r.description.length > 150 ? '...' : '' %></em>
                     </p>
                     <span class="badge bg-secondary mt-auto">
                     <%= r.type.charAt(0).toUpperCase() + r.type.slice(1) %>

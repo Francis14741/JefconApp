@@ -1,7 +1,7 @@
 <% layout('partials/layout') %>
 
 <div class="container mt-4 text-light">
-  <h2 class="mb-3 text-light"><em><u>Search Results for "<%= query %>"</u></em></h2>
+  <h2 class="text-center mb-5"><em>Search Results for:"<%= query %>"</em></h2>
 
   <% if(results.length === 0){ %>
   <p class="text-light"><em>No results found.</em></p>
@@ -12,40 +12,40 @@
           <div class="card h-100">
             <div class="card-body">
               <% if(result.type === 'blog'){ %>
-                <h5 class="card-title"><a href="/blogs/<%= result.slug %>"><%= result.title %></a></h5>
+                <h5 class="card-title"><a href="/blogs/<%= result.slug %>"><em><%= result.title %></em></a></h5>
               <% } else if(result.type === 'faq'){ %>
-                <h5 class="card-title"><a href="/faqs/<%= result.slug %>"><%= result.title %></a></h5>
+                <h5 class="card-title"><a href="/faqs/<%= result.slug %>"><em><%= result.title %></em></a></h5>
               <% } else if(result.type === 'service'){ %>
-                <h5 class="card-title"><a href="/services/<%= result.slug %>"><%= result.title %></a></h5>
+                <h5 class="card-title"><a href="/services/<%= result.slug %>"><em><%= result.title %></em></a></h5>
               <% } else if(result.type === 'project'){ %>
-                <h5 class="card-title"><a href="/projects/<%= result.slug %>"><%= result.title %></a></h5>
+                <h5 class="card-title"><a href="/projects/<%= result.slug %>"><em><%= result.title %></em></a></h5>
               <% } else if(result.type === 'archive'){ %>
-                <h5 class="card-title"><a href="/archives/<%= result.slug %>"><%= result.title %></a></h5>
+                <h5 class="card-title"><a href="/archives/<%= result.slug %>"><em><%= result.title %></em></a></h5>
               <% } else if(result.type === 'tag'){ %>
-                <h5 class="card-title"><a href="/tags/<%= result.slug %>"><%= result.title %></a></h5>
+                <h5 class="card-title"><a href="/tags/<%= result.slug %>"><em><%= result.title %></em></a></h5>
               <% } else if(result.type === 'category'){ %>
-                <h5 class="card-title"><a href="/categories/<%= result.slug %>"><%= result.title %></a></h5>
+                <h5 class="card-title"><a href="/categories/<%= result.slug %>"><em><%= result.title %></em></a></h5>
               <% } %>
 
               <% if(result.description){ %>
-                <p class="card-text"><%= result.description %></p>
+                <p class="card-text"><em><%= result.description %></em></p>
               <% } %>
             </div>
             <div class="card-footer text-end">
               <% if(result.type === 'blog'){ %>
-                <a href="/blogs/<%= result.slug %>" class="btn btn-sm btn-primary">Read More</a>
+                <a href="/blogs/<%= result.slug %>" class="btn btn-sm btn-primary"><em>Read More</em></a>
               <% } else if(result.type === 'faq'){ %>
-                <a href="/faqs/<%= result.slug %>" class="btn btn-sm btn-primary">Read More</a>
+                <a href="/faqs/<%= result.slug %>" class="btn btn-sm btn-primary"><em>Read More</em></a>
               <% } else if(result.type === 'service'){ %>
-                <a href="/services/<%= result.slug %>" class="btn btn-sm btn-primary">Read More</a>
+                <a href="/services/<%= result.slug %>" class="btn btn-sm btn-primary"><em>Read More</em></a>
               <% } else if(result.type === 'project'){ %>
-                <a href="/projects/<%= result.slug %>" class="btn btn-sm btn-primary">Read More</a>
+                <a href="/projects/<%= result.slug %>" class="btn btn-sm btn-primary"><em>Read More</em></a>
               <% } else if(result.type === 'archive'){ %>
-                <a href="/archives/<%= result.slug %>" class="btn btn-sm btn-primary">Read More</a>
+                <a href="/archives/<%= result.slug %>" class="btn btn-sm btn-primary"><em>Read More</em></a>
               <% } else if(result.type === 'tag'){ %>
-                <a href="/tags/<%= result.slug %>" class="btn btn-sm btn-primary">View Tag</a>
+                <a href="/tags/<%= result.slug %>" class="btn btn-sm btn-primary"><em>View Tag</em></a>
               <% } else if(result.type === 'category'){ %>
-                <a href="/categories/<%= result.slug %>" class="btn btn-sm btn-primary">View Category</a>
+                <a href="/categories/<%= result.slug %>" class="btn btn-sm btn-primary"><em>View Category</em></a>
               <% } %>
             </div>
           </div>

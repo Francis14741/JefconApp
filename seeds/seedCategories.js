@@ -1,41 +1,36 @@
-const Category = require("../models/category"); // adjust path
+const Category = require("../models/category");
 const slugify = require("slugify");
 
-const categories = [
-  { title: "Case Studies", slug: "case_studies" },
-  { title: "Environmental", slug: "cat_environmental" },
-  { title: "Construction Law", slug: "construction_law" },
-  { title: "Construction Technology", slug: "construction_technology" },
-  { title: "Feasibility And Economic Studies", slug: "cat_feasibility_eco" },
-  { title: "Consultancy And Advisory", slug: "consultancy_advisory" },
-  { title: "Engineering Surveys", slug: "category_eng_surveys" },
-  { title: "Engineering Design And Simulation", slug: "engdesign_simulation" },
-  { title: "Industry News And Trends", slug: "industrynews_trend" },
-  { title: "Innovation And Research", slug: "innovation_research" },
-  { title: "Mechanical, Electrical And Plumbing (MEP)", slug: "mech_elec_plumbing" },
-  { title: "Project Supervision And Management", slug: "pro_superv_cat" },
-  { title: "Project Valuation And Cost Control", slug: "proj_valuation_cost" },
-  { title: "Safety And Regulations", slug: "safety_regulations" },
-  { title: "Training And Education", slug: "training_education" },
-  { title: "Uncategorized", slug: "uncategorized" },
-  // add other categories
+const categoriesData = [
+  { title: "Case Studies"},
+  { title: "Environmental" },
+  { title: "Feasibility And Economic Studies"},
+  { title: "Consultancy And Advisory" },
+  { title: "Engineering Surveys"},
+  { title: "Engineering Design And Simulation"},
+  { title: "Industry News And Trends"},
+  { title: "Innovation And Research"},
+  { title: "Mechanical, Electrical And Plumbing (MEP)"},
+  { title: "Project Supervision And Management"},
+  { title: "Project Valuation And Cost Control" },
+  { title: "Safety And Regulations" },
+  { title: "Training And Education"},
+  { title: "Uncategorized"}
 ];
 
 async function seedCategories() {
-  console.log("🗑️ Clearing existing Categories...");
-  await Category.deleteMany({});
-  console.log("🌱 Seeding new Categories...");
-
-  for (let category of categories) {
-    category.slug = slugify(category.title, { lower: true, strict: true });
-    await Category.updateOne(
-      { title: category.title },
-      { $set: category },
-      { upsert: true }
-    );
+  try {
+    await Category.deleteMany({});
+    for (const cat of categoriesData) {
+      await Category.create({
+        title: cat.title,
+        slug: slugify(cat.title, { lower: true, strict: true }),
+      });
+    }
+    console.log("✅ Categories seeded successfully!");
+  } catch (err) {
+    console.error("❌ Error seeding categories:", err);
   }
-
-  console.log("✅ Categories seeded successfully");
 }
 
 module.exports = seedCategories;

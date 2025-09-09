@@ -29,7 +29,7 @@
                 data-toggle="collapse"
                 data-target="#collapse<%= index %>"
               >
-                <%= faq.question %>
+                <em><%= faq.question %></em>
               </button>
             </h5>
           </div>
@@ -38,7 +38,7 @@
             class="collapse"
             data-parent="#faqAccordion"
           >
-            <div class="card-body"><%= faq.answer %></div>
+            <div class="card-body"><em><%= faq.answer %></em></div>
           </div>
         </div>
         <% }) %>
