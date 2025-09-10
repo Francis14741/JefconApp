@@ -1,10 +1,10 @@
+require("dotenv").config();
 const express = require('express');
 const helmet = require("helmet");
 const mongoose = require('mongoose');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
 const xss = require("xss");
-const dotenv = require('dotenv');
 const cors = require('cors');
 
 const ejsMate = require('ejs-mate');
@@ -14,7 +14,6 @@ const morgan = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
-dotenv.config();
 const app = express();
 
 mongoose.connect(process.env.MONGO_URL, {
