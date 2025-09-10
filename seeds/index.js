@@ -12,8 +12,7 @@ const Faq = require("../models/faq");
 const Blog = require("../models/blog");
 
 // MongoDB connection
-const dbUrl = process.env.MONGO_URI || "mongodb+srv://francisanwuzia3:MC7LQpb4jTXAHN5x@jefconapp.4ufns6z.mongodb.net/jefconapp?retryWrites=true&w=majority&appName=jefconapp";
-
+const dbUrl = process.env.MONGO_URL || "mongodb+srv://francisanwuzia3:MC7LQpb4jTXAHN5x@jefconapp.4ufns6z.mongodb.net/jefconapp?retryWrites=true&w=majority&appName=Jefconapp";
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
