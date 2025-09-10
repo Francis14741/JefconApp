@@ -13,15 +13,9 @@
   z-index: -1;
 }
 
-
-
-/* footer, .entry-meta {
-  outline: 2px solid red !important;
-} */
-
 .blog-card-hover:hover {
   transform: scale(1.02);
-  /* transition: transform 0.2s ease-in-out; */
+  transition: transform 0.2s ease-in-out;
 }
 
 #searchInput {
