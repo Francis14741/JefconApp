@@ -34,20 +34,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Jefcon & Associates Ltd</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./public/imgs" />
     <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/main.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet/dist/leaflet.css"
-    />
-    <style>
-      #map {
-        height: 500px;
-        width: 100%;
-      }
-    </style>
     <style>
       body {
         margin: 0;
@@ -590,7 +580,7 @@
             <a
               class="nav-link dropdown-toggle text-success"
               data-toggle="dropdown"
-              href="/about"
+              href="#"
               ><b
                 ><em><u>ABOUT US</u></em></b
               ></a
@@ -613,7 +603,7 @@
             <a
               class="nav-link dropdown-toggle text-success"
               data-toggle="dropdown"
-              href="/services"
+              href="#"
               ><b
                 ><em><u>SERVICES</u></em></b
               ></a
@@ -648,7 +638,7 @@
             <a
               class="nav-link dropdown-toggle text-success"
               data-toggle="dropdown"
-              href="/projects"
+              href="#"
               ><em
                 ><b><u>PROJECTS</u></b></em
               ></a
@@ -683,7 +673,7 @@
             <a
               class="nav-link dropdown-toggle text-success"
               data-toggle="dropdown"
-              href="/faqs/"
+              href="#"
               ><b
                 ><em><u>FAQ</u></em></b
               ></a
@@ -760,9 +750,6 @@
       <%- body %>
     </section>
     <script src="/js/search.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
   <footer class="text-center text-light py-4" style="background-color: #121222;">
   <div class="container">
@@ -773,7 +760,7 @@
             <li><a href="/" class="text-decoration-underline text-success"><em>ABOUT US</em></a></li>
             <li><a href="/services_footer" class="text-decoration-underline text-success"><em>SERVICES</em></a></li>
             <li><a href="/project_footer" class="text-decoration-underline text-success"><em>PROJECTS</em></a></li>
-            <li><a href="/blogs" class="text-decoration-underline text-success"><em>BLOGS</em></a></li>
+            <li><a href="/blogs_footer" class="text-decoration-underline text-success"><em>BLOGS</em></a></li>
             <li><a href="/contact" class="text-decoration-underline text-success"><em>CONTACT</em></a></li>
             <li><a href="/faq_footer" class="text-decoration-underline text-success"><em>FAQ</em></a></li>
             <li><a href="/privacy_policy_footer" class="text-decoration-underline text-success"><em>PRIVACY</em></a></li>
@@ -784,123 +771,58 @@
         <div class="row g-3">
           <div class="col-12 col-md-6 col-lg-4">
             <div id="main" class="container">
-              <div class="card" id="map" style="height: 400px; width: 400px;"></div>
-              <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-              <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-              <!-- Bootstrap JS (make sure Bootstrap CSS + JS are already included in layout.ejs) -->
-              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-              <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
-              <script>
-                var lat = 6.207674;
-                var lng = 6.69759;
-
-                // Initialize map
-                var map = L.map('map').setView([lat, lng], 18);
-              
-                // Add OpenStreetMap tiles
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                  maxZoom: 19,
-                }).addTo(map);
-
-                // Add marker with button in popup
-                var popupContent = `
-                  <div id="fixed-address">
-                    <strong><em>No. 11 Engr. John Chiegbuniwe Drive,<br>Asaba, Delta State, Nigeria</em></strong><br><br>
-                    <button class="btn btn-sm btn-primary" onclick="openStreetView()">View in Street View</button>
-                  </div>
-                `;
-
-                L.marker([lat, lng]).addTo(map).bindPopup(popupContent).openPopup();
-
-                // Function to open Street View inside modal
-                function openStreetView() {
-                  var streetViewURL = "https://www.google.com/maps/embed?pb=!4v1662388809655!6m8!1m7!1sCAoSLEFGMVFpcE5jc0x2TVVuUWJ0Y2syZ1A3QlZ3X0tZcDhZZlZkSEtPNVlyWm9S!2m2!1d6.207674!2d6.69759!3f90!4f0!5f0.7820865974627469";
-                  document.getElementById("streetViewFrame").src = streetViewURL;
-                  $('#streetViewModal').modal('show');
-                }
-
-                var contactMap = L.map('contact-map').setView([6.207674, 6.69759], 18);
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(contactMap);
-                L.marker([6.207674, 6.69759]).addTo(contactMap).bindPopup("Our Office").openPopup();
-
-                // Footer Map
-                var footerMap = L.map('footer-map', {
-                  center: [6.207674, 6.69759],
-                  zoom: 15,
-                  dragging: false,
-                  scrollWheelZoom: false,
-                  doubleClickZoom: false,
-                  zoomControl: false,
-                  touchZoom: false
-                });
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(footerMap);
-                L.marker([6.207674, 6.69759]).addTo(footerMap);
-              </script>
-              <style>
-              /* Fixed address styling */
-                #fixed-address {
-                  position: fixed;
-                  bottom: 20px;      /* distance from bottom */
-                  right: 20px;       /* distance from right */
-                  background: white;
-                  padding: 12px 18px;
-                  border-radius: 10px;
-                  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-                  z-index: 1000;     /* stays on top of map */
-                }
-              </style>           
-              <div class="modal fade" id="streetViewModal" tabindex="-1" role="dialog" aria-labelledby="streetViewModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="streetViewModalLabel">Street View - Jefcon Office</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body p-0">
-                      <iframe
-                        id="streetViewFrame"
-                        width="100%"
-                        height="500px"
-                        style="border:0;"
-                        allowfullscreen
-                        loading="lazy">
-                      </iframe>
-                    </div>
-                  </div>
+              <div id="map" style="width: 100%; height: 400px;">
+                <div class="card" style="background-color: #6d835c">           
+                  <img src="http://localhost:3000/images/jefcon-address.jpg" alt="jefcon-address">
                 </div>
               </div>
-              <div id="post-757" class="card post-757 text-start mt-3 pl-3 pr-3 mb-3 text-light" style="background-color: #6d835c;">
+              <script>
+                // Initialize map
+                const map = L.map('map').setView([6.679, 6.270], 18)
+                 // Lagos, for example
+
+                // Add OpenStreetMap tiles
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                  attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+
+                // Add marker
+                L.marker([6.679, 6.270]).addTo(map)
+                  .bindPopup("<b>Jefcon Associates</b><br>Our Office Location")
+                  .openPopup();
+              </script>
+
+              <div id="post-757" class="card post-757 text-start mt-3 pl-3 pr-3 mb-3 text-light lead" style="background-color: #6d835c;">
                 <span class="card-text placeholder-glow mt-3 pl-2">
                   <span class="placeholder col-6"></span>         
                   <span class="placeholder col-7"><a class="btn btn-success" style="background-color: #6D835C;" href="/contact">Contact us</a></span>
                   <span class="placeholder col-6"></span>   
                 </span> 
                 <hr>
-                <p class="pl-2"><i>▪</i>&ensp;<em><u>+234 805 582 720</u></em></p>
-                <p class="pl-2"><i>▪</i>&ensp;<em><u>+234 805 5015 045</u></em></p> 
+                <p class="lead pl-2"><i>▪</i>&ensp;<em><u>+234 805 582 720</u></em></p>
+                <p class="lead pl-2"><i>▪</i>&ensp;<em><u>+234 805 5015 045</u></em></p> 
                 <hr>
-                <p class="pl-2"><em> No. 11 Engr. John Chiegbuniwe Drive, <br>
+                <p class="lead pl-2"><em> No. 11 Engr. John Chiegbuniwe Drive, <br>
                   Off Mariam Babangida Way, <br>
                   Phase V, Core Area, Asaba, <br>
                   Delta State, Nigeria. </em>
                 </p>
                 <hr>
-                <p class="text-center mb-3"><a href="http://localhost:3000"><em><strong>info@jefcon&associates.com</strong></em></a></p>  
+                <p class="text-decoration-underline mb-3"><em>https://jefconassociates.com</em></p>  
+                <button class="btn btn-light mb-3" href="/contact"><em>info@jefcon&associates.com</em></button>
               </div>
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-4">
             <div class="card" style="background-color: #6d835c";>
-              <div class="card-body text-light text-start pl-4">
-                <h4 class="card-title text-light pl-3 mt-3 text-decoration-underline"><em>Meta</em></h4>
-                <div class="list-unstyled">
-                  <li><i>▪</i>&ensp;<a class="text-light" href="https://jefconassociates.com/feed/"><em>Entries feed</em></a></li>
-                  <li><i>▪</i>&ensp;<a class="text-light" href="https://jefconassociates.com/comments/feed/"><em>Comments feed</em></a></li>
-                  <li><i>▪</i>&ensp;<a class="text-light" href="https://expressjs.com/"><em>Express.org</em></a></li>
+              <div class="card-body text-light text-start lead">
+                <h4 class="card-title text-light mt-3 text-decoration-underline"><em>Meta</em></h4>
+                <div class="<ul class="list-unstyled>
+                  <li><a class="text-light" href="https://jefconassociates.com/wp-login.php"><em>Log in</em></a></li>
+                  <li><a class="text-light" href="https://jefconassociates.com/feed/"><em>Entries feed</em></a></li>
+                  <li><a class="text-light" href="https://jefconassociates.com/comments/feed/"><em>Comments feed</em></a></li>
+                  <li><a class="text-light" href="https://expressjs.com/"><em>Express.org</em></a></li>
+                  </ul>          
                 </div>
               </div>
             </div>
@@ -911,22 +833,22 @@
                 <div class="card-body text-light text-start pl-4">
                   <div class="row">
                     <div class="col-md-4">
-                      <a class="text-light d-block" href="/categories/case_studies" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Case-Studies</u></em></a>
-                      <a class="text-light d-block" href="/categories/construction_law" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Construction-Law</u></em></a>
-                      <a class="text-light d-block" href="/categories/construction_technology" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Construction-Technology</u></em></a>
-                      <a class="text-light d-block" href="/categories/consultancy_advisory" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Consultancy-And-Advisory-Services</u></em></a>
-                      <a class="text-light d-block" href="/categories/engdesign_simulation" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Engineering-Design-And-Simulation</u></em></a>
-                      <a class="text-light d-block" href="/categories/category_eng_surveys" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Engineering-Surveys</u></em></a>
-                      <a class="text-light d-block" href="/categories/cat_environmental" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Environmental</u></em></a>
-                      <a class="text-light d-block" href="/categories/cat_feasibility_eco" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Feasibility-And-Economic-Studies</u></em></a>
-                      <a class="text-light d-block" href="/categories/industrynews_trend" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Industry-News-And-Trends</u></em></a>
-                      <a class="text-light d-block" href="/categories/innovation_research" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Innovation-And-Research</u></em></a>
-                      <a class="text-light d-block" href="/categories/mech_elec_plumbing" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Mechanical-Electrical-And-Plumbing(MEP)</u></em></a>
-                      <a class="text-light d-block" href="/categories/pro_superv_cat" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Project-Supervision-And-Management</u></em></a>
-                      <a class="text-light d-block" href="/categories/proj_valuation_cost" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Project-Valuation-And-Cost-Control</u></em></a>
-                      <a class="text-light d-block" href="/categories/safety_regulations" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Safety-And-Regulations</u></em></a>
-                      <a class="text-light d-block" href="/categories/training_education" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Training-And-Education</u></em></a>
-                      <a class="text-light d-block" href="/categories/uncategorized" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Uncategorized</u></em></a> 
+                      <a class="lead text-light d-block" href="/categories/case_studies" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Case-Studies</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/construction_law" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Construction-Law</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/construction_technology" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Construction-Technology</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/consultancy_advisory" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Consultancy-And-Advisory-Services</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/engDesign_simulation" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Engineering-Design-And-Simulation</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/category_eng_surveys" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Engineering-Surveys</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/cat_environmental" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Environmental</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/cat_feasibility_Eco" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Feasibility-And-Economic-Studies</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/industryNews_trend" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Industry-News-And-Trends</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/innovation_research" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Innovation-And-Research</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/mech_elec_Plumbing" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Mechanical-Electrical-And-Plumbing(MEP)</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/pro_superv_cat" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Project-Supervision-And-Management</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/proj_valuation_cost" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Project-Valuation-And-Cost-Control</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/safety_regulations" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Safety-And-Regulations</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/training_education" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Training-And-Education</u></em></a>
+                      <a class="lead text-light d-block" href="/categories/uncategorized" style="text-decoration: none;"><i>▪</i>&emsp;<em><u>Uncategorized</u></em></a> 
                     </div>
                   </div>
                 </div>
@@ -939,7 +861,7 @@
   </div>
   <hr>
   <p class="mb-2"><strong><em>JEFCON & ASSOCIATES LTD</em></strong></p>
-  <p class="mb-0">&copy; <em> <%= new Date().getFullYear() %> Jefcon Associates. All rights reserved.</em></p>
+  <p class="mb-0">&copy; <%= new Date().getFullYear() %> Jefcon Associates. All rights reserved.</p>
   <!-- Bootstrap JS and dependencies -->
 </footer> 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
