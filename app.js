@@ -17,8 +17,10 @@ const MongoStore = require('connect-mongo');
 dotenv.config();
 const app = express();
 
-mongoose
-  .connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
   .then(() => console.log('✅ MongoDB Connected'))
   .catch(err => console.error('❌ MongoDB connection error:', err));
 
@@ -91,6 +93,10 @@ app.use(
   })
 );
 
+app.get('/', (req, res) => {
+  res.send('🚀 Render Deployment Works with MongoDB + Sessions!');
+});
+
 // ---------- Routes ----------
 const pagesRoutes = require('./routes/pages'); // homepage & static
 const blogsRoutes = require('./routes/blogs');
@@ -117,11 +123,6 @@ app.use('/commitment', commitmentRoutes);
 app.use('/about', aboutRoutes);
 app.use('/search', searchRoutes);
 app.use('/admin', adminRoutes);
-
-
-app.get('/', (req, res) => {
-  res.send('🚀 Render Deployment Works with MongoDB + Sessions!');
-});
 
 // ---------- Error Handling ----------
 app.use((err, req, res, next) => {
