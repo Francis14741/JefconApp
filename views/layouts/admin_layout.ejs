@@ -15,10 +15,10 @@
 
   <main class="container mt-4">
     <% if (success && success.length > 0) { %>
-    <div class="alert alert-success"><%= success %></div>
+    <div class="alert alert-success"><em><%= success %></em></div>
     <% } %>
     <% if (error && error.length > 0) { %>
-    <div class="alert alert-danger"><%= error %></div>
+    <div class="alert alert-danger"><em><%= error %></em></div>
     <% } %>
     <!-- Dynamic content goes here -->
     <%- body %>
