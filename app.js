@@ -94,10 +94,6 @@ app.use(
   })
 );
 
-app.get('/', (req, res) => {
-  res.send('🚀 Render Deployment Works with MongoDB + Sessions!');
-});
-
 // ---------- Routes ----------
 const pagesRoutes = require('./routes/pages'); // homepage & static
 const blogsRoutes = require('./routes/blogs');
