@@ -27,7 +27,7 @@ router.get("/engineering_surveys", async (req, res) => {
   res.render("services/engineering_surveys", { service });
 });
 
-router.get("/feasibility_ecoStudies", async (req, res) => {
+router.get("/feasibility_ecostudies", async (req, res) => {
   const service = await Service.findOne({
     slug: "feasibility_ecostudies",
   });
