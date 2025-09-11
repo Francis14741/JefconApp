@@ -3,16 +3,19 @@ const slugify = require("slugify");
 
 const projectsData = [
   {
-    "title": "Drone Survey Project",
-    "description": "Using drones for topographical surveys",
+    title: "Drone Survey Project",
+    slug: "droneProject",
+    description: "Using drones for topographical surveys",
   },
   {
-    "title": "Stormwater Flooding Control Project",
-    "description": "Implementing stormwater flooding control solutions",
+    title: "Stormwater Flooding Control Project",
+    slug: "stormwater_project",
+    description: "Implementing stormwater flooding control solutions",
   },
   {
-    "title": "Gallery 1 Project",
-    "description": "Gallery 1 project solutions",
+    title: "Gallery 1 Project",
+    slug: "gallery1_project",
+    description: "Gallery 1 project solutions",
   }
 ];
 
