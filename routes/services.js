@@ -28,9 +28,7 @@ router.get("/engineering_surveys", async (req, res) => {
 });
 
 router.get("/feasibility_ecostudies", async (req, res) => {
-  const service = await Service.findOne({
-    slug: "feasibility_ecostudies",
-  });
+  const service = await Service.findOne({ slug: "feasibility_ecostudies" });
   res.render("services/feasibility_ecostudies", { service });
 });
 
