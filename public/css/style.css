@@ -330,14 +330,16 @@ nav a.active {
 /* ===================================
    FOOTER
 =================================== */
-footer, .footer {
+
+.footer {
   width: 100%;
-  background: #121222;
+  background: black;
   padding: 20px 8%;
   border-top: 1px solid #eee;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  left: 20px;
 }
 
 .footer-brand {
@@ -346,11 +348,30 @@ footer, .footer {
   color: #fff;
   margin-bottom: 15px;
 }
+
 .footer-text {
   color: green;
   font-size: 0.9rem;
   max-width: 300px;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.social-links {
+  margin: 20px 0;
+}
+
+.social-link {
+  color: green;
+  margin-right: 20px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #6d835c;
+}
+
 .footer-links {
   display: flex;
   gap: 20px;
@@ -358,13 +379,17 @@ footer, .footer {
   padding: 0;
   list-style: none;
 }
+
 .footer-links a {
   color: #f8f9fa;
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.3s ease;
 }
-.footer-links a:hover { color: #6d835c; }
+
+.footer-links a:hover {
+  color: #6d835c;
+}
 
 .copyright {
   color: #fff;
