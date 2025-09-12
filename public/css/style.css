@@ -19,14 +19,12 @@ html, body {
 /* ===================================
    BASE STYLES
 =================================== */
-/* .back-video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 0.4;
-} */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* adjust as needed */
+  overflow: hidden;
+}
 
 .back-video {
   position: absolute;
@@ -38,8 +36,97 @@ html, body {
   z-index: -1;
 }
 
+.hero .container {
+  position: relative;
+  z-index: 1; /* make sure text is above video */
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 50vh; /* smaller hero on mobile */
+  }
+}
+
 .blog-card-hover:hover {
   transform: scale(1.02);
+}
+
+.featurette {
+  position: relative;
+  color: #fff;
+  padding: 60px 0;
+}
+
+.featurette h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.featurette .card {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.featurette .card img {
+  width: 100%;
+  height: auto;
+}
+
+.team-section {
+  background-color: #f7f7f7;
+  padding: 60px 0;
+}
+
+.team-section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.team-member {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.team-member img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.team-member h5 {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .team-member img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.recent-blogs {
+  background-color: #ffffff;
+  padding: 60px 0;
+}
+
+.recent-blogs h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.blog-card {
+  margin-bottom: 30px;
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 #searchInput {
@@ -78,31 +165,6 @@ html, body {
 /* ===================================
    HERO + LAYOUT
 =================================== */
-.hero {
-  width: 100%;
-  min-height: 100vh;
-  background-image: linear-gradient(#6D835C, lightgreen);
-  position: relative;
-  padding: 0 5%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* .hero h1 {
-  font-size: 100px;
-  color: #fff;
-  font-weight: 400;
-  transition: 0.5s;
-}
-.hero h1:hover {
-  -webkit-text-stroke: 2px rgb(214, 243, 214);
-  color: transparent;
-}
-.hero p {
-  color: #fff;
-} */
-
 .top-fold {
   width: 100%;
   height: 80px;
@@ -126,6 +188,7 @@ html, body {
   background-position: center top;
   overflow: hidden;
 }
+
 #shapeContainer svg {
   display: block;
   width: 100%; height: auto;
@@ -328,9 +391,10 @@ footer, .footer {
 /* Small & tablets up to 768px */
 /* Default desktop/tablet background */
 .page-background {
-  background: url('/imgs/dark-green-background.jpg') no-repeat center center;
+  background: url('https://jefconassociates.com/wp-content/themes/jefcon-pentagon/assets/images2/dark-green-background.jpg') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
+  min-height: 100vh;
 }
 
 /* Mobile override */
@@ -357,5 +421,23 @@ footer, .footer {
   #container {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .featurette .card-body p {
+    font-size: 0.9rem;
+  }
+
+  .recent-blogs .blog-card img {
+    height: 150px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p.lead {
+    font-size: 1rem;
   }
 }
