@@ -74,12 +74,14 @@ div:nth-of-type(5) {
   justify-content: center;
   z-index: -1;
   overflow: hidden;
+  opacity: 0.4;
 }
 
 .top-fold {
   width: 80px;
   position: relative;
   height: 45vw;
+  opacity: 0.4;
 }
 
 /* .top-fold {
