@@ -65,15 +65,34 @@ div:nth-of-type(5) {
 =================================== */
 .hero {
   width: 100%;
-  height: 100%;
-  background-image: linear-gradient#6D835C, lightgreen;
+  min-height: 100vh;
+  background-image: linear-gradient(#6D835C, lightgreen);
   position: relative;
   padding: 0 5%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  z-index: -1;
+}
+
+.hero h1 {
+  font-size: 100px;
+  color: #fff;
+  font-weight: 400;
+  transition: 0.5s;
+}
+.hero h1:hover {
+  -webkit-text-stroke: 2px rgb(214, 243, 214);
+  color: transparent;
+}
+.hero p {
+  color: #fff;
+}
+
+.top-fold {
+  width: 100%;
+  height: 80px;
+  position: relative;
 }
 
 .back-video {
@@ -84,11 +103,6 @@ div:nth-of-type(5) {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-}
-
-.hero .container {
-  position: relative;
-  z-index: 1; /* make sure text is above video */
 }
 
 @media (max-width: 768px) {
@@ -215,12 +229,6 @@ div:nth-of-type(5) {
 /* ===================================
    HERO + LAYOUT
 =================================== */
-
-.top-fold {
-  width: 80px;
-  position: relative;
-  height: 45vw;
-}
 
 .curve-img {
   position: absolute;
