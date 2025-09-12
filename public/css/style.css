@@ -9,8 +9,12 @@
 }
 
 html, body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
   overflow-x: hidden;
-} 
+}
 
 ul {
   list-style: none;
@@ -47,19 +51,46 @@ section {
   flex-basis: 600px;
 }
 
+div:nth-of-type(1) {
+  flex-grow: 1;
+  flex-shrink: 2;
+}
+
+div:nth-of-type(5) {
+  flex-grow: 2;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+  border: 5px solid #fff;
+  height: 500px;
+  display: flex;
+}
+
+main .sidebar {
+  background-color: #6d835c;
+  flex: 1 2 300px;
+}
+
+main .maincontent {
+  background-color: green;
+  flex: 2 1 800px;
+}
+
 /* ===================================
    BASE STYLES
 =================================== */
 .hero {
-  position: relative;
   width: 100%;
-  height: 100%; /* adjust as needed */
+  height: 80vh;
   background-image: linear-gradient#6D835C, lightgreen;
-  overflow: hidden;
+  position: relative;
   padding: 0 5%;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .back-video {
@@ -70,61 +101,11 @@ section {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  display: flex;
-  opacity: 0.4;
 }
 
 .hero .container {
   position: relative;
   z-index: 1; /* make sure text is above video */
-}
-
-.autocomplete-items {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  max-height: 200px;
-  overflow-y: auto;
-  width: 50%;
-}
-
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.autocomplete-items div:hover {
-  background-color: #e9e9e9;
-}
-
-.autocomplete-active {
-  background-color: #1e90ff !important;
-  color: #fff;
-}
-
-.dropdown-menu,
-.autocomplete-items {
-  z-index: 1051 !important; /* Bootstrap modals use 1050, go higher */
-  position: absolute;
-}
-
-.hide {
-  display: none;
-}
-
-@media (min-aspect-ratio: 16/9) {
-  .back-video {
-    width: 100%;
-    height: auto;
-    opacity: 0.4;
-  }
-}
-
-@media (min-aspect-ratio: 16/9) {
-  .back-video {
-    width: auto;
-    height: 100%;
-    opacity: 0.4;
-  }
 }
 
 @media (max-width: 768px) {
@@ -361,6 +342,57 @@ nav a.active {
   margin: 15px 0;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 50%;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+  background-color: #1e90ff !important;
+  color: #fff;
+}
+
+.dropdown-menu,
+.autocomplete-items {
+  z-index: 1051 !important; /* Bootstrap modals use 1050, go higher */
+  position: absolute;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type="text"] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
 }
 
 /* ===================================
