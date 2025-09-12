@@ -47,33 +47,6 @@ section {
   flex-basis: 600px;
 }
 
-div:nth-of-type(1) {
-  flex-grow: 1;
-  flex-shrink: 2;
-}
-
-div:nth-of-type(5) {
-  flex-grow: 2;
-}
-
-main {
-  width: 80%;
-  margin: 0 auto;
-  border: 5px solid #fff;
-  height: 500px;
-  display: flex;
-}
-
-main .sidebar {
-  background-color: #6d835c;
-  flex: 1 2 300px;
-}
-
-main .maincontent {
-  background-color: green;
-  flex: 2 1 800px;
-}
-
 /* ===================================
    BASE STYLES
 =================================== */
@@ -87,12 +60,6 @@ main .maincontent {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.top-fold {
-  width: 80px;
-  position: relative;
-  height: 45vw;
 }
 
 .back-video {
@@ -235,11 +202,6 @@ main .maincontent {
 .recent-blogs h2 {
   text-align: center;
   margin-bottom: 40px;
-}
-
-.blog-card-hover:hover {
-  transform: scale(1.02);
-  /* transition: transform 0.2s ease-in-out; */
 }
 
 .blog-card {
@@ -400,8 +362,6 @@ nav a.active {
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-
-.row { margin-bottom: 30px; }
 
 /* ===================================
    ACCORDION
