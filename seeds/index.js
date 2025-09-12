@@ -467,8 +467,8 @@ async function seed() {
     const faqsData = [
       {
         title: "Faq about Construction Services",
-        slug: slugify("Faq about Construction Services", { lower: true }),
-        description: "FAQs about participation in our engineering projects.",
+        slug: slugify("Faq About Construction Services", { lower: true }),
+        description: "FAQs about Construction Services at Jefon & Associates Ltd.",
         questions: [
           {
             question: "How Do I Get A Quote For My Project?",
@@ -493,7 +493,7 @@ async function seed() {
         ],
       },
       {
-        title: "Faq about Consultancy Services",
+        title: "Faq About Consultancy Services",
         slug: slugify("Faq about Consultancy Services", { lower: true }),
         description: "FAQs about consultancy management services at Jefcon and Associates Ltd.",
         questions: [
@@ -528,9 +528,9 @@ async function seed() {
         ],
       },
       {
-        title: "Faq about Stormwater Management Services",
+        title: "Faq About Stormwater Management Services",
         slug: slugify("Faq about Stormwater Management Services", { lower: true }),
-        description: "FAQs about stormwater management services at Jefcon and Associates Ltd.",
+        description: "FAQs about Stormwater Management Services at Jefcon and Associates Ltd.",
         questions: [
           {
             question: "How Do I Request Service Or Support For My Project?",
@@ -551,9 +551,9 @@ async function seed() {
         ],
       },
       {
-        title: "Faq about Participation on our website",
+        title: "Faq About Participation on our website",
         slug: slugify("Faq about Participation on our website", { lower: true }),
-        description: "FAQs about participation in our construction, engineering projects at Jefcon and Associates Ltd.",
+        description: "FAQs about Participation in our Construction, engineering projects at Jefcon and Associates Ltd.",
         questions: [
           {
             question: "What services does Jefcon Associates provide?",
