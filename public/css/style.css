@@ -1,11 +1,12 @@
+/* ===================================
+   GLOBAL RESET
+=================================== */
 * {
   box-sizing: border-box;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
 }
-
-/* GLOBAL RESET */
 
 html, body {
   width: 100%;
@@ -15,19 +16,20 @@ html, body {
   overflow-x: hidden;
 }
 
+/* ===================================
+   BASE STYLES
+=================================== */
 .back-video {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   object-fit: cover;
   z-index: -1;
+  opacity: 0.4;
 }
 
 .blog-card-hover:hover {
   transform: scale(1.02);
-  /* transition: transform 0.2s ease-in-out; */
 }
 
 #searchInput {
@@ -36,13 +38,12 @@ html, body {
   transition: none;
 }
 
-/* Keep ul (suggestions) within size */
 #search-suggestions {
   position: absolute;
   max-width: 250px;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   background-color: white;
   border: 1px solid #ccc;
   border-top: none;
@@ -50,7 +51,6 @@ html, body {
   max-height: 200px;
 }
 
-/* Prevent body from shifting or resizing */
 .navbar .form-inline {
   flex-wrap: nowrap;
   gap: 0.5rem;
@@ -65,17 +65,150 @@ html, body {
   text-decoration: underline;
 }
 
-@keyframes waveFade {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.85;
-  }
+/* ===================================
+   HERO + LAYOUT
+=================================== */
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(#6D835C, lightgreen);
+  position: relative;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Accordion basic styling */
+.hero h1 {
+  font-size: 100px;
+  color: #fff;
+  font-weight: 400;
+  transition: 0.5s;
+}
+.hero h1:hover {
+  -webkit-text-stroke: 2px rgb(214, 243, 214);
+  color: transparent;
+}
+.hero p {
+  color: #fff;
+}
+
+.top-fold {
+  width: 100%;
+  height: 80px;
+  position: relative;
+}
+
+.curve-img {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%; width: 80%;
+  background-size: cover;
+  z-index: 4;
+}
+
+#shapeContainer {
+  width: 100%; height: 100%;
+  margin: auto;
+  background-image: linear-gradient(to bottom, #6d835c, #6d835c),
+    url(https://www.nature.org/cs/groups/webcontent/@web/documents/media/2016-photocontest-yosemite-w-1.jpg);
+  background-size: cover;
+  background-position: center top;
+  overflow: hidden;
+}
+#shapeContainer svg {
+  display: block;
+  width: 100%; height: auto;
+}
+
+/* ===================================
+   NAVIGATION
+=================================== */
+nav {
+  width: 100%;
+  position: fixed;
+  top: 0; left: 0;
+  padding: 10px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e9e9e9;
+  z-index: 1000;
+}
+
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+  padding: 5px;
+}
+
+.nav-spacing .nav-item {
+  margin-right: 10px;
+}
+
+nav a:link,
+nav a:visited,
+nav a:active {
+  color: #c6c6c6;
+  display: block;
+}
+
+nav a.active {
+  background-color: #eef2f5;
+  color: #fff;
+}
+
+/* Search bar inside nav */
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+.search-bar input {
+  font-size: 17px;
+  width: 325px;
+  padding: 10px 15px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  outline: none;
+}
+.search-bar button {
+  font-size: 17px;
+  padding: 10px 15px;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  color: #fff;
+  background-color: #6d835c;
+  cursor: pointer;
+}
+
+/* ===================================
+   CONTENT
+=================================== */
+.content {
+  text-align: center;
+}
+.content a {
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  font-size: 14px;
+  border: 2px solid rgb(36,45,36);
+  padding: 14px 70px;
+  border-radius: 50px;
+  margin-top: 20px;
+}
+
+.card {
+  margin: 15px 0;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.row { margin-bottom: 30px; }
+
+/* ===================================
+   ACCORDION
+=================================== */
 .accordion {
   list-style: none;
   padding-left: 0;
@@ -103,9 +236,7 @@ html, body {
   color: white;
   text-decoration: none;
 }
-.accordion label a:hover {
-  text-decoration: underline;
-}
+.accordion label a:hover { text-decoration: underline; }
 .accordion .toggle-icon {
   font-weight: bold;
   font-size: 1.5rem;
@@ -118,429 +249,22 @@ html, body {
   color: white;
   font-style: italic;
 }
-.accordion input[type="radio"]:checked ~ label .toggle-icon {
-  content: "-";
-}
 .accordion input[type="radio"]:checked ~ .content {
   display: block;
-}
-/* Button styles inside content */
-.accordion .btn {
-  margin-right: 0.5rem;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-section.pale {
-  background-color: #6d835c;
-}
-
-.nav-spacing .nav-item {
-  margin-right: 10px; /* or margin-left */
-}
-
-.btn.btn-light {
-  color: #6d835c;
-  background-color: #ffffff;
-  border: none;
-  transition: background-color 0.3s;
-}
-
-.btn.btn-light:hover {
-  background-color: #e0e0e0;
-  color: #4e6043;
-}
-
-footer {
-  background-color: #121222;
-}
-
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  nav a, nav input[type="text"] {
-    width: 100%;
-    text-align: center;
-    margin: 0.25rem 0;
-  }
-}
-
-@media (max-width: 992px) {
-  main {
-    flex-direction: column;
-  }
-
-  #container {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-@media (max-width: 576px) {
-  .hero {
-    min-height: 50vh;
-    padding: 2rem 1rem;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  aside {
-    min-width: 100%;
-  }
-}
-
-.hero {
+/* ===================================
+   FOOTER
+=================================== */
+footer, .footer {
   width: 100%;
-  height: 100%;
-  background-image: linear-gradient#6D835C, lightgreen;
-  position: relative;
-  padding: 0 5%;
-  display: flexbox;
-  align-items: center;
-  justify-content: center;
-}
-
-.top-fold {
-  width: 120% 80px;
-  position: relative;
-  height: 45vw;
-}
-
-.curve-img {
-  position: absolute;
-  height: 100%;
-  width: 80%;
-  background-size: cover;
-  top: 0;
-  left: 0;
-  z-index: 4;
-}
-
-#shapeContainer {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  background-image: linear-gradient(to bottom, #6d835c, #6d835c),
-    url(https://www.nature.org/cs/groups/webcontent/@web/documents/media/2016-photocontest-yosemite-w-1.jpg);
-  background-size: cover;
-  background-position: center top;
-  overflow: hidden;
-}
-
-#shapeContainer svg {
-  display: flexbox;
-  width: 150%;
-  height: 200%;
-}
-@media screen and (max-height: 400px) {
-  #shapeContainer {
-    background-size: auto 300%;
-  }
-}
-@media screen and (max-height: 200px) {
-  #shapeContainer {
-    background-size: auto 300%;
-  }
-}
-@media screen and (max-height: 200px) {
-  #shapeContainer {
-    background-size: auto 400%;
-  }
-}
-
-nav {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 10px;
-  padding: 10px 10%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #e9e9e9;
-}
-
-.navbar-brand {
-  padding: 0px;
-}
-.navbar-brand img {
-  height: 100%;
-  padding: 15px;
-  width: auto;
-}
-
-.autocomplete {
-  position: relative;
-  display: inline-block;
-}
-
-input {
-  border: 1px solid transparent;
-  background-color: #f1f1f1;
-  padding: 10px;
-  font-size: 16px;
-}
-
-input[type="text"] {
-  background-color: #f1f1f1;
-  width: 100%;
-}
-
-input[type="submit"] {
-  background-color: DodgerBlue;
-  color: #fff;
-  cursor: pointer;
-}
-
-.autocomplete-items {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  max-height: 200px;
-  overflow-y: auto;
-  width: 50%;
-}
-
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.autocomplete-items div:hover {
-  background-color: #e9e9e9;
-}
-
-.autocomplete-active {
-  background-color: #1e90ff !important;
-  color: #fff;
-}
-
-.dropdown-menu,
-.autocomplete-items {
-  z-index: 1051 !important; /* Bootstrap modals use 1050, go higher */
-  position: absolute;
-}
-
-.hide {
-  display: none;
-}
-
-nav a.active {
-  background-color: #eef2f5;
-  color: #fff;
-}
-
-nav .search-container {
-  float: right;
-}
-nav input[type="text"] {
-  padding: 6px;
-  font-size: 17px;
-  border-color: #028354;
-}
-
-nav .search-container:hover {
-  background: #fff;
-}
-
-.card {
-  margin: 15px 0;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.row {
-  margin-bottom: 30px;
-}
-
-nav a:link,
-a:visited,
-a:active {
-  color: #c6c6c6;
-  display: block;
-}
-
-.search-bar {
-  display: flex;
-  align-items: center;
-}
-
-.search-bar input {
-  font-size: 17px;
-  width: 325px;
-  padding: 10px 15px;
-  border-radius: 5px 0px 0px 5px;
-  border: none;
-  outline: none;
-}
-
-.search-bar button {
-  font-size: 17px;
-  padding: 10px 15px;
-  border-radius: 0px 5px 5px 0px;
-  border: none;
-  color: #fff;
-  background-color: #6d835c;
-  cursor: pointer;
-  outline: #6d835c;
-}
-
-.nav ul li {
-  list-style: none;
-  display: inline-block;
-  margin-left: 40px;
-}
-
-.nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 14px;
-}
-
-.content {
-  text-align: center;
-}
-.content h1 {
-  font-size: 100px;
-  color: #fff;
-  font-weight: 400;
-  transition: 0.5s;
-}
-
-.content h1:hover {
-  -webkit-text-stroke: 2px rgb(214, 243, 214);
-  color: transparent;
-}
-
-.content a {
-  text-decoration: none;
-  display: inline-block;
-  color: #fff;
-  font-size: 10px;
-  border: 2px solid rgb(36, 45, 36);
-  padding: 14px 70px;
-  border-radius: 50px;
-  margin-top: 20px;
-}
-
-.back-video {
-  position: relative;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  display: flex;
-  opacity: 0.4;
-}
-
-@media (min-aspect-ratio: 16/9) {
-  .back-video {
-    width: 100%;
-    height: auto;
-    opacity: 0.4;
-  }
-}
-
-@media (min-aspect-ratio: 16/9) {
-  .back-video {
-    width: auto;
-    height: 100%;
-    opacity: 0.4;
-  }
-}
-
-ul {
-  list-style: none;
-  display: flex;
-}
-
-ul.no-bullet {
-  list-style-type: none;
-  display: flex;
-}
-
-section {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-h1,
-h2 {
-  align-items: center;
-  font-family: "Poppins", sans-serif;
-}
-
-#container {
-  background-color: #fff;
-  width: 90%;
-  margin: 0 auto;
-  border: 5px solid #fff;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1rem;
-}
-
-#container div {
-  width: 200px;
-  height: 200px;
-  max-width: 300px;
-  text-align: center;
-  flex-basis: 600px;
-}
-
-div:nth-of-type(1) {
-  flex-grow: 1;
-  flex-shrink: 2;
-}
-
-div:nth-of-type(5) {
-  flex-grow: 2;
-}
-
-main {
-  width: 80%;
-  margin: 0 auto;
-  border: 5px solid #fff;
-  height: 500px;
-  display: flex;
-}
-
-main .sidebar {
-  background-color: #6d835c;
-  flex: 1 2 300px;
-}
-
-main .maincontent {
-  background-color: green;
-  flex: 2 1 800px;
-}
-
-.footer {
-  width: 100%;
-  background: black;
+  background: #121222;
   padding: 20px 8%;
   border-top: 1px solid #eee;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  left: 20px;
 }
 
 .footer-brand {
@@ -549,30 +273,11 @@ main .maincontent {
   color: #fff;
   margin-bottom: 15px;
 }
-
 .footer-text {
   color: green;
   font-size: 0.9rem;
   max-width: 300px;
-  justify-content: space-between;
-  align-items: center;
 }
-
-.social-links {
-  margin: 20px 0;
-}
-
-.social-link {
-  color: green;
-  margin-right: 20px;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-
-.social-link:hover {
-  color: #6d835c;
-}
-
 .footer-links {
   display: flex;
   gap: 20px;
@@ -580,17 +285,13 @@ main .maincontent {
   padding: 0;
   list-style: none;
 }
-
 .footer-links a {
   color: #f8f9fa;
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.3s ease;
 }
-
-.footer-links a:hover {
-  color: #6d835c;
-}
+.footer-links a:hover { color: #6d835c; }
 
 .copyright {
   color: #fff;
@@ -600,125 +301,51 @@ main .maincontent {
   border-top: 1px solid #eee;
 }
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 50px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 50%; /* Full width */
-  height: 50%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s;
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
+/* ===================================
+   MEDIA QUERIES
+=================================== */
+/* Extra small screens up to 576px */
+@media (max-width: 576px) {
+  .hero {
+    min-height: 50vh;
+    padding: 2rem 1rem;
   }
-  to {
-    top: 0;
-    opacity: 1;
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+  aside { min-width: 100%; }
+}
+
+/* Small & tablets up to 768px */
+/* Default desktop/tablet background */
+.page-background {
+  background: url('/imgs/dark-green-background.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Mobile override */
+@media (max-width: 768px) {
+  .page-background {
+    background-attachment: scroll;
+  }
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  nav a, nav input[type="text"] {
+    width: 100%;
+    text-align: center;
+    margin: 0.25rem 0;
   }
 }
 
-@keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
+/* Tablets & small laptops up to 992px */
+@media (max-width: 992px) {
+  main {
+    flex-direction: column;
   }
-  to {
-    top: 0;
-    opacity: 1;
+  #container {
+    flex-direction: column;
+    align-items: center;
   }
-}
-
-/* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #6d835c;
-  color: white;
-}
-
-.modal-body {
-  padding: 2px 16px;
-}
-
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #fff;
-  color: white;
-}
-
-#previous-next-parent {
-  margin-top: 100px;
-  display: flex;
-  justify-content: space-between;
-}
-
-#previous-next-parent h3 a {
-  background-color: #6d835c;
-  padding: 10px 25px;
-  border-radius: 5px;
-}
-
-#previous-next-parent h3 a:hover {
-  background-color: #028354;
-}
-
-#previous-next-parent a {
-  text-decoration: none;
-  color: white;
-}
-
-#previous-next-parent div a {
-  margin: 0 10px;
-  background-color: #6d835c;
-  color: white;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #80808069;
-}
-
-#previous-next-parent div a:hover {
-  background-color: #028354;
-}
-
-#previous-next-parent div a:first-child {
-  background-color: #028354;
-  color: white;
 }
