@@ -1,13 +1,13 @@
-<% layout('partials/layout') %>
+  <% layout('partials/layout') %>
 
-    <div class="container">
-      <div id="previous-next-parent">
-        <h3 class="lead pl-3 pb-4" style="margin-right: auto">
-          <a href="/website5"> <i> ↞ </i><em> Older Post</em></a>
-        </h3>
-        <h3 class="lead pl-4 pr-3 pb-4" style="margin-left: auto">
-          <a href="/website3"><em>Newer Post</em><i> ↠ </i></a>
-        </h3>
+    <div class="container mt-3">
+      <div class="d-flex justify-content-between">
+        <a class="btn btn-success text-light" href="/website5" style="text-decoration: none;">
+          <i>↞</i> <em>Older Post</em>
+        </a>
+        <a class="btn btn-success text-light" href="/website3" style="text-decoration: none;">
+          <em>Newer Post</em> <i>↠</i>
+        </a>
       </div>
     </div>
     <div
@@ -563,13 +563,15 @@
           </div>
         </div>
       </div>
-      <div id="previous-next-parent">
-        <h3 class="lead pl-3 pb-2" style="margin-right: auto">
-          <a href="/website5"><i> ↞ </i><em>Older Post</em></a>
-        </h3>
-        <h3 class="lead pr-4 pb-3" style="margin-left: auto">
-          <a href="/website3"><em>Newer Post</em><i> ↠ </i></a>
-        </h3>
+      <div class="container mt-3">
+        <div class="d-flex justify-content-between">
+          <a class="btn btn-success text-light" href="/website5" style="text-decoration: none;">
+            <i>↞</i> <em>Older Post</em>
+          </a>
+          <a class="btn btn-success text-light" href="/website3" style="text-decoration: none;">
+            <em>Newer Post</em> <i>↠</i>
+          </a>
+        </div>
       </div>
       <script>
         const acc = document.getElementsByClassName("accordion");
