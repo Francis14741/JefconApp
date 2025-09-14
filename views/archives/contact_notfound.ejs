@@ -1,47 +1,48 @@
 <% layout('partials/layout') %>
-
-  <h4
-    class="display-6 mb-md-2 mt-5 text-center mb-3 pb-3 text-decoration-underline text-light"
-    >
-    Nothing Found
-  </h4>
-  <p class="lead text-center text-light"><em>Apologies, but no results were found for the requested archive.</em></p>
-  <div
-    class="position-relative d-inline-block w-100 ml-lg-5 mt-2 mt-md-0"
-    style="max-width: 400px"
-  >
-    <form
-      class="form-inline my-2 my-lg-0 position-relative"
-      action="/search"
-      method="GET"
-    >
-      <input
-        id="searchInput"
-        name="q"
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-        autocomplete="off"
-      />
-      <button
-        class="btn btn-outline-success my-2 my-sm-0 d-flex align-items-center justify-content-center px-3"
-        type="submit"
-        style="font-size: 17px; padding: 10px 15px; cursor: pointer"
+  <div class="container text-center">
+    <h4
+      class="display-6 mb-md-2 mt-5 text-center mb-3 pb-3 text-decoration-underline text-light"
       >
-        <i class="fas fa-search" style="font-size: 1rem"></i>
-      </button>
-    </form>
-    <ul
-      id="search-suggestions"
-      class="list-group position-absolute top-100 start-0 w-100"
-      style="
-        z-index: 1050;
-        display: none;
-        max-height: 200px;
-        overflow-y: auto;
-      "
-    ></ul>
+      Nothing Found
+    </h4>
+    <p class="lead text-center text-light"><em>Apologies, but no results were found for the requested archive.</em></p>
+    <div
+      class="position-relative d-inline-block w-100 ml-lg-5 mt-2 mt-md-0"
+      style="max-width: 400px"
+    >
+      <form
+        class="form-inline my-2 my-lg-0 position-relative"
+        action="/search"
+        method="GET"
+      >
+        <input
+          id="searchInput"
+          name="q"
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          autocomplete="off"
+        />
+        <button
+          class="btn btn-outline-success my-2 my-sm-0 d-flex align-items-center justify-content-center px-3"
+          type="submit"
+          style="font-size: 17px; padding: 10px 15px; cursor: pointer"
+        >
+          <i class="fas fa-search" style="font-size: 1rem"></i>
+        </button>
+      </form>
+      <ul
+        id="search-suggestions"
+        class="list-group position-absolute top-100 start-0 w-100"
+        style="
+          z-index: 1050;
+          display: none;
+          max-height: 200px;
+          overflow-y: auto;
+        "
+      ></ul>
+    </div>
   </div>
   <section class="featurette bg-primary pl-3 pr-3" style="background: url('https://jefconassociates.com/wp-content/themes/jefcon-pentagon/assets/images2/dark-green-background.jpg') no-repeat center center / cover fixed;">
     <div class="container py-5 pl-3 pr-3">
