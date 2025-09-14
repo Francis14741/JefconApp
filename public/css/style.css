@@ -584,6 +584,7 @@ nav a.active {
 @media (max-width: 768px) {
   .featurette .card-body p {
     font-size: 0.9rem;
+    color: #fff;
   }
 
   .recent-blogs .blog-card img {
@@ -592,9 +593,11 @@ nav a.active {
 
   .hero h1 {
     font-size: 2rem;
+    color: #fff;
   }
 
   .hero p.lead {
     font-size: 1rem;
+    color: #fff;
   }
 }
