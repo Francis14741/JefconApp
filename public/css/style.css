@@ -166,10 +166,6 @@ div:nth-of-type(5) {
   text-align: center;
   margin-bottom: 40px;
 }
-
-/* .blog-card {
-  margin-bottom: 30px;
-}
   
 .blog-card-hover:hover {
   transform: scale(1.02);
@@ -180,13 +176,13 @@ div:nth-of-type(5) {
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
-} */
+} 
 
-/* .card {
+.card {
   margin: 15px 0;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-} */
+} 
 
 .blog-card {
   border-radius: 12px;       /* keep rounded shape */
@@ -354,6 +350,29 @@ nav a.active {
   color: #fff;
   font-size: 14px;
   border: 2px solid rgb(36,45,36);
+  padding: 14px 70px;
+  border-radius: 50px;
+  margin-top: 20px;
+}
+
+.content h1 {
+  font-size: 100px;
+  color: #fff;
+  font-weight: 400;
+  transition: 0.5s;
+}
+
+.content h1:hover {
+  -webkit-text-stroke: 2px rgb(214, 243, 214);
+  color: transparent;
+}
+
+.content a {
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  font-size: 10px;
+  border: 2px solid rgb(36, 45, 36);
   padding: 14px 70px;
   border-radius: 50px;
   margin-top: 20px;
