@@ -1,84 +1,84 @@
 <% layout('partials/layout') %>
-
-      <h2 class="display-6 mb-4 text-light lead">
-        <em
-          ><u><b>More Blog Posts - Page 5</b></u></em
-        >
-      </h2>
-      <div id="previous-next-parent" style="margin-left: auto;">
-        <h3 class="lead pr-4 pb-3">
-          <a href="/blogs_page4"><em>Newer Post</em><i> ↠ </i></a></h3>
-      </div>
-      <div id="toc" role="navigation" aria-labelledby="mw-toc-heading" class="container-fluid">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 mb-sm-0">
-              <div class="card mt-3" style="background-color: #6d835c">
-                <img src="images/SampleImg.jpg" alt="SampleImg" />
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="card mt-3" style="background-color: #6d835c">
-                <div class="card-body text-center">
-                  <ul class="accordion">
-                    <li>
-                      <input type="radio" name="accordion" id="first" checked />
-                      <label for="first" class="lead text-light">
-                        <a href="/blogs/sample_post">
-                          <strong>
-                            <em
-                              >Sample Post</em
-                          ></strong>
-                        </a>
-                        <span class="toggle-icon">+</span>
-                      </label>
-                      <div class="content">
-                        <p class="lead text-light text-decoration-underline pt-2">
-                          <em
-                            >By, Engr. John Cee Onwualu, JP (FNSE, <br> FNICE,
-                            FNIWE, P.E., R.ENG. MASCE, COREN)</em
-                            >
-                        </p>
-                        <div class="d-flex justify-content-center gap-2 flex-wrap">
-                          <a href="/archives/archives_2020_may" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
-                            <em>Posted on 24 May 2020 - 6:33 pm</em>
-                          </a>
-                          <a href="/archives/abdul_yahaya_Archive" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
-                            <em>By, Abdul M. Yahaya</em>
-                          </a>
-                        </div>
-                        <p class="lead text-light pt-3">
-                          <em
-                            >What is a Stormwater? <br> Stormwater, which can also be spelled as storm water, is a body of water that formed as a result of rainfall, snow or ice melt. Stormwater can infiltrate the soil, be stored on the land surface in ponds and puddles, evaporate, or resolved to runoff. Most runoff is conveyed directly to [...]</em
-                          >
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+  <h2 class="display-6 mb-4 text-light lead">
+    <em
+      ><u><b>More Blog Posts - Page 5</b></u></em
+    >
+  </h2>
+  <div id="previous-next-parent" style="margin-left: auto">
+    <h3 class="btn btn-success text-light pl-3 pb-3">
+      <a href="blogs_page4" class="text-light" style="text-decoration: none;"> <i> ↠ </i><em> Newer Post</em></a>
+    </h3>
+  </div>
+  <div id="toc" role="navigation" aria-labelledby="mw-toc-heading" class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 mb-sm-0">
+          <div class="card mt-3" style="background-color: #6d835c">
+            <img src="images/SampleImg.jpg" alt="SampleImg" />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card mt-3" style="background-color: #6d835c">
+            <div class="card-body text-center">
+              <ul class="accordion">
+                <li>
+                  <input type="radio" name="accordion" id="first" checked />
+                  <label for="first" class="lead text-light">
+                    <a href="/blogs/sample_post">
+                      <strong>
+                        <em
+                          >Sample Post</em
+                      ></strong>
+                    </a>
+                    <span class="toggle-icon">+</span>
+                  </label>
+                  <div class="content">
+                    <p class="lead text-light text-decoration-underline pt-2">
+                      <em
+                        >By, Engr. John Cee Onwualu, JP (FNSE, <br> FNICE,
+                        FNIWE, P.E., R.ENG. MASCE, COREN)</em
+                        >
+                    </p>
+                    <div class="d-flex justify-content-center gap-2 flex-wrap">
+                      <a href="/archives/archives_2020_may" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                        <em>Posted on 24 May 2020 - 6:33 pm</em>
+                      </a>
+                      <a href="/archives/abdul_yahaya_Archive" class="btn btn-success text-light" style="background-color: #6d835c; border-color: #fff;">
+                        <em>By, Abdul M. Yahaya</em>
+                      </a>
+                    </div>
+                    <p class="lead text-light pt-3">
+                      <em
+                        >What is a Stormwater? <br> Stormwater, which can also be spelled as storm water, is a body of water that formed as a result of rainfall, snow or ice melt. Stormwater can infiltrate the soil, be stored on the land surface in ponds and puddles, evaporate, or resolved to runoff. Most runoff is conveyed directly to [...]</em
+                      >
+                    </p>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
-        </div> 
-        <div id="previous-next-parent">
-          <h3 class="lead pl-4 pr-4 pb-2" style="margin-left: auto;"><a href="/blogs_page4"><em>Newer Post</em><i> ↠ </i></a></h3>
         </div>
       </div>
-      <script>
-        const acc = document.getElementsByClassName("accordion");
-        let i;
-        for (i = 0; i < acc.length; i++) {
-          acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            const panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-              panel.style.display = "none";
-            } else {
-               panel.style.display = "block";
-            }
-          }
-        );
+    </div> 
+    <div id="previous-next-parent" style="margin-left: auto">
+      <h3 class="btn btn-success text-light pl-3 pb-3">
+        <a href="blogs_page4" class="text-light" style="text-decoration: none;"> <i> ↠ </i><em> Newer Post</em></a>
+      </h3>
+    </div>
+  </div>
+  <script>
+    const acc = document.getElementsByClassName("accordion");
+    let i;
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
       }
-    </script>
-  </section>
+    )};
+  </script>
   
