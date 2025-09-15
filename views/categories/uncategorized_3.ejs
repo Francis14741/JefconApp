@@ -47,18 +47,19 @@
       display: block;
     }
   </style>
-
   <div class="container">
     <h5 class="display-6 lead text-light text-center text-decoration-underline pl-2 pt-2">
-      <strong><em>Category Archives: Uncategorized Page 3</em></strong>
+      <strong><em>Category Archives: Uncategorized (Page 3)</em></strong>
     </h5>
-    <div id="previous-next-parent"> 
-      <h3 class="lead pl-2 mb-3" style="margin-right: auto;">
-      <a href="/categories/uncategorized_4" class="lead pl-4"> <i> ↞ </i><em> Older Post</em></a> 
-      </h3>
-      <h3 class="lead pr-3 mb-3" style="margin-left: auto;">
-        <a href="/categories/uncategorized_2" class="lead"><em> Newer Post</em><i> ↠ </i></a> 
-      </h3>
+    <div class="container mt-2">
+      <div class="d-flex justify-content-between">
+        <a class="btn btn-success text-light" href="/categories/uncategorized_4" style="text-decoration: none;">
+          <i>↞</i> <em>Older Post</em>
+        </a>
+        <a class="btn btn-success text-light" href="/categories/uncategorized_2" style="text-decoration: none;">
+          <em>Newer Post</em> <i>↠</i>
+        </a>
+      </div>
     </div>
   </div>
   <div class="container">
@@ -642,12 +643,16 @@
       </div>      
     </div>      
   </div>
-  <div class="container">
-    <div id="previous-next-parent">
-      <h3 class="lead  pl-4 pr-4" style="margin-right: auto;"><a href="/categories/uncategorized_4"><em>Older Post</em><i> ↠ </i></a></h3>
-      <h3 class="lead  pl-4 pr-4" style="margin-left: auto;"><a href="/categories/uncategorized_2"><em>Newer Post</em><i> ↠ </i></a></h3>
+  <div class="container mt-2">
+    <div class="d-flex justify-content-between">
+      <a class="btn btn-success text-light" href="/categories/uncategorized_4" style="text-decoration: none;">
+        <i>↞</i> <em>Older Post</em>
+      </a>
+      <a class="btn btn-success text-light" href="/categories/uncategorized_2" style="text-decoration: none;">
+        <em>Newer Post</em> <i>↠</i>
+      </a>
     </div>
-  </div>
+  </div> 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const radios = document.querySelectorAll(".accordion input[type='radio']");
