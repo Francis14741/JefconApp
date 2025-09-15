@@ -467,7 +467,7 @@ nav a.active {
 }
 
 .footer-text {
-  color: green;
+  color: #fff;
   font-size: 0.9rem;
   max-width: 300px;
   justify-content: space-between;
