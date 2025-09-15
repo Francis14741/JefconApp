@@ -611,6 +611,6 @@ nav a.active {
   .project-section {
     background: url('https://jefconassociates.com/wp-content/themes/jefcon-pentagon/assets/images2/dark-green-background.jpg')
       no-repeat center center / cover !important;
-    background-attachment: scroll !important;
+    background-attachment: scroll !important; /* disables "fixed" */
   }
 }
