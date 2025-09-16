@@ -113,8 +113,10 @@ div:nth-of-type(5) {
 
 .featurette .card {
   border: none;
-  border-radius: 8px;
   overflow: hidden;
+  margin: 15px 0;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .featurette .card img {
@@ -161,7 +163,7 @@ div:nth-of-type(5) {
   background-color: #6d835c;
   width: 80%;
   padding: 60px 0;
-  align-items: center;
+  margin: 15px 0;
   justify-content: center;
 }
 
@@ -170,9 +172,17 @@ div:nth-of-type(5) {
   margin-bottom: 40px;
 }
 
+.card {
+  margin: 15px 0;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+}
+
 .blog-card {
-  margin-bottom: 20px;                /* spacing between cards */
-  border-radius: 12px;                /* smooth corners */
+  margin: 15px 0;               /* spacing between cards */
+  border-radius: 15%;                /* smooth corners */
   overflow: hidden;
   background: #fff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -195,6 +205,7 @@ div:nth-of-type(5) {
 .blog-card .card-body {
   padding: 12px;
   font-size: 0.9rem;
+  margin: 15px 0;
 }
 
 .blog-card .card-title {
@@ -205,6 +216,7 @@ div:nth-of-type(5) {
   
 .blog-card-hover:hover {
   transform: scale(1.02);
+  transition: transform 0.2s ease-in-out;
 }
 
 .curve-img {
