@@ -177,13 +177,11 @@ div:nth-of-type(5) {
   margin: 15px 0;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  justify-content: center;
-  align-items: center;
 }
 
 .blog-card {
   margin: 15px 0;               /* spacing between cards */
-  border-radius: 15%;                /* smooth corners */
+  border-radius: 10px;                /* smooth corners */
   overflow: hidden;
   background: #fff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
