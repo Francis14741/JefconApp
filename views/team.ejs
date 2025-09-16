@@ -1,19 +1,22 @@
 <%- include('../partials/header') %>
 <h2 class="text-center">Meet the Team</h2>
-<div class="row">
-  <% team.forEach(member => { %>
-  <div class="col-md-4 text-center">
-    <img
+<div class="container pr-3 pl-3">
+
+  <div class="row">
+    <% team.forEach(member => { %>
+    <div class="col-md-4 text-center">
+      <img
       src="/images/<%= member.photo %>"
       alt="<%= member.name %>"
       class="img-fluid rounded-circle"
       style="width: 150px"
-    />
-    <h4><%= member.name %></h4>
-    <p><%= member.role %></p>
-    <p><%= member.bio %></p>
-    <p><%= member.image %></p>
+      />
+      <h4><%= member.name %></h4>
+      <p><%= member.role %></p>
+      <p><%= member.bio %></p>
+      <p><%= member.image %></p>
+    </div>
+    <% }) %>
   </div>
-  <% }) %>
 </div>
 <%- include('../partials/footer') %>
