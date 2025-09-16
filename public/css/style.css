@@ -74,7 +74,7 @@ div:nth-of-type(5) {
   justify-content: center;
   z-index: -1;
   overflow: hidden;
-  opacity: 1;
+  opacity: 0.4;
 }
 
 .top-fold {
@@ -479,14 +479,14 @@ nav a.active {
 }
 
 .social-link {
-  color: green;
+  color: #fff;
   margin-right: 20px;
   font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
 .social-link:hover {
-  color: #6d835c;
+  color: #adb62f;
 }
 
 .footer-links {
@@ -546,7 +546,7 @@ nav a.active {
   }
 
   .hero {
-    opacity: 1 !important; /* restore full opacity */
+    opacity: 0.4 !important; /* restore full opacity */
   }
 
   .back-video {
