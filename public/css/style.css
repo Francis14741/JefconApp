@@ -632,3 +632,17 @@ nav a.active {
     background-attachment: scroll !important; /* disables "fixed" */
   }
 }
+
+.footer-text,
+.footer-text a {
+  color: #fff !important;   /* make text & links white */
+  text-decoration: none;    /* optional: remove underline */
+}
+
+/* Center footer items on mobile */
+@media (max-width: 768px) {
+  .footer-text {
+    text-align: center !important;
+    display: block;
+  }
+}
