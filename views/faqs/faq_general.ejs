@@ -4,17 +4,17 @@
     <h2 class="mb-4 text-center text-light text-primary"><em><u>Frequently Asked Questions</u></em></h2>
     <!-- ✅ FAQ Accordion -->
     <div class="container my-4">
-    <h2 class="text-light"><em><u><%= faq.title %></u></em></h2>
-    <ul class="list-group">
-      <% faqs.forEach(faq => { %>
-        <li class="list-group-item">
-          <strong><%= faq.question %></strong><br>
-          <%= faq.answer %>
-        </li>
-      <% }) %>
-    </ul>
+      <h2 class="text-light"><em><u><%= faq.title %></u></em></h2>
+      <ul class="list-group">
+        <% faqs.forEach(faq => { %>
+          <li class="list-group-item">
+            <strong><%= faq.question %></strong><br>
+            <%= faq.answer %>
+          </li>
+        <% }) %>
+      </ul>
 
-    <% if (faq.questions && faq.questions.length > 0) { %>
+      <% if (faq.questions && faq.questions.length > 0) { %>
       <div class="accordion" id="faqAccordion">
         <% faq.questions.forEach((q, index) => { %>
           <div class="card">
