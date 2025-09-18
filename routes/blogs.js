@@ -134,8 +134,8 @@ router.get("/studyDesign_Stormwater", async (req, res) => {
 });
 
 router.get("/findings_observation1", async (req, res) => {
-  const { findings_observation1 } = req.params;
-  res.render("findings_observation1", { findings_observation1 });
+  const blog = await Blog.findOne({ slug: "findings_observation1" });
+  res.render("blogs/findings_observation1", { blog });
 });
 
 router.get("/findings_and_observation2", async (req, res) => {
