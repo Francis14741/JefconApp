@@ -562,7 +562,7 @@ nav a.active {
   }
 
   .hero {
-    opacity: 0.4 !important; /* restore full opacity */
+    opacity: 1 !important; /* restore full opacity */
   }
 
   .back-video {
