@@ -548,16 +548,16 @@ nav a.active {
 
 /* Small & tablets up to 768px */
 /* Default desktop/tablet background */
+
 .page-background {
-  background: url('https://jefconassociates.com/wp-content/themes/jefcon-pentagon/assets/images2/dark-green-background.jpg') no-repeat center center;
+  background: url('/imgs/dark-green-background.jpg') no-repeat center center;
   background-size: cover;
-  background-attachment: fixed;
-  min-height: 100vh;
+  background-attachment: fixed; /* creates the parallax-like effect */
 }
 
 @media (max-width: 768px) {
   .page-background {
-    background-attachment: scroll !important; /* disable fixed */
+    background-attachment: scroll; 
     background-size: cover;
   }
 
