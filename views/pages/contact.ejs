@@ -254,6 +254,12 @@
         transition: 0.5s;
       }
 
+      .page-background {
+        background: url('/imgs/dark-green-background.jpg') no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed; /* creates the parallax-like effect */
+      }
+
       .content h1:hover {
         -webkit-text-stroke: 2px rgb(214, 243, 214);
         color: transparent;
@@ -745,18 +751,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   </nav>
-  <section
-    class="featurette bg-primary"
-    style="
-      background: url('https://jefconassociates.com/wp-content/themes/jefcon-pentagon/assets/images2/dark-green-background.jpg')
-        no-repeat center center;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        background-attachment: fixed;
-      "
-    >
+  <section class="featurette bg-primary pl-4 pr-3 lead page-background">
     <p></p>
     <div class="container mt-3 text-light">
       <div class="row">
