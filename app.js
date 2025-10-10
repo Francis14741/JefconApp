@@ -5,7 +5,6 @@ const express = require("express");
 const helmet = require("helmet");
 const mongoose = require("mongoose");
 const path = require("path");
-// const rateLimit = require("express-rate-limit"); // ❌ disabled
 const xss = require("xss");
 const cors = require("cors");
 const ejsMate = require("ejs-mate");
@@ -54,18 +53,6 @@ app.use((req, res, next) => {
   }
   next();
 });
-
-// ---------- Disable Rate Limiting (Render fix) ----------
-// Commented out to prevent "Too many requests" on Render
-/*
-const limiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 10000, // allow 10,000 requests per minute
-  standardHeaders: true,
-  legacyHeaders: false,
-});
-app.use(limiter);
-*/
 
 // Trust Render’s proxy (important for correct IP handling)
 app.set("trust proxy", 1);
