@@ -534,15 +534,16 @@ nav a.active {
 
 .comment-author img,
 .avatar,
-.profile-img {
-  width: 20px;           /* same width for all */
-  height: 200px;          /* same height for all */
-  object-fit: cover;     /* crop nicely instead of stretching */
-  border-radius: 10%;    /* make it circular (optional) */
-  border: 2px solid #ccc;/* subtle border for uniformity */
-  vertical-align: middle;
+.profile-img,
+.card-img-top {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  display: block;
+  margin: 0 auto;
 }
-
 /* ===================================
    MEDIA QUERIES
 =================================== */
