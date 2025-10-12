@@ -532,7 +532,7 @@ nav a.active {
   border-top: 1px solid #eee;
 }
 
-.comment-author img,
+/* .comment-author img,
 .avatar,
 .profile-img,
 .card-img-top {
@@ -542,7 +542,7 @@ nav a.active {
   border: 2px solid #ccc;
   display: block;
   margin: 0 auto;
-}
+} */
 /* ===================================
    MEDIA QUERIES
 =================================== */
